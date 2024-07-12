@@ -1,0 +1,6 @@
+.env.duck
+.env.timmy
+*.csv
+data/
+models/
+ollama-webui

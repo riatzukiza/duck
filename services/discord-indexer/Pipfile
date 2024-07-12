@@ -4,15 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-torch = "*"
-tiktoken = "*"
-numpy = "*"
-transformers = "*"
-datasets = "*"
-wandb = "*"
-tqdm = "*"
-pymongo = "*"
 discord = "*"
+pandas = "*"
 
 [dev-packages]
 

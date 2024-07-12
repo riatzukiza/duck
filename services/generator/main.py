@@ -1,45 +1,94 @@
-"""This service creates messages from the model and saves them in mongodb
+"""
+Generate messages for discord using DuckGPT.
 """
 
-import os
-import random
+
 import datetime
+from io import StringIO
+import pymongo
+import pandas as pd
+
+from shared.mongodb import discord_message_collection, generated_message_collection
+
+from shared.data import CSVChunker
+from shared.gpt import DuckGPT
 
 
-from shared.nano_gpt.generator import generate_text_from_gpt_model
-from shared.nano_gpt.trainer import setup_model
+duck=DuckGPT()
 
-from shared.mongodb import discord_message_collection
-import shared.settings as settings
+def get_random_and_latest_messages(collection, user_id, num_user_docs=100,num_random=5, num_latest=5):
+    # Aggregation pipeline for random messages
+    random_pipeline = [
+        {"$sample": { "size": num_random } },
+        {"$match": {"content":{
+            "$not":{
+                "$regex":r"(youtube.com|pplx.ai)","$options":"i"
+            },
+            "$nin":[None, "",".featured"]
+        }}},
+        {"$match": {"author_name":{
+            "$nin":[None,"","Roarar","Duck"]
+        } }}
+    ]
 
-from data import ChunkedCollection
+    # Aggregation pipeline for latest messages by a specific user
+    user_docs_pipeline = [
+        {"$match": {"user_id": user_id}},
 
-def dir_is_not_empty(path): return os.path.exists(path) and len(os.listdir(path)) > 0
-service_started=datetime.datetime.utcnow()
+        {"$sort": {"created_at": -1}},
+        {"$limit": num_user_docs}
+    ]
+
+    latest_docs_pipeline = [
+        {"$match": {"content":{
+            "$not":{
+                "$regex":r"(youtube.com|pplx.ai)","$options":"i"
+            },
+            "$nin":[None, "",".featured"]
+        }}},
+        {"$match": {"author_name":{
+            "$nin":[None,"","Roarar","Duck"]
+        } }},
+        {"$sort": {"created_at": -1}},
+        {"$limit": num_latest}
+    ]
+
+    random_docs = list(collection.aggregate(random_pipeline))
+    user_docs = list(collection.aggregate(user_docs_pipeline))
+    latest_docs = list(collection.aggregate(latest_docs_pipeline))
 
 
-print("loading", settings.model_path)
-model, model_args, iter_num, best_val_loss, checkpoint, scaler,optimizer=setup_model(
-    out_dir=settings.model_path,
-    device='cuda',
-    init_from="resume" if dir_is_not_empty(settings.model_path) else "gpt2",
+    return random_docs, user_docs, latest_docs
+
+random_docs,user_docs,latest_docs=get_random_and_latest_messages(
+    discord_message_collection, 
+    205909976768708608,
+    num_user_docs=300,
+    num_random=10, 
+    num_latest=20
 )
-data = ChunkedCollection(discord_message_collection, 15)
+combined_docs = random_docs+latest_docs+user_docs
+# print(combined_docs)
+combined_docs.sort(key=lambda x: x['created_at'])
 
-temp=random.uniform(
-    float(settings.MIN_TEMP),
-    float(settings.MAX_TEMP)
+# filter all mesaages bty 
+training_data = CSVChunker(
+    name=f"unread_messages_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}",
+    cursor=combined_docs,
+    chunk_size=100
 )
 
-print("...... START MESSAGE GEN ......")
+generated_text=duck.generate(training_data.last.csv)
 
-message= generate_text_from_gpt_model(
-    model=model,
-    seed=random.randint(0,99999999),
-    temperature=temp,
-    device='cuda',
-    start=data.last,
-    max_new_tokens=2000,
-)[0]
-print(message)
-print("...... END MESSAGE GEN ......")
+df=pd.read_csv(StringIO(generated_text))
+
+for index, row in df.iterrows():
+    generated_message_collection.insert_one({
+        "sent": False,
+        "content": row['content'],
+        "channel":row["channel"]
+    })
+
+# Save the generated messages to the database
+
+

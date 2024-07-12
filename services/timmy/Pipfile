@@ -12,7 +12,9 @@ datasets = "*"
 wandb = "*"
 tqdm = "*"
 pymongo = "*"
+litellm = "*"
 discord = "*"
+"discord.py" = "*"
 
 [dev-packages]
 
