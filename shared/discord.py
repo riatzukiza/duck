@@ -14,6 +14,7 @@ CONTENT_FILTER=[
     {"content":{"$nin":[None, "",".featured"]}},
     {"content":{"$not":{"$regex":r"(youtube.com|pplx.ai)","$options":"i"}}}
 ]
+CONTENT_MATCH_FILTER={"$not": {"$regex": r"(youtube.com|pplx.ai)", "$options": "i"}, "$nin": [None, "", ".featured"]}
 
 TRAIN_AUTHOR_FILTER={
     "$not":{"$regex":r"roarar","$options":"i"},
@@ -278,6 +279,8 @@ async def send_message(message, sent_messages,client,mark_sent=True):
     except Exception:
         print("Failed to get generated channel. Using default channel.")
         channel = client.get_channel(int(settings.DEFAULT_CHANNEL))
+    
+    print("CHANNEL BABY",channel.id)
 
     message_key = f"{str(message['channel'])}:{message['content']}"
     if message_key in sent_messages:
@@ -286,10 +289,11 @@ async def send_message(message, sent_messages,client,mark_sent=True):
 
     sent_messages.add(message_key)
 
-
-    sentences = message['content'].split("\n")
+    sentences = message['content'].split("\n\n")
+    print("sentances",sentences)
     for sentence in sentences:
-        if sentence.strip() and f"{message['channel']}:{sentence}" not in sent_messages:
+        print("Sending message:", sentence, "to", channel.name)
+        if f"{message['channel']}:{sentence}" not in sent_messages:
             await asyncio.sleep(random.randint(1, 2))
             try:
                 print("Sending message:", sentence, "to", channel.name)
@@ -300,31 +304,38 @@ async def send_message(message, sent_messages,client,mark_sent=True):
                 channel = client.get_channel(int(settings.DEFAULT_CHANNEL))
                 await channel.send(sentence, tts=True)
 
-def get_random_and_latest_messages(collection, user_id, channel_id, num_user_docs=100, num_random=5, num_latest=5):
+def get_random_and_latest_messages(collection, user_id, channel_id, num_user_docs=100, num_random=5, num_latest=5,num_channel_docs=500):
+    """
+    get a mix of random, latest, user, and channel messages.
+    If false or 0 is passed for any of the num_* arguments, that type of message will not be included in the output.
+    """
     # Common match criteria
     common_match = {
-        "content": {"$not": {"$regex": r"(youtube.com|pplx.ai)", "$options": "i"}, "$nin": [None, "", ".featured"]},
+        "content": CONTENT_MATCH_FILTER,
         "author_name": {"$nin": [None, "", "Roarar"]},
         "author": {"$nin": [user_id]}
     }
 
+
     # Aggregation pipeline for random messages
     random_pipeline = [
+        {"$match": common_match},
         {"$sample": {"size": num_random}},
         {"$match": common_match}
     ]
 
     # Aggregation pipeline for latest messages by a specific user
     user_docs_pipeline = [
-        {"$match": {"user_id": user_id}},
+        {"$match": {"user_id": user_id, "content": CONTENT_MATCH_FILTER}},
         {"$sort": {"created_at": -1}},
         {"$limit": num_user_docs}
     ]
 
     # Aggregation pipeline for latest messages in a specific channel
     channel_docs_pipeline = [
-        {"$match": {"channel": channel_id}},
-        {"$sort": {"created_at": -1}}
+        {"$match": {"channel": channel_id, "content": CONTENT_MATCH_FILTER}},
+        {"$sort": {"created_at": -1}},
+        {"$limit": num_channel_docs}
     ]
 
     # Aggregation pipeline for latest messages
@@ -334,6 +345,13 @@ def get_random_and_latest_messages(collection, user_id, channel_id, num_user_doc
         {"$limit": num_latest}
     ]
 
+    if not num_user_docs:
+        user_docs_pipeline = []
+    if not num_random:
+        random_pipeline = []
+    if not num_latest:
+        latest_docs_pipeline = []
+
     random_docs = list(collection.aggregate(random_pipeline))
     user_docs = list(collection.aggregate(user_docs_pipeline))
     latest_docs = list(collection.aggregate(latest_docs_pipeline))
@@ -341,6 +359,9 @@ def get_random_and_latest_messages(collection, user_id, channel_id, num_user_doc
 
     combined_docs = random_docs + latest_docs + user_docs + channel_docs
     combined_docs.sort(key=lambda x: x['created_at'])
+    # filter unique
+    seen = set()
+    combined_docs = [x for x in combined_docs if not (x['_id'] in seen or seen.add(x['_id']))]
     return combined_docs
 
 def get_channel_by_name(name,client):

@@ -152,5 +152,7 @@ async def on_ready():
                 await index_channel( channel )
 @client.event
 async def on_message(message):
+    print("Received message")
+    print(message)
     index_message(message)
 client.run(settings.DISCORD_TOKEN)
