@@ -12,12 +12,8 @@ datasets = "*"
 wandb = "*"
 tqdm = "*"
 pymongo = "*"
-litellm = "*"
+twitchio = "*"
 discord = "*"
-"discord.py" = "*"
-pandas = "*"
-wikipedia-api = "*"
-nltk = "*"
 
 [dev-packages]
 

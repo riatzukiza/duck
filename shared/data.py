@@ -119,3 +119,22 @@ class CSVChunker:
             self.num_chunks,
             self.df
         )
+
+
+
+
+def system_message(message):
+    return {
+        "content":message,
+        "role":"system"
+    }
+def user_message(message):
+    return {
+        "content":message,
+        "role":"user"
+    }
+def assistant_message(message):
+    return {
+        "content":message,
+        "role":"assistant"
+    }

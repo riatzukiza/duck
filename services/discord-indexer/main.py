@@ -3,6 +3,7 @@ Crawl through discord history and fill in all messages that are not getting proc
 """
 
 import asyncio
+import random
 import traceback
 from typing import List
 import discord
@@ -146,7 +147,10 @@ async def on_ready():
         for  channel in shuffle_array(list(client.get_all_channels())):
             if isinstance(channel, discord.TextChannel):
                 print(f"Indexing channel {channel}")
-                await asyncio.sleep(1)
+                random_sleep=random.randint(1,10)
+                await asyncio.sleep(random_sleep)
                 await index_channel( channel )
-
+@client.event
+async def on_message(message):
+    index_message(message)
 client.run(settings.DISCORD_TOKEN)

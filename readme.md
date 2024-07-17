@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+# Install ollama models
+```bash
+docker exec -it ollama ollama pull <model-name>
+docker exec -it ollama ollama pull llama2
+```
+
+
 To remove the `_id` field and any other unwanted fields from the documents retrieved from a MongoDB collection, you can use the `projection` feature of the `find()` method. This allows you to specify which fields to include or exclude in the resulting documents.
 
 Here’s how you can modify the previous script to exclude the `_id` field and any other fields you don't want:

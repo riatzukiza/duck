@@ -41,6 +41,36 @@ services:
       - ./shared:/app/shared
     build: ./services/timmy
 
+  # jim:
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #     - ollama
+  #   networks:
+  #     - mongo
+  #     - ollama_network
+  #   env_file:
+  #     - .env.jim
+  #   volumes:
+  #     - ./services/jim:/app
+  #     - ./shared:/app/shared
+  #   build: ./services/jim
+
+  zen:
+    restart: always
+    depends_on:
+      - mongo
+      - ollama
+    networks:
+      - mongo
+      - ollama_network
+    env_file:
+      - .env.zen
+    volumes:
+      - ./services/zen:/app
+      - ./shared:/app/shared
+    build: ./services/zen
+
   generator:
     restart: always
     depends_on:

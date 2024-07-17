@@ -15,9 +15,6 @@ pymongo = "*"
 litellm = "*"
 discord = "*"
 "discord.py" = "*"
-pandas = "*"
-wikipedia-api = "*"
-nltk = "*"
 
 [dev-packages]
 

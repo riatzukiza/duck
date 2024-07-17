@@ -13,6 +13,8 @@ wandb = "*"
 tqdm = "*"
 pymongo = "*"
 discord = "*"
+wikipedia = "*"
+wikipedia-api = "*"
 
 [dev-packages]
 

@@ -19,7 +19,7 @@ class DuckGPT:
             device='cuda',
             init_from="resume" if dir_is_not_empty(
                 settings.model_path
-            ) else "gpt2",
+            ) else "gpt2-medium",
         ))
         print("...done loading", settings.model_path)
 
@@ -36,16 +36,14 @@ class DuckGPT:
 
     def generate(self,priors):
         print("...... START MESSAGE GEN ......")
-        print(".......context................")
-        print(priors)
 
         generated_text=generate_text_from_gpt_model(
             model=self.model,
             seed=random.randint(1,1024),
-            temperature=0.7,
+            temperature=0.9,
             device='cuda',
             start=priors,
-            max_new_tokens=2000,
+            max_new_tokens=200,
         )[0]
 
         print("generated_text:")
@@ -65,8 +63,8 @@ class DuckGPT:
             optimizer=self.optimizer,
             model_args=self.model_args,
             always_save_checkpoint=True,
-            learning_rate=1e-9,
-            min_lr=6e-12,
+            learning_rate=1e-12,
+            min_lr=6e-128,
             out_dir=settings.model_path,
             input_data=input_data,
             warmup_iters=0,

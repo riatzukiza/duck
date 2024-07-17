@@ -229,12 +229,12 @@ def train_gpt_model(
 
     def get_batch(split):
         data = train_data if split == 'train' else val_data
-        if split == 'train':
-            print(f"split {split} has {len(data)} tokens")
-            print(f"split {split} has {len(data)//block_size:,} blocks")
-            print(f"split {split} has {len(data)//(block_size*batch_size):,} batches")
-            print(f"split {split} has {len(data)//(block_size*batch_size*gradient_accumulation_steps):,} gradient accumulation steps")
-            print(f"split {split} has {len(data)//(block_size*batch_size*gradient_accumulation_steps*ddp_world_size):,} iterations" )
+        # if split == 'train':
+        #     print(f"split {split} has {len(data)} tokens")
+        #     print(f"split {split} has {len(data)//block_size:,} blocks")
+        #     print(f"split {split} has {len(data)//(block_size*batch_size):,} batches")
+        #     print(f"split {split} has {len(data)//(block_size*batch_size*gradient_accumulation_steps):,} gradient accumulation steps")
+        #     print(f"split {split} has {len(data)//(block_size*batch_size*gradient_accumulation_steps*ddp_world_size):,} iterations" )
         ix = torch.randint(len(data) - block_size, (batch_size,))
         x = torch.stack([torch.from_numpy((data[i:i+block_size]).astype(np.int64)) for i in ix])
         y = torch.stack([torch.from_numpy((data[i+1:i+1+block_size]).astype(np.int64)) for i in ix])

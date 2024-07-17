@@ -1,5 +1,8 @@
 .env.duck
 .env.timmy
+.env.zen
+.env.twitch
+.env.jim
 *.csv
 data/
 models/
