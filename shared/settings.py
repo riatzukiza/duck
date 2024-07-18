@@ -20,6 +20,7 @@ model_path="/app/models/duck_gpt.v0.6.1/"
 
 # The discord id of the author of the bot.
 AUTHOR_ID=os.environ.get('AUTHOR_ID')
+AUTHOR_NAME=os.environ.get('AUTHOR_NAME',"error")
 
 # The discord channel id to use as a profile for the bot.
 PROFILE_CHANNEL_ID=os.environ.get('PROFILE_CHANNEL_ID')

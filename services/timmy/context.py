@@ -14,12 +14,14 @@ def get_all_text_channels(client):
     return [channel.name for channel in client.get_all_channels() if isinstance(channel, discord.TextChannel)]
 
 def assign_role_from_name(message):
-    print("assigning role from name",message)
     if message['author_name'] == 'Timmy':
+        # print("ASSIGNING ASSISTANT ROLE TO TIMMY",message['content'], message['channel_name'])
         return 'assistant'
-    if message['author'] == settings.AUTHOR_ID:
+    if settings.AUTHOR_NAME.lower() in message['author_name'].lower():
+        # print("ASSIGNING SYSTEM ROLE TO AUTHOR", message['author_name'], message['content'], message['channel_name'])
         return 'system'
     else :
+        # print("ASSIGNING USER ROLE TO",message['author_name'], message['content'], message['channel_name'])
         return 'user'
     
 

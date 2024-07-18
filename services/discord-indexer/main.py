@@ -13,6 +13,7 @@ from shared.mongodb import discord_message_collection, discord_channel_collectio
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
+intents.message_content = True
 
 def format_message(message):
     channel = message.channel
@@ -152,7 +153,6 @@ async def on_ready():
                 await index_channel( channel )
 @client.event
 async def on_message(message):
-    print("Received message")
     print(message)
     index_message(message)
 client.run(settings.DISCORD_TOKEN)

@@ -5,7 +5,7 @@ import discord
 from litellm import acompletion
 import litellm
 
-from context import get_all_text_channels, get_context
+from context import clear_answers, get_all_text_channels, get_context
 from completion import async_complete
 from doc_qa import ask_doc_qa, ask_context, ask_docs
 
@@ -37,6 +37,7 @@ def valid_channel_choice(answer):
     def either_name_or_id(key):
         try:
             answer_value=answer.get(key)
+            print(answer_value)
             channel_by_name=get_channel_by_name(answer_value,client)
             channel_by_id=get_channel_by_id(answer_value,client)
 
@@ -57,7 +58,7 @@ async def main():
     )
 
     channel_choice=await ask_docs(
-        f"Pick a channel from the list:{get_all_text_channels(client)}", 
+        f"Pick a channel from this list of channel names given the context: `{get_all_text_channels(client)}. Respond like this:{({'channel_name':'<channel_name>'})}", 
         docs=profile_docs,
         format="json",
         expires_in=random.randint(10,6000),
@@ -120,6 +121,7 @@ async def main():
 
     final_context=prompt_engineering+topics+purpose+summary+day_in_history+twitch_coach+get_context(
                     latest_channel_messages, 
+                    client=client
                 )
 
     content=await async_complete(
@@ -128,7 +130,7 @@ async def main():
     )
 
     await send_message({
-        "content":content.choices[0].message.content,
+        "content":content,
         "channel":channel_choice.id
     },sent_messages,client,mark_sent=False)
     end_time=datetime.datetime.now()
@@ -136,7 +138,7 @@ async def main():
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}')
-    # await clear_answers(timmy_answer_cache_collection)
+    await clear_answers(timmy_answer_cache_collection)
     while True:
         await main()
 

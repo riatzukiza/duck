@@ -47,7 +47,7 @@ async def ask_context(
     if cached_answer and not force:
         if  cached_answer["expires_at"]>datetime.datetime.now():
             print("CACHE HIT",question,cached_answer["answer"])
-            return cached_answer["answer"]
+            return check(cached_answer["answer"])
         else:
             print("CACHE EXPIRED",question,cached_answer["answer"],cached_answer["expires_at"])
             collection.delete_one({"_id":cached_answer["_id"]})
@@ -59,27 +59,29 @@ async def ask_context(
     ]
     while True:
         try:
-            response=check(await async_complete(
+            data=await async_complete(
                 context=context,
                 format=format,
-            ))
+            )
+            result=check(data)
 
 
-            if data:
+            if result:
                 print("MATCHES SCHEMA",question,data)
+                print("result",result)
                 collection.insert_one({
                     "question":question,
                     "answer":data,
                     "format":format,
                     "expires_at":datetime.datetime.now()+datetime.timedelta(seconds=expires_in)
                 })
-                return data
+                return result
             else:
                 print("DOES NOT MATCH SCHEMA",question,data)
                 continue
 
         except Exception as e:
-            print("somthing bad happened in ask!",response)
+            print("somthing bad happened in ask!",data)
             print(e)
             context += [
                 system_message("An error occured. Please try again."),
