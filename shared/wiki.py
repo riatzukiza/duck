@@ -2,9 +2,11 @@ import asyncio
 import random
 from shared import settings
 import wikipediaapi
+from shared.mongodb import db
 
 user_agent = 'Duckbot/1.0 (https://github.com/riatzukiza/discord-chatter)'
 wiki_wiki = wikipediaapi.Wikipedia(user_agent)
+wiki_cache_collection=db['wiki_cache']
 
 # Function to fetch and chunk Wikipedia content
 def get_wikipedia_chunks(page_title):

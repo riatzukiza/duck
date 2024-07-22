@@ -14,7 +14,7 @@ def get_all_text_channels(client):
     return [channel.name for channel in client.get_all_channels() if isinstance(channel, discord.TextChannel)]
 
 def assign_role_from_name(message):
-    if message['author_name'] == 'Timmy':
+    if message['author_name'] == 'Duck':
         # print("ASSIGNING ASSISTANT ROLE TO TIMMY",message['content'], message['channel_name'])
         return 'assistant'
     if settings.AUTHOR_NAME.lower() in message['author_name'].lower():
@@ -33,8 +33,10 @@ def get_context(docs):
     # print("timmy context from",len(docs),"docs")
     return [
         system_message(f"The time is {datetime.datetime.now()}"), # What does this look like? # "the time is 2021-09-01 12:00:00"
-        system_message(f"We stream on twitch!"),
-        system_message("I am the mad scientist, you are the assistant.")
+        system_message(f"I am a mad scientist!"),
+        system_message("I am the mad scientist, you are the assistant."),
+        system_message("You are a duck. Duck man. Detective duck man."),
+        system_message("I am a mad scientist. You are a duck. You go quack. I go zap."),
         # user_message(f"These are some of the messages in my discord server:\n\n`{messages}`\n\n"),
     ] + [{"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs]
 

@@ -24,12 +24,15 @@ from persistant_set import PersistentSet
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.messages = True
 client = discord.Client(intents=intents)
 # litellm.set_verbose = True
 sent_messages=PersistentSet("./sent_messages.pkl")
+print("sent messages",sent_messages)
 
 state = json.load(open("state.json",'r'))
 def update_state(new_state):
+    print("updating state",new_state)
     state.update(new_state)
     json.dump(state,open("state.json",'w'))
     return state
@@ -63,43 +66,7 @@ def valid_channel_choice(answer):
             print("EXCEPTION in validating channel",e)
             return None
     return either_name_or_id("channel_name") or either_name_or_id("channel_id") or either_name_or_id("channel")
-import re
 
-def split_markdown(markdown):
-    # Define regex patterns for different markdown elements
-    patterns = {
-        'header': r'(^#{1,6} .*$)',
-        'list_item': r'(^(\*|-|\d+\.) .*$)',
-        'code_block': r'(^```.*?```$)',
-        'blockquote': r'(^> .*$)',
-        'horizontal_rule': r'(^-{3,}$)',
-        'paragraph': r'(^[^#\*\d>\-`].*$)'
-    }
-
-    # Combine all patterns into one regex
-    combined_pattern = re.compile('|'.join(f'(?P<{key}>{pattern})' for key, pattern in patterns.items()), re.MULTILINE | re.DOTALL)
-
-    chunks = []
-    current_pos = 0
-
-    # Use the combined pattern to find matches in the markdown
-    for match in combined_pattern.finditer(markdown):
-        # Get the start and end positions of the match
-        start, end = match.span()
-
-        # If there is a gap between the current position and the start of the match, it means there's a paragraph or other content in between
-        if current_pos < start:
-            chunks.append(markdown[current_pos:start].strip())
-
-        # Append the matched element to the chunks
-        chunks.append(match.group().strip())
-        current_pos = end
-
-    # Add any remaining text as a chunk
-    if current_pos < len(markdown):
-        chunks.append(markdown[current_pos:].strip())
-
-    return [chunk for chunk in chunks if chunk]  # Remove any empty strings
 async def main():
 
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
@@ -168,15 +135,15 @@ async def main():
     )
     dicsussions=[]
     update_state({ "current_text":"" })
+    update_state({ "discussion":dicsussions })
     async def handle_chunk(chunk,finished=False):
-        print("chunk",chunk)
         if finished :
-            print("finished")
             message_text=state['current_text']
             update_state({ "current_text":"" })
             dicsussions.append(message_text)
             update_state({ "discussion":dicsussions })
-            print("sending message",message_text)
+
+            await asyncio.sleep(1)
             await send_message({ 
                     "content":message_text, 
                     "channel":channel_choice.id 
@@ -185,22 +152,21 @@ async def main():
                 client,
                 mark_sent=False
             )
+            await asyncio.sleep(1)
+
             return chunk
 
         update_state({ "current_text": state['current_text']+chunk })
         split=state['current_text'].split("\n\n")
 
         if len(split)>1:
-            print("split",split)
             message_text=split[0]
             dicsussions.append(message_text)
             await send_message({ "content":message_text, "channel":channel_choice.id },sent_messages,client,mark_sent=False)
             update_state({ "current_text": split[1] })
             if state.get("new_message"):
-                print("new message",state['new_message'])
                 update_state({ "new_message":"" })
                 await asyncio.sleep(1)
-                return message_text
 
     for bot_question in bot_questions:
 
@@ -281,9 +247,12 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.content.startswith("!ping"):
+        await message.channel.send("pong!")
     if state['channel_name']==message.channel.name:
         print("got a new message")
         update_state({ "new_message":message.content })
+    
 
 
 client.run(settings.DISCORD_TOKEN)

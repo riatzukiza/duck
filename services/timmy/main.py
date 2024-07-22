@@ -19,27 +19,43 @@ import asyncio
 
 import shared.settings as settings
 from shared.wiki import get_wikipedia_chunks
+import pickle
+from persistant_set import PersistentSet
 
 intents = discord.Intents.default()
+intents.message_content = True
 client = discord.Client(intents=intents)
 # litellm.set_verbose = True
-sent_messages=set()
+sent_messages=PersistentSet("./sent_messages.pkl")
 
+state = json.load(open("state.json",'r'))
+def update_state(new_state):
+    state.update(new_state)
+    json.dump(state,open("state.json",'w'))
+    return state
 
+def get_latest_channel_docs(channel_id=settings.PROFILE_CHANNEL_ID):
+    return get_random_and_latest_messages(
+            discord_message_collection,
+            channel_id=channel_id,
+            user_id=settings.AUTHOR_ID,
+            num_random=100,
+            num_latest=100,
+            num_user_docs=100,
+            num_channel_docs=100
+        )
 def valid_channel_choice(answer):
     """
-    Check if answer is a valid channel choice.
-    Checks "channel_name" as either an id or a name.
-    Checks "channel_id" as either an id or a name.
-    Checks "channel" as either an id or a name.
+    extractor if answer is a valid channel choice.
+    extractors "channel_name" as either an id or a name.
+    extractors "channel_id" as either an id or a name.
+    extractors "channel" as either an id or a name.
     """
 
     def either_name_or_id(key):
         try:
-            answer_value=answer.get(key)
-            print(answer_value)
-            channel_by_name=get_channel_by_name(answer_value,client)
-            channel_by_id=get_channel_by_id(answer_value,client)
+            channel_by_name=get_channel_by_name(answer,client)
+            channel_by_id=get_channel_by_id(answer,client)
 
             channel= channel_by_name or channel_by_id
             return channel
@@ -47,103 +63,107 @@ def valid_channel_choice(answer):
             print("EXCEPTION in validating channel",e)
             return None
     return either_name_or_id("channel_name") or either_name_or_id("channel_id") or either_name_or_id("channel")
+update_state({ "server_name":"Error Log", "channel_names":get_all_text_channels(client), })
 async def main():
-    profile_docs=get_random_and_latest_messages(
-        discord_message_collection, 
-        user_id=settings.AUTHOR_ID,
-        channel_id=settings.PROFILE_CHANNEL_ID,
-        num_random=100,
-        num_latest=100,
-        num_user_docs=100
-    )
+
+    profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
+    print("profile docs",len(profile_docs))
+
+
+    async def handle_chunk(chunk,finished=False):
+        if finished :
+            message_text=state['current_text']
+            update_state({ "current_text":"" })
+
+            await asyncio.sleep(1)
+            await send_message({ 
+                    "content":message_text, 
+                    "channel":channel_choice.id 
+                },
+                sent_messages,
+                client,
+                mark_sent=False
+            )
+            await asyncio.sleep(1)
+
+            return chunk
+
+        update_state({ "current_text": state['current_text']+chunk })
+        split=state['current_text'].split("\n\n")
+
+        if len(split)>1:
+            message_text=split[0]
+            await send_message({ "content":message_text, "channel":channel_choice.id },sent_messages,client,mark_sent=False)
+            update_state({ "current_text": split[1] })
+            if state.get("new_message"):
+                update_state({ "new_message":"" })
+                await asyncio.sleep(1)
+
 
     channel_choice=await ask_docs(
-        f"Pick a channel from this list of channel names given the context: `{get_all_text_channels(client)}. Respond like this:{({'channel_name':'<channel_name>'})}", 
+        f"""
+        Pick a channel from the list of channel names to discuss give the current set of messages.
+        Your choice will update the context for the next query.
+        The messages are a mix random messages from Duck's database, 
+        the latest messages from your profile channel, 
+        and the latest messages by your author.
+        """, 
+        state=update_state(await ask_docs(
+            "Given the current state and messages, update the context for the next query.",
+            example_response={"state":{
+                "topics":["games","lua","mad scientist","assistant"],
+                "questions":["What is the time?","What do we do?"],
+                "goals":["write games in Lua","stream on twitch"],
+            }},
+            answer_key="state",
+            format="json",
+            docs=profile_docs,
+        )),
+        example_response={"channel_name":"general"},
+        answer_key="channel_name",
         docs=profile_docs,
         format="json",
-        expires_in=random.randint(10,6000),
-        check=valid_channel_choice,
-        client=client
+        extractor=valid_channel_choice,
+    )
+
+    await ask_docs(
+        "What do you have to say to your audience?",
+        state=update_state(await ask_docs(
+            "Given the current state and messages, update the context for the next query.",
+            example_response={"state":{
+                "topics":["games","lua","mad scientist","assistant"],
+                "questions":["What is the time?","What do we do?"],
+                "goals":["write games in Lua","stream on twitch"],
+            }},
+            answer_key="state",
+            format="json",
+            docs=profile_docs,
+        )),
+        force=True,
+        stream_handler=handle_chunk,
+        streaming=True,
+        docs=profile_docs+get_latest_channel_docs(channel_choice.id),
     )
 
 
-    latest_channel_messages=get_random_and_latest_messages(
-        discord_message_collection,
-        channel_id=channel_choice.id,
-        user_id=settings.AUTHOR_ID,
-        num_random=10,
-        num_latest=20,
-        num_user_docs=100
-    )
-    for message in latest_channel_messages:
-        print(f'{message["author_name"]} said "{message["content"]}" in {message["channel_name"]} at {message["created_at"]}')
-    
-    # # print("latest_channel_messages",latest_channel_messages)
-    topics=await ask_doc_qa(
-        "List all topics that were discussed.",
-        docs=latest_channel_messages,
-        format="string",
-        client=client
-    )
-    purpose=await ask_doc_qa(
-        "What is your purpose?",
-        docs=latest_channel_messages,
-        format="string",
-        client     =client
-    )
-    summary=await ask_doc_qa(
-        "What's going on in this channel?",
-        docs=latest_channel_messages,
-        format="string",
-        client   =client
-    )
-
-    day_in_history=await ask_doc_qa(
-        "What happened on this day in history?",
-        docs=latest_channel_messages,
-        format="string",
-        client=client
-    )
-
-    twitch_coach=await ask_doc_qa(
-        "How can I improve my twitch stream?",
-        docs=latest_channel_messages,
-        format="string",
-        client=client
-    )
-
-    prompt_engineering=await ask_doc_qa(
-        "What is the best way to engineer a prompt for the AI?",
-        docs=latest_channel_messages,
-        format="string",
-        client=client
-    )
-
-    final_context=prompt_engineering+topics+purpose+summary+day_in_history+twitch_coach+get_context(
-                    latest_channel_messages, 
-                    client=client
-                )
-
-    content=await async_complete(
-        final_context,
-        temperature=0.9,
-    )
-
-    await send_message({
-        "content":content,
-        "channel":channel_choice.id
-    },sent_messages,client,mark_sent=False)
-    end_time=datetime.datetime.now()
-
+running=False
 @client.event
 async def on_ready():
+    global running
     print(f'Logged in as {client.user}')
-    await clear_answers(timmy_answer_cache_collection)
-    while True:
-        await main()
-
-
-
+    # await clear_answers(timmy_answer_cache_collection)
+    update_state({"new_message":""})
+    if not running:
+        running=True
+        while running:
+            await main()
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if state['channel_name']==message.channel.name:
+        print("got a new message")
+        update_state({ "new_message":message.content })
 
 
 client.run(settings.DISCORD_TOKEN)

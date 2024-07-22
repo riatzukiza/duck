@@ -13,6 +13,19 @@ services:
       - ./shared:/app/shared
     build: ./services/discord-indexer
 
+  twitch:
+    restart: always
+    depends_on:
+      - mongo
+    networks:
+      - mongo
+    env_file:
+      - .env.twitch
+    volumes:
+      - ./services/twitch:/app
+      - ./shared:/app/shared
+    build: ./services/twitch
+
   dispatcher:
     restart: always
     depends_on:
@@ -30,6 +43,7 @@ services:
     restart: always
     depends_on:
       - mongo
+      - indexer
       - ollama
     networks:
       - mongo
@@ -41,20 +55,54 @@ services:
       - ./shared:/app/shared
     build: ./services/timmy
 
-  # jim:
-  #   restart: always
-  #   depends_on:
-  #     - mongo
-  #     - ollama
-  #   networks:
-  #     - mongo
-  #     - ollama_network
-  #   env_file:
-  #     - .env.jim
-  #   volumes:
-  #     - ./services/jim:/app
-  #     - ./shared:/app/shared
-  #   build: ./services/jim
+  jim:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.jim
+    volumes:
+      - ./services/jim:/app
+      - ./shared:/app/shared
+    build: ./services/jim
+
+  duckman:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama
+    networks:
+      - mongo
+      - ollama_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: ./services/Duckman
+  duck:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama
+    ports:
+      - 11435:11435
+    networks:
+      - mongo
+      - ollama_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/duck:/app
+      - ./shared:/app/shared
+    build: ./services/duck
 
   zen:
     restart: always
@@ -132,18 +180,8 @@ services:
     volumes:
       - cache:/data
   ollama:
-    # Uncomment below for GPU support
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities:
-    #             - gpu
     volumes:
       - ollama:/root/.ollama
-    # Uncomment below to expose Ollama API outside the container stack
     ports:
       - 11434:11434
     container_name: ollama
@@ -151,33 +189,43 @@ services:
     tty: true
     restart: unless-stopped
     image: ollama/ollama:latest
+    environment:
+      - OLLAMA_NUM_PARALLEL=10
     networks:
       - ollama_network
 
-  # ollama-webui:
-  #   build:
-  #     context: ./ollama-webui
-  #     args:
-  #       OLLAMA_API_BASE_URL: '/ollama/api'
-  #     dockerfile: Dockerfile
-  #   image: ollama-webui:latest
-  #   container_name: ollama-webui
-  #   depends_on:
-  #     - ollama
-  #   ports:
-  #     - 3000:8080
-  #   environment:
-  #     - "OLLAMA_API_BASE_URL=http://ollama:11434/api"
-  #   extra_hosts:
-  #     - host.docker.internal:host-gateway
-  #   restart: unless-stopped
 
+  ollama-gpu:
+    # Uncomment below for GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    volumes:
+      - ollama-gpu:/root/.ollama
+    # Uncomment below to expose Ollama API outside the container stack
+    # ports:
+    #   - 11434:11434
+    container_name: ollama-gpu
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_NUM_PARALLEL=10
+    networks:
+      - ollama_gpu_network
 volumes:
   ollama: {}
+  ollama-gpu: {}
   cache:
     driver: local
 networks:
   mongo:
   chroma:
   ollama_network:
-    driver: bridge
+  ollama_gpu_network:

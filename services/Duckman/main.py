@@ -1,4 +1,5 @@
 import datetime
+import uuid
 import json
 import random
 import discord
@@ -34,6 +35,7 @@ def update_state(new_state):
     json.dump(state,open("state.json",'w'))
     return state
 
+
 def get_latest_channel_docs(channel_id=settings.PROFILE_CHANNEL_ID):
     return get_random_and_latest_messages(
             discord_message_collection,
@@ -63,43 +65,8 @@ def valid_channel_choice(answer):
             print("EXCEPTION in validating channel",e)
             return None
     return either_name_or_id("channel_name") or either_name_or_id("channel_id") or either_name_or_id("channel")
-import re
+update_state({ "server_name":"Error Log", "channel_names":get_all_text_channels(client), })
 
-def split_markdown(markdown):
-    # Define regex patterns for different markdown elements
-    patterns = {
-        'header': r'(^#{1,6} .*$)',
-        'list_item': r'(^(\*|-|\d+\.) .*$)',
-        'code_block': r'(^```.*?```$)',
-        'blockquote': r'(^> .*$)',
-        'horizontal_rule': r'(^-{3,}$)',
-        'paragraph': r'(^[^#\*\d>\-`].*$)'
-    }
-
-    # Combine all patterns into one regex
-    combined_pattern = re.compile('|'.join(f'(?P<{key}>{pattern})' for key, pattern in patterns.items()), re.MULTILINE | re.DOTALL)
-
-    chunks = []
-    current_pos = 0
-
-    # Use the combined pattern to find matches in the markdown
-    for match in combined_pattern.finditer(markdown):
-        # Get the start and end positions of the match
-        start, end = match.span()
-
-        # If there is a gap between the current position and the start of the match, it means there's a paragraph or other content in between
-        if current_pos < start:
-            chunks.append(markdown[current_pos:start].strip())
-
-        # Append the matched element to the chunks
-        chunks.append(match.group().strip())
-        current_pos = end
-
-    # Add any remaining text as a chunk
-    if current_pos < len(markdown):
-        chunks.append(markdown[current_pos:].strip())
-
-    return [chunk for chunk in chunks if chunk]  # Remove any empty strings
 async def main():
 
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
@@ -123,60 +90,59 @@ async def main():
         format="json",
         extractor=valid_channel_choice,
     )
-    topics=await ask_docs(
-        f"List all topics that were discussed in {channel_choice.name}.",
-        state=update_state({
-            "channel_name":channel_choice.name,
-        }),
-        example_response={"topics":["AI","Game Design","Twitch"]},
-        answer_key="topics",
-        docs=profile_docs+get_latest_channel_docs(channel_choice.id),
-        format="json",
-    )
-    purpose=await ask_docs(
-        f"What is your purpose for talking in channel {channel_choice.name}?",
-        state=update_state({
-            "topics":topics,
-        }),
-        docs=profile_docs+get_latest_channel_docs(channel_choice.id),
-    )
-    questions_asked=await ask_docs(
-        f"Were there any questions asked by the users in {channel_choice.name}?",
-        state=update_state({
-            "purpose":purpose,
-        }),
-        example_response={"user_questions":[
-            "What is the meaning of life?", 
-            "what's it like being an AI?"
-        ]},
-        answer_key="user_questions",
-        docs=profile_docs+get_latest_channel_docs(channel_choice.id),
-        format="json",
-    )
-    bot_questions=await ask_docs(
-        f"Do you have any questions for the users in channel {channel_choice.name}?",
-        state=update_state({
-            "user_questions":questions_asked,
-        }),
-        docs=profile_docs+get_latest_channel_docs(channel_choice.id),
-        example_response={"bot_questions":[
-            "Am I sentiant?",
-            "Am I alive?"
-        ]},
-        answer_key="bot_questions",
-        format="json",
+    topics,purpose,questions_asked,bot_questions=await asyncio.gather(
+        ask_docs(
+            f"List all topics that were discussed in {channel_choice.name}.",
+            state=state,
+            example_response={"topics":["AI","Game Design","Twitch"]},
+            answer_key="topics",
+            docs=profile_docs+get_latest_channel_docs(channel_choice.id),
+            format="json",
+        ),
+        ask_docs(
+            f"What is your purpose for talking in channel {channel_choice.name}?",
+            state=state,
+            docs=profile_docs+get_latest_channel_docs(channel_choice.id),
+        ),
+        ask_docs(
+            f"Were there any questions asked by the users in {channel_choice.name}?",
+            state=state,
+            example_response={"user_questions":[
+                "What is the meaning of life?", 
+                "what's it like being an AI?"
+            ]},
+            answer_key="user_questions",
+            docs=profile_docs+get_latest_channel_docs(channel_choice.id),
+            format="json",
+        ),
+        ask_docs(
+            f"Do you have any questions for the users in channel {channel_choice.name}?",
+            state=state,
+            docs=profile_docs+get_latest_channel_docs(channel_choice.id),
+            example_response={"bot_questions":[
+                "Am I sentiant?",
+                "Am I alive?"
+            ]},
+            answer_key="bot_questions",
+            format="json",
+        )
     )
     dicsussions=[]
-    update_state({ "current_text":"" })
-    async def handle_chunk(chunk,finished=False):
-        print("chunk",chunk)
+    update_state({
+        "purpose":purpose,
+        "topics":topics,
+        "dicsussion":dicsussions, 
+        "bot_questions":bot_questions,
+        "questions_asked":questions_asked,
+    })
+    async def handle_chunk(chunk,stream_id,finished=False):
+        stream_key='current_text:'+stream_id
         if finished :
-            print("finished")
-            message_text=state['current_text']
-            update_state({ "current_text":"" })
+            message_text=state.get(stream_key,"")
             dicsussions.append(message_text)
             update_state({ "discussion":dicsussions })
-            print("sending message",message_text)
+
+            await asyncio.sleep(1)
             await send_message({ 
                     "content":message_text, 
                     "channel":channel_choice.id 
@@ -185,26 +151,26 @@ async def main():
                 client,
                 mark_sent=False
             )
-            return chunk
+            await asyncio.sleep(1)
 
-        update_state({ "current_text": state['current_text']+chunk })
-        split=state['current_text'].split("\n\n")
+            return chunk
+        update_state({ stream_key: state.get(stream_key,"")+chunk })
+
+        split=state.get(stream_key).split("\n\n")
 
         if len(split)>1:
-            print("split",split)
             message_text=split[0]
             dicsussions.append(message_text)
             await send_message({ "content":message_text, "channel":channel_choice.id },sent_messages,client,mark_sent=False)
-            update_state({ "current_text": split[1] })
+            update_state({ stream_key: split[1] })
             if state.get("new_message"):
-                print("new message",state['new_message'])
                 update_state({ "new_message":"" })
                 await asyncio.sleep(1)
-                return message_text
 
+    tasks=[]
     for bot_question in bot_questions:
 
-        await ask_docs(
+       tasks.append(ask_docs(
             f"Answer '{bot_question}' as it relates to '{purpose}' for channel {channel_choice.name}.",
             state=update_state({
                 "bot_questions":bot_questions,
@@ -213,9 +179,9 @@ async def main():
             streaming=True,
             stream_handler=handle_chunk,
             docs=get_latest_channel_docs(channel_choice.id),
-        )
+        )) 
     for user_question in questions_asked:
-        await ask_docs(
+        tasks.append(ask_docs(
             f"Answer '{user_question}' as it relates to '{purpose}' for channel {channel_choice.name}.",
             state=update_state({
                 "discussion":dicsussions,
@@ -223,10 +189,10 @@ async def main():
             streaming=True,
             stream_handler=handle_chunk,
             docs=get_latest_channel_docs(channel_choice.id),
-        )
+        ))
     
     for topic in topics:
-        await ask_docs(
+        tasks.append(ask_docs(
             f"Discuss '{topic}' as it relates to '{purpose}'.",
             state=update_state({
                 "discussion":dicsussions,
@@ -234,11 +200,11 @@ async def main():
             streaming=True,
             stream_handler=handle_chunk,
             docs=get_latest_channel_docs(channel_choice.id),
-        )
+        ))
         topics_2=topics.copy()
         topics_2.remove(topic)
         for t2 in topics_2:
-            await ask_docs(
+            tasks.append(ask_docs(
                 f"Discuss '{topic}' as it relates to '{t2}'.",
                 state=update_state({
                     "discussion":dicsussions,
@@ -246,10 +212,10 @@ async def main():
                 stream_handler=handle_chunk,
                 streaming=True,
                 docs=get_latest_channel_docs(channel_choice.id),
-            )
+            ))
 
 
-    await ask_docs(
+    tasks.append(ask_docs(
         "What do you have to say to your audience?",
         state=update_state({
             "channel_names":get_all_text_channels(client),
@@ -263,7 +229,8 @@ async def main():
         stream_handler=handle_chunk,
         streaming=True,
         docs=get_latest_channel_docs(channel_choice.id),
-    )
+    ))
+    await asyncio.gather(*tasks)
 
 
 running=False
@@ -281,9 +248,12 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.content.startswith("!ping"):
+        await message.channel.send("pong!")
     if state['channel_name']==message.channel.name:
         print("got a new message")
         update_state({ "new_message":message.content })
+    
 
 
 client.run(settings.DISCORD_TOKEN)

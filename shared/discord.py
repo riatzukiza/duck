@@ -6,10 +6,11 @@ import random
 import pymongo
 import pandas as pd
 import discord
+import re
 from shared import settings
 from shared.mongodb import discord_message_collection, generated_message_collection
 from shared.wiki import crawl, get_wikipedia_chunks
-
+    
 CONTENT_FILTER=[
     {"content":{"$nin":[None, "",".featured"]}},
     {"content":{"$not":{"$regex":r"(youtube.com|pplx.ai)","$options":"i"}}}
@@ -49,6 +50,41 @@ def get_unread_messages( limit=20):
     }
     return discord_message_collection.find(query).sort("created_at", pymongo.ASCENDING).limit(limit)
 
+def split_markdown(markdown):
+    # Define regex patterns for different markdown elements
+    patterns = {
+        'header': r'(^#{1,6} .*$)',
+        'list_item': r'(^(\*|-|\d+\.) .*$)',
+        'code_block': r'(^```.*?```$)',
+        'blockquote': r'(^> .*$)',
+        'horizontal_rule': r'(^-{3,}$)',
+        'paragraph': r'(^[^#\*\d>\-`].*$)'
+    }
+
+    # Combine all patterns into one regex
+    combined_pattern = re.compile('|'.join(f'(?P<{key}>{pattern})' for key, pattern in patterns.items()), re.MULTILINE | re.DOTALL)
+
+    chunks = []
+    current_pos = 0
+
+    # Use the combined pattern to find matches in the markdown
+    for match in combined_pattern.finditer(markdown):
+        # Get the start and end positions of the match
+        start, end = match.span()
+
+        # If there is a gap between the current position and the start of the match, it means there's a paragraph or other content in between
+        if current_pos < start:
+            chunks.append(markdown[current_pos:start].strip())
+
+        # Append the matched element to the chunks
+        chunks.append(match.group().strip())
+        current_pos = end
+
+    # Add any remaining text as a chunk
+    if current_pos < len(markdown):
+        chunks.append(markdown[current_pos:].strip())
+
+    return [chunk for chunk in chunks if chunk]  # Remove any empty strings
 def mark_as_read(message):
     """
     Mark a message as read.
@@ -144,13 +180,12 @@ async def help_commands(message):
             !8ball - Ask the magic 8-ball
             !crawl <query> - Crawl Wikipedia
             
-            """,
-            tts=True
+            """
         )
 async def count_commands(message):
     if message.content == '.count_unsent':
         unsent_messages = list(get_unsent_messages())
-        await message.channel.send(f'Unsent messages: {len(unsent_messages)}',tts=True)
+        await message.channel.send(f'Unsent messages: {len(unsent_messages)}')
     if message.content == '.count_all':
         all_messages = list(discord_message_collection.find())
         await message.channel.send(f'All messages: {len(all_messages)}',tts=True) 
@@ -263,7 +298,7 @@ async def all_commands(message,client):
     await count_commands(message)
     await help_commands(message)
 
-async def send_message(message, sent_messages,client,mark_sent=True):
+async def send_message(message, sent_messages,client,mark_sent=True, tts=True):
     """
     Send a message to the discord channel.
     """
@@ -274,36 +309,26 @@ async def send_message(message, sent_messages,client,mark_sent=True):
         )
 
     try:
-        print("Trying to send", message['content'], "to", message['channel'])
         channel = client.get_channel(int(message['channel']))
+        if channel is None:
+            raise Exception("Channel not found")
     except Exception:
-        print("Failed to get generated channel. Using default channel.")
         channel = client.get_channel(int(settings.DEFAULT_CHANNEL))
     
-    print("CHANNEL BABY",channel.id)
-
-    message_key = f"{str(message['channel'])}:{message['content']}"
-    if message_key in sent_messages:
-        print("Message already sent:", message)
-        return
-
-    sent_messages.add(message_key)
-
     sentences = message['content'].split("\n\n")
-    print("sentances",sentences)
-    for sentence in sentences:
-        print("Sending message:", sentence, "to", channel.name)
-        if f"{message['channel']}:{sentence}" not in sent_messages:
-            await asyncio.sleep(random.randint(1, 2))
-            try:
-                print("Sending message:", sentence, "to", channel.name)
-                sent_messages.add(f"{message['channel']}:{sentence}")
-                await channel.send(sentence, tts=True)
-            except Exception:
-                print("Failed to send to generated channel. Using default channel.")
-                channel = client.get_channel(int(settings.DEFAULT_CHANNEL))
-                await channel.send(sentence, tts=True)
 
+    for sentence in sentences:
+        if sentence == "":
+            await asyncio.sleep(random.randint(1, 5))
+            continue
+        if f"{message['channel']}:{sentence}" not in sent_messages:
+            print("Sending message:", sentence, "to", channel.name)
+            sent_messages.add(f"{message['channel']}:{sentence}")
+            await channel.send(sentence,tts=True)
+            print("Sent message:", sentence)
+            await asyncio.sleep(random.randint(1, 5))
+        else:
+            print("Message already sent:", sentence)
 def get_random_and_latest_messages(collection, user_id, channel_id, num_user_docs=100, num_random=5, num_latest=5,num_channel_docs=500):
     """
     get a mix of random, latest, user, and channel messages.
@@ -326,7 +351,7 @@ def get_random_and_latest_messages(collection, user_id, channel_id, num_user_doc
 
     # Aggregation pipeline for latest messages by a specific user
     user_docs_pipeline = [
-        {"$match": {"user_id": user_id, "content": CONTENT_MATCH_FILTER}},
+        {"$match": {"": user_id, "content": CONTENT_MATCH_FILTER}},
         {"$sort": {"created_at": -1}},
         {"$limit": num_user_docs}
     ]

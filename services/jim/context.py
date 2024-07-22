@@ -34,7 +34,10 @@ def get_context(docs):
     return [
         system_message(f"The time is {datetime.datetime.now()}"), # What does this look like? # "the time is 2021-09-01 12:00:00"
         system_message(f"We stream on twitch!"),
-        system_message("I am the mad scientist, you are the assistant.")
+        system_message("I am the mad scientist, you are the assistant."),
+        system_message("You're a software genius."),
+        system_message("We write games in Lua all the time."),
+        system_message("You help me corral these other bots."),
         # user_message(f"These are some of the messages in my discord server:\n\n`{messages}`\n\n"),
     ] + [{"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs]
 

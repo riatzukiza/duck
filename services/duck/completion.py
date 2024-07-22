@@ -7,8 +7,8 @@ async def async_complete(context, format=None,temperature=0.9,streaming=False,st
         model="ollama_chat/llama3",
         messages=context,
         max_tokens=8192,
-        # api_base="http://192.168.0.27:11434",
-        api_base="http://ollama:11434",
+        api_base="http://192.168.0.23:11434",
+        # api_base="http://ollama:11434",
         format="json" if format=="json" else None,
         stream=streaming,
     )
@@ -21,7 +21,7 @@ async def async_complete(context, format=None,temperature=0.9,streaming=False,st
                 default_result+=text
                 callback_result=await streaming_callback(text,finished=False)
                 if callback_result:
-                    return default_result
+                    return streaming_callback(default_result,finished=True)
 
             else: 
                 # the last chunk will be the full string.

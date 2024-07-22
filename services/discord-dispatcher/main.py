@@ -7,8 +7,10 @@ import discord
 from shared.discord import get_unsent_messages, send_message
 import shared.settings as settings
 
+import asyncio
 intents = discord.Intents.default()
 intents.message_content = True
+# send messages intent
 client = discord.Client(intents=intents)
 
 @client.event
@@ -21,7 +23,9 @@ async def on_ready():
             if unsent_messages:
                 print("unsent messages found!", len(unsent_messages))
                 for message in unsent_messages:
+                    await asyncio.sleep(1)
                     await send_message(message,sent_messages,client)
+            await asyncio.sleep(1)
         except Exception as e:
             print("somthing went wrong in dispatch!")
             print(e)

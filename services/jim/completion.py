@@ -7,8 +7,8 @@ async def async_complete(context, format=None,temperature=0.9,streaming=False,st
         model="ollama_chat/llama3",
         messages=context,
         max_tokens=8192,
-        # api_base="http://192.168.0.27:11434",
-        api_base="http://ollama:11434",
+        # api_base="http://192.168.0.23:11434",
+        api_base="http://ollama-gpu:11434",
         format="json" if format=="json" else None,
         stream=streaming,
     )

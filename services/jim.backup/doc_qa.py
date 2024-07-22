@@ -40,8 +40,6 @@ def ask_docs(
     force=False, 
     extractor=lambda x: x, 
     state={},
-    stream_handler=None,
-    streaming=False,
     example_response={"result":"This is an example response."},
     answer_key="result",
     format=None,
@@ -54,8 +52,6 @@ def ask_docs(
         example_response=example_response,
         answer_key=answer_key,
         force=force,
-        stream_handler=stream_handler,
-        streaming=streaming,
         extractor=extractor,
         format=format
     )
@@ -90,8 +86,6 @@ async def ask_context(
     answer_key="result",
     extractor=lambda x: x, # Extracts the object we want from the data we get back.
     force=False,
-    stream_handler=None,
-    streaming=False,
     collection=timmy_answer_cache_collection,
     expires_in=60000,
     format=None
@@ -121,10 +115,10 @@ async def ask_context(
             data=await async_complete(
                 context=context,
                 format=format,
-                streaming=streaming,
-                streaming_callback=stream_handler
             )
             result=extractor(data[answer_key] if format=="json" else data)
+
+
             if result:
                 print("ANSWERED",datetime.datetime.now())
                 print(data)
