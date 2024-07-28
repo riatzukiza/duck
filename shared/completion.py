@@ -1,57 +1,41 @@
-import asyncio
 import json
 import uuid
-import random
-from litellm import acompletion
-from litellm import acompletion
+import ollama
 
-complete_providers=[
-        "http://192.168.0.27:11434",
-        "http://192.168.0.23:11434",
-        "http://ollama:11434",
-]
-active_provider_requests={}
+async def async_complete(context,provider="http://ollama-gpu:11434", format=None,temperature=0.9,streaming=False,streaming_callback=None):
+    try:
+        client=ollama.AsyncClient(host=provider)
+        for message in context:
+            print(message['content'])
+        response=await client.chat(
+            model="Godmoded/llama3-lexi-uncensored",
+            #model="llama3.1",
+            messages=context,
+            format="json" if format=="json" else None,
+            stream=streaming,
+        )
+        if streaming and streaming_callback:
+            stream_id=str(uuid.uuid4())
+            result=""
+            async for chunk in response:
+                text=chunk['message']['content']
+                if text: 
+                    result+=text
+                    done=await streaming_callback(text,stream_id,finished=False)
+                    if done: 
+                        break
 
-for provider in complete_providers:
-    active_provider_requests[provider]=0
+                else: 
+                    # the last chunk will be the full string.
+                    return await streaming_callback(result,stream_id,finished=True)
+        else:
+            string=response['message']['content']
+            return json.loads(string) if format=="json" else string
+            
+    except Exception as e:
+        print("Error in async_complete")
+        print(e)
+        raise e
 
-async def async_complete(context, format=None,temperature=0.9,streaming=False,streaming_callback=None):
 
-    random_api_base=random.choice(complete_providers)
-
-    print(f"Using API base: {random_api_base}")
-
-    while active_provider_requests[random_api_base] > 5:
-        await asyncio.sleep(1)
-    
-    active_provider_requests[random_api_base]+=1
-
-    response=await acompletion(
-        model="ollama_chat/llama3",
-        messages=context,
-        max_tokens=8192,
-        api_base=random_api_base,
-        format="json" if format=="json" else None,
-        stream=streaming,
-    )
-    if streaming and streaming_callback:
-        stream_id=str(uuid.uuid4())
-        default_result=""
-        async for chunk in response:
-            text=chunk.choices[0].delta.content
-            if text: 
-                default_result+=text
-                callback_result=await streaming_callback(text,stream_id,finished=False)
-                if callback_result:
-                    return default_result
-
-            else: 
-                # the last chunk will be the full string.
-                return await streaming_callback(default_result,stream_id,finished=True)
-
-    string=response.choices[0].message.tool_calls[0].function.arguments if format=="json" else response.choices[0].message.content
-
-    active_provider_requests[random_api_base]-=1
-
-    return json.loads(string) if format=="json" else string
 

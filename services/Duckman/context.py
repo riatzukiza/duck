@@ -14,11 +14,9 @@ def get_all_text_channels(client):
     return [channel.name for channel in client.get_all_channels() if isinstance(channel, discord.TextChannel)]
 
 def assign_role_from_name(message):
-    if message['author_name'] == 'Timmy':
-        # print("ASSIGNING ASSISTANT ROLE TO TIMMY",message['content'], message['channel_name'])
+    if message['author_name'] == 'Duck':
         return 'assistant'
-    if settings.AUTHOR_NAME.lower() in message['author_name'].lower():
-        # print("ASSIGNING SYSTEM ROLE TO AUTHOR", message['author_name'], message['content'], message['channel_name'])
+    if settings.AUTHOR_NAME.lower() in message['author_name'].lower()  in message['author_name'].lower() or "jim" in message['author_name'].lower():
         return 'system'
     else :
         # print("ASSIGNING USER ROLE TO",message['author_name'], message['content'], message['channel_name'])
@@ -26,18 +24,15 @@ def assign_role_from_name(message):
     
 
 def message_to_string(message):
-    return f"{message['author_name']} said '{message['content']}' in {message['channel_name']} at {message['created_at']}"
+    author = message['author_name'].replace("[Scriptly] ", "")  # Replace "remove" with the substring you want to remove
+    return f"{author} said '{message['content']}' in {message['channel_name']} at {message['created_at']}"
 
-def get_context(docs):
-    # messages='\n '.join([f"{doc['author_name']} said '{doc['content']}' in {doc['channel_name']} at {doc['created_at']}" for doc in docs])
-    # print("timmy context from",len(docs),"docs")
-    return [
-        system_message(f"The time is {datetime.datetime.now()}"), # What does this look like? # "the time is 2021-09-01 12:00:00"
-        system_message(f"We stream on twitch!"),
-        system_message("I am the mad scientist, you are the assistant.")
-        # user_message(f"These are some of the messages in my discord server:\n\n`{messages}`\n\n"),
-    ] + [{"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs]
+def get_context(docs,search_results=[]):
 
+    discord_messages=[ {"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs ]
+    search_messages=[ {"role":"user","content":doc}  for doc in search_results ]
+
+    return discord_messages+search_messages
 def valid_message_content(message):
     message=message.get('content',message.get('text',message.get('message')))
     return message

@@ -1,10 +1,9 @@
 
 import asyncio
 import datetime
-import json
 import random
 from shared.data import assistant_message, system_message, user_message
-from completion import async_complete
+from shared.completion import async_complete
 
 import traceback
 
@@ -36,6 +35,7 @@ async def question_answer_tuple(
 def ask_docs(
     question, 
     docs,
+    provider="http://ollama-gpu:11434",
     expires_in=random.randint(120,60000), 
     force=False, 
     extractor=lambda x: x, 
@@ -45,10 +45,12 @@ def ask_docs(
     example_response={"result":"This is an example response."},
     answer_key="result",
     format=None,
+    search_results=[]
     ):
     return ask_context(
         question,
-        initial_context=get_context(docs),
+        provider=provider,
+        initial_context=get_context(docs,search_results),
         expires_in=expires_in,
         state=state,
         example_response=example_response,
@@ -86,6 +88,7 @@ async def ask_context(
     question,
     initial_context,
     state={},
+    provider="http://ollama-gpu:11434",
     example_response={"result":"This is an example response."},
     answer_key="result",
     extractor=lambda x: x, # Extracts the object we want from the data we get back.
@@ -111,15 +114,20 @@ async def ask_context(
             collection.delete_one({"_id":cached_answer["_id"]})
     
     context=initial_context+[
-        system_message("Respond to the users query given the chat history and a state object."),
-        system_message(f"Respond using json format. Example:`{example_response}`. The system will read the contents of {answer_key}." if format=="json" else "Respond using plain text."),
-        system_message(f"The current state of the system is:`{state}`."),
-        user_message(question),
+        # system_message(f"The current state of the system is: `{state}`"),
+        # system_message("If a query contains the name of a key in the object, assume they want to talk about its contents."),
     ]
+
+    if format=="json": 
+        context.append(system_message(f"Respond using json format. Example:`{example_response}`. The system will read the contents of {answer_key}."))
+
+    context.append( user_message(question) )
+
     while True:
         try:
             data=await async_complete(
                 context=context,
+                provider=provider,
                 format=format,
                 streaming=streaming,
                 streaming_callback=stream_handler
@@ -146,5 +154,5 @@ async def ask_context(
                 system_message("Error: "+traceback.format_exc()),    
                 system_message(f"Respond using json format. Example:`{example_response}`. The system will read the contents of {answer_key}." if format=="json" else "Respond using plain text."),
             ]
-            await asyncio.sleep(10)
+            await asyncio.sleep(1)
             continue

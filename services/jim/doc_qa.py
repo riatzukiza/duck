@@ -1,10 +1,9 @@
 
 import asyncio
 import datetime
-import json
 import random
 from shared.data import assistant_message, system_message, user_message
-from completion import async_complete
+from shared.completion import async_complete
 
 import traceback
 
@@ -146,5 +145,5 @@ async def ask_context(
                 system_message("Error: "+traceback.format_exc()),    
                 system_message(f"Respond using json format. Example:`{example_response}`. The system will read the contents of {answer_key}." if format=="json" else "Respond using plain text."),
             ]
-            await asyncio.sleep(10)
+            await asyncio.sleep(1)
             continue

@@ -17,7 +17,7 @@ def assign_role_from_name(message):
     if message['author_name'] == 'Timmy':
         # print("ASSIGNING ASSISTANT ROLE TO TIMMY",message['content'], message['channel_name'])
         return 'assistant'
-    if settings.AUTHOR_NAME.lower() in message['author_name'].lower():
+    if settings.AUTHOR_NAME.lower() in message['author_name'].lower() or "andy" in message['author_name'].lower() or "jim" in message['author_name'].lower():
         # print("ASSIGNING SYSTEM ROLE TO AUTHOR", message['author_name'], message['content'], message['channel_name'])
         return 'system'
     else :

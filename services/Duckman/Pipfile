@@ -18,6 +18,13 @@ discord = "*"
 pandas = "*"
 wikipedia-api = "*"
 nltk = "*"
+ollama = "*"
+duckduckgo-search = "*"
+scrapyd = "*"
+html2text = "*"
+requests = "*"
+chromadb = "*"
+pypdf2 = "*"
 
 [dev-packages]
 

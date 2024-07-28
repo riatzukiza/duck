@@ -8,6 +8,7 @@ import pandas as pd
 import discord
 import re
 from shared import settings
+from shared.discord_text_splitter import split_markdown
 from shared.mongodb import discord_message_collection, generated_message_collection
 from shared.wiki import crawl, get_wikipedia_chunks
     
@@ -15,13 +16,17 @@ CONTENT_FILTER=[
     {"content":{"$nin":[None, "",".featured"]}},
     {"content":{"$not":{"$regex":r"(youtube.com|pplx.ai)","$options":"i"}}}
 ]
-CONTENT_MATCH_FILTER={"$not": {"$regex": r"(youtube.com|pplx.ai)", "$options": "i"}, "$nin": [None, "", ".featured"]}
+CONTENT_MATCH_FILTER={"$not": {"$regex": r"(youtube.com|pplx.ai|herpes|dansa|blockchain|nft)", "$options": "i"}, "$nin": [None, "", ".featured"]}
 
 TRAIN_AUTHOR_FILTER={
     "$not":{"$regex":r"roarar","$options":"i"},
     "$nin":[None,"","Duck","Roarar"]
 }
 
+
+SEARCH_AUTHOR_FILTER={
+    "$nin":[None,"","Duck","Roarar"]
+}
 GEN_AUTHOR_FILTER={
     "$nin":[None,"","Roarar"]
 }
@@ -50,41 +55,17 @@ def get_unread_messages( limit=20):
     }
     return discord_message_collection.find(query).sort("created_at", pymongo.ASCENDING).limit(limit)
 
-def split_markdown(markdown):
-    # Define regex patterns for different markdown elements
-    patterns = {
-        'header': r'(^#{1,6} .*$)',
-        'list_item': r'(^(\*|-|\d+\.) .*$)',
-        'code_block': r'(^```.*?```$)',
-        'blockquote': r'(^> .*$)',
-        'horizontal_rule': r'(^-{3,}$)',
-        'paragraph': r'(^[^#\*\d>\-`].*$)'
-    }
 
-    # Combine all patterns into one regex
-    combined_pattern = re.compile('|'.join(f'(?P<{key}>{pattern})' for key, pattern in patterns.items()), re.MULTILINE | re.DOTALL)
-
-    chunks = []
-    current_pos = 0
-
-    # Use the combined pattern to find matches in the markdown
-    for match in combined_pattern.finditer(markdown):
-        # Get the start and end positions of the match
-        start, end = match.span()
-
-        # If there is a gap between the current position and the start of the match, it means there's a paragraph or other content in between
-        if current_pos < start:
-            chunks.append(markdown[current_pos:start].strip())
-
-        # Append the matched element to the chunks
-        chunks.append(match.group().strip())
-        current_pos = end
-
-    # Add any remaining text as a chunk
-    if current_pos < len(markdown):
-        chunks.append(markdown[current_pos:].strip())
-
-    return [chunk for chunk in chunks if chunk]  # Remove any empty strings
+def get_latest_channel_docs(channel_id=settings.PROFILE_CHANNEL_ID):
+    return get_random_and_latest_messages(
+            discord_message_collection,
+            channel_id=channel_id,
+            user_id=settings.AUTHOR_ID,
+            num_random=10,
+            num_latest=10,
+            num_user_docs=10,
+            num_channel_docs=10
+        )
 def mark_as_read(message):
     """
     Mark a message as read.
@@ -315,20 +296,12 @@ async def send_message(message, sent_messages,client,mark_sent=True, tts=True):
     except Exception:
         channel = client.get_channel(int(settings.DEFAULT_CHANNEL))
     
-    sentences = message['content'].split("\n\n")
+    if message['content'] == "":
+        return
+    await asyncio.sleep(random.randint(8, 13))
+    sent_messages.add(f"{message['channel']}:{message['content']}")
+    await channel.send(message['content'],tts=channel.id == int(settings.DEFAULT_CHANNEL))
 
-    for sentence in sentences:
-        if sentence == "":
-            await asyncio.sleep(random.randint(1, 5))
-            continue
-        if f"{message['channel']}:{sentence}" not in sent_messages:
-            print("Sending message:", sentence, "to", channel.name)
-            sent_messages.add(f"{message['channel']}:{sentence}")
-            await channel.send(sentence,tts=True)
-            print("Sent message:", sentence)
-            await asyncio.sleep(random.randint(1, 5))
-        else:
-            print("Message already sent:", sentence)
 def get_random_and_latest_messages(collection, user_id, channel_id, num_user_docs=100, num_random=5, num_latest=5,num_channel_docs=500):
     """
     get a mix of random, latest, user, and channel messages.

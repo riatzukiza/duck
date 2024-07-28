@@ -1,11 +1,12 @@
 services:
+
   indexer:
     restart: always
     depends_on:
       - mongo
     networks:
       - mongo
-      - ollama_network
+      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -26,28 +27,17 @@ services:
       - ./shared:/app/shared
     build: ./services/twitch
 
-  dispatcher:
-    restart: always
-    depends_on:
-      - mongo
-    networks:
-      - mongo
-    env_file:
-      - .env.duck
-    volumes:
-      - ./services/discord-dispatcher:/app
-      - ./shared:/app/shared
-    build: ./services/discord-dispatcher
-
   timmy:
     restart: always
     depends_on:
       - mongo
       - indexer
-      - ollama
+      - ollama-gpu
+      # - ollama
     networks:
       - mongo
-      - ollama_network
+      - ollama_gpu_network
+      # - ollama_network
     env_file:
       - .env.timmy
     volumes:
@@ -61,9 +51,11 @@ services:
       - mongo
       - indexer
       - ollama-gpu
+      # - ollama
     networks:
       - mongo
       - ollama_gpu_network
+      # - ollama_network
     env_file:
       - .env.jim
     volumes:
@@ -76,42 +68,134 @@ services:
     depends_on:
       - mongo
       - indexer
-      - ollama
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+      # - duckman-state-manager
+      # - ollama
     networks:
       - mongo
-      - ollama_network
+      - ollama_gpu_network
+      # - ollama_network
     env_file:
       - .env.duck
     volumes:
       - ./services/Duckman:/app
       - ./shared:/app/shared
-    build: ./services/Duckman
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+
+  timmothy:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+      # - duckman-state-manager
+      # - ollama
+    networks:
+      - mongo
+      - ollama_gpu_network
+      # - ollama_network
+    env_file:
+      - .env.timmy
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+  duckman-search-manager:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      # - ollama
+    networks:
+      - mongo
+      - ollama_gpu_network
+      # - ollama_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    command: python3 search_manager.py
+  duckman-embedding-manager:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      # - ollama
+    networks:
+      - mongo
+      - ollama_gpu_network
+      # - ollama_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    command: python3 embedding_manager.py
+  duckman-state-manager:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      # - ollama
+    networks:
+      - mongo
+      - ollama_gpu_network
+      # - ollama_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    command: python3 state_manager.py
   duck:
     restart: always
     depends_on:
       - mongo
       - indexer
-      - ollama
-    ports:
-      - 11435:11435
+      - ollama-gpu
+
+      # - ollama
     networks:
       - mongo
-      - ollama_network
+      - ollama_gpu_network
+      # - ollama_network
+    ports:
+      - 11435:11435
     env_file:
       - .env.duck
     volumes:
       - ./services/duck:/app
       - ./shared:/app/shared
     build: ./services/duck
-
   zen:
     restart: always
     depends_on:
       - mongo
-      - ollama
+      # - ollama
     networks:
       - mongo
-      - ollama_network
+      # - ollama_network
     env_file:
       - .env.zen
     volumes:
@@ -119,46 +203,6 @@ services:
       - ./shared:/app/shared
     build: ./services/zen
 
-  generator:
-    restart: always
-    depends_on:
-      - mongo
-    networks:
-      - mongo
-    env_file:
-      - .env.duck
-    volumes:
-      - ./services/generator:/app
-      - ./shared:/app/shared
-      - ./models:/app/models
-    build: ./services/generator
-    deploy:
-      resources:
-        reservations:
-           devices:
-            - driver: nvidia
-              device_ids: [ "0" ]
-              capabilities: [gpu]
-  trainer:
-    restart: always
-    depends_on:
-      - mongo
-    networks:
-      - mongo
-    env_file:
-      - .env.duck
-    volumes:
-      - ./services/trainer:/app
-      - ./shared:/app/shared
-      - ./models:/app/models
-    build: ./services/trainer
-    deploy:
-      resources:
-        reservations:
-           devices:
-            - driver: nvidia
-              device_ids: [ "0" ]
-              capabilities: [gpu]
   mongo:
     restart: always
     image: mongo
@@ -168,6 +212,8 @@ services:
       - mongo
     expose:
       - 27017
+    ports:
+      - 27017:27017
   cache:
     image: redis:6.2-alpine
     restart: always
@@ -179,20 +225,6 @@ services:
         --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     volumes:
       - cache:/data
-  ollama:
-    volumes:
-      - ollama:/root/.ollama
-    ports:
-      - 11434:11434
-    container_name: ollama
-    pull_policy: always
-    tty: true
-    restart: unless-stopped
-    image: ollama/ollama:latest
-    environment:
-      - OLLAMA_NUM_PARALLEL=10
-    networks:
-      - ollama_network
 
 
   ollama-gpu:
@@ -215,17 +247,17 @@ services:
     tty: true
     restart: unless-stopped
     image: ollama/ollama:latest
-    environment:
-      - OLLAMA_NUM_PARALLEL=10
+    # environment:
+    #   - OLLAMA_NUM_PARALLEL=2
     networks:
       - ollama_gpu_network
 volumes:
-  ollama: {}
+  # ollama: {}
   ollama-gpu: {}
   cache:
     driver: local
 networks:
   mongo:
   chroma:
-  ollama_network:
+  # ollama_network:
   ollama_gpu_network:

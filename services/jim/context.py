@@ -14,10 +14,10 @@ def get_all_text_channels(client):
     return [channel.name for channel in client.get_all_channels() if isinstance(channel, discord.TextChannel)]
 
 def assign_role_from_name(message):
-    if message['author_name'] == 'Timmy':
+    if message['author_name'] == 'Jim':
         # print("ASSIGNING ASSISTANT ROLE TO TIMMY",message['content'], message['channel_name'])
         return 'assistant'
-    if settings.AUTHOR_NAME.lower() in message['author_name'].lower():
+    if settings.AUTHOR_NAME.lower() in message['author_name'].lower() or "andy" in message['author_name'].lower():
         # print("ASSIGNING SYSTEM ROLE TO AUTHOR", message['author_name'], message['content'], message['channel_name'])
         return 'system'
     else :
@@ -38,7 +38,6 @@ def get_context(docs):
         system_message("You're a software genius."),
         system_message("We write games in Lua all the time."),
         system_message("You help me corral these other bots."),
-        # user_message(f"These are some of the messages in my discord server:\n\n`{messages}`\n\n"),
     ] + [{"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs]
 
 def valid_message_content(message):
