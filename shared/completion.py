@@ -2,13 +2,21 @@ import json
 import uuid
 import ollama
 
-async def async_complete(context,provider="http://ollama-gpu:11434", format=None,temperature=0.9,streaming=False,streaming_callback=None):
+async def async_complete(
+    context,
+    provider="http://ollama-gpu:11434", 
+    format=None,
+    model="Godmoded/llama3-lexi-uncensored",
+    temperature=0.9,
+    streaming=False,
+    streaming_callback=None
+    ):
     try:
         client=ollama.AsyncClient(host=provider)
         for message in context:
             print(message['content'])
         response=await client.chat(
-            model="Godmoded/llama3-lexi-uncensored",
+            model=model,
             #model="llama3.1",
             messages=context,
             format="json" if format=="json" else None,

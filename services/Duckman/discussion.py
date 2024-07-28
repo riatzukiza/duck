@@ -26,16 +26,30 @@ def get_documents_by_ids(ids):
     
     return document_list
 async def respond_to_state(message):
+    # use vision model if message has image.
+
+
+
     return await complete_latest_chat_stream(
         message.channel.id,
         f"{message.author.name.replace('[Scriptly] ','(Transcribed)')} said '{message.content}' in {message.channel.name}.",
     )
 
-async def complete_latest_chat_stream(channel_id,question,key="last_user_question"):
+async def complete_latest_chat_stream(channel_id,question,key="last_user_question",image=None):
     update_state({ "channel_id":channel_id })
 
-    results = get_documents_by_ids(chroma_collection.query(query_texts=[question], n_results=200)['ids'][0])
-    search_results= search_collection.query(query_texts=[question], n_results=200)['documents'][0]
+    # for now load the client in the function so the context is as fresh as possible.
+    
+    chroma_client = chromadb.PersistentClient(path="./chroma_db")
+
+    file_chroma = chroma_client.get_or_create_collection(name="duckman_files")
+    message_chroma = chroma_client.get_or_create_collection(name="discord_messages")
+    search_chroma = chroma_client.get_or_create_collection(name="search-results")
+
+    results = get_documents_by_ids(message_chroma.query(query_texts=[question], n_results=13)['ids'][0])
+    search_results= search_chroma.query(query_texts=[question], n_results=8)['documents'][0]
+    relavent_files= file_chroma.query(query_texts=[question], n_results=21)['documents'][0]
+
     # print("search results",search_results)
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
     docs=get_latest_channel_docs(channel_id)+results+profile_docs
@@ -43,10 +57,23 @@ async def complete_latest_chat_stream(channel_id,question,key="last_user_questio
     # sort by time newest last
     docs.sort(key=lambda x: x['created_at'])
 
+    for doc in docs:
+        # in the future we could use the similarity score we get back 
+        # from chroma_collection.query to  determine the number of results we want
+        search_results+= search_chroma.query(query_texts=[doc['content']], n_results=5)['documents'][0]
+        relavent_files+= file_chroma.query(query_texts=[doc['content']], n_results=5)['documents'][0]
+
+    for file in relavent_files:
+        docs+=get_documents_by_ids(
+            message_chroma.query(query_texts=[file], n_results=10)['ids'][0]
+        )
+        
     return await ask_docs( 
         question, state=state, streaming=True, docs=docs, 
+        image=image,
         stream_handler=handle_chunk, 
-        search_results=search_results
+        search_results=search_results,
+        relavent_files=relavent_files
     )
 
 
