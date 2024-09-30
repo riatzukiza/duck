@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .env.duck
 .env.timmy
 .env.zen
@@ -9,16 +8,7 @@ data/
 models/
 ollama-webui
 frontend/node_modules/
-=======
-.env.duck
-.env.timmy
-.env.zen
-.env.twitch
-.env.jim
-*.csv
-data/
-models/
-ollama-webui
-.env.*
->>>>>>> oops-chroma-commit
 services/Duckman/chroma_db
+services/Duckman/files
+games
+.#*

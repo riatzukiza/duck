@@ -27,12 +27,30 @@ def message_to_string(message):
     author = message['author_name'].replace("[Scriptly] ", "")  # Replace "remove" with the substring you want to remove
     return f"{author} said '{message['content']}' in {message['channel_name']} at {message['created_at']}"
 
-def get_context(docs,search_results=[]):
+def get_context(docs,search_results=[],relavent_files=[]):
 
     discord_messages=[ {"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs ]
     search_messages=[ {"role":"user","content":doc}  for doc in search_results ]
+    file_messages=[ {"role":"user","content":doc}  for doc in relavent_files ]
 
-    return discord_messages+search_messages
+    return [
+        system_message("What time is it?"),
+        assistant_message(f"The time is {datetime.datetime.now()}"),
+        assistant_message("Good I was getting bored reading all the trash you guy's all post."),
+        system_message("You are about to get some discord messages relavent to the current conversation."),
+        *discord_messages,
+        system_message("That was the last of the discord messages"),
+        system_message("The following messages are from search results relavent to the query:"),
+        *search_messages,
+        system_message("That was the last of the search results."),
+        system_message("Use the search results to address the users query."),
+        system_message("The following messages are chunks of relavent files."),
+        *file_messages,
+        system_message("That was the last of the relavent files."),
+        system_message("Use the file to respond to the discord messages."),
+
+
+    ]
 def valid_message_content(message):
     message=message.get('content',message.get('text',message.get('message')))
     return message

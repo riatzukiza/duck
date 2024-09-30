@@ -375,3 +375,16 @@ def get_channel_by_id(id,client):
     """
     return client.get_channel(id)
     
+
+def get_documents_by_ids(ids):
+    # Connect to MongoDB
+
+    # Convert string IDs to ObjectId
+
+    # Query to find documents with the specified IDs
+    documents = discord_message_collection.find({'_id': {'$in': ids}})
+
+    # Convert the cursor to a list
+    document_list = list(documents)
+    
+    return document_list

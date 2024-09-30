@@ -10,28 +10,6 @@ import traceback
 from context import get_context     
 from shared.mongodb import timmy_answer_cache_collection
 
-async def question_answer_tuple(
-    question,
-    context,
-    extractor,
-    format,
-    force,
-    state={},
-    example_response={"result":"This is an example response."},
-    answer_key="result",
-    expires_in=random.randint(12000,60000)):
-    answer=await ask_context(
-        question,
-        context,
-        extractor,
-        state=state,
-        example_response=example_response,
-        answer_key=answer_key,
-        expires_in=expires_in,
-        format=format,
-        force=force)
-    return [user_message(question),assistant_message(answer)]
-
 def ask_docs(
     question, 
     docs,
@@ -39,20 +17,19 @@ def ask_docs(
     expires_in=random.randint(120,60000), 
     force=False, 
     extractor=lambda x: x, 
-    state={},
     stream_handler=None,
     streaming=False,
     example_response={"result":"This is an example response."},
     answer_key="result",
     format=None,
-    search_results=[]
+    search_results=[],
+    relavent_files=[],
     ):
     return ask_context(
         question,
         provider=provider,
-        initial_context=get_context(docs,search_results),
+        initial_context=get_context(docs,search_results,relavent_files),
         expires_in=expires_in,
-        state=state,
         example_response=example_response,
         answer_key=answer_key,
         force=force,
@@ -61,33 +38,10 @@ def ask_docs(
         extractor=extractor,
         format=format
     )
-def ask_doc_qa(
-    question, 
-    docs,
-    state={},
-    example_response={"result":"This is an example response."},
-    answer_key="result",
-    expires_in=random.randint(12000,60000), 
-    force=False, 
-    extractor=lambda x: x,
-    format=None
-    ):
-    return question_answer_tuple(
-        question,
-        state=state,
-        example_response=example_response,
-        answer_key=answer_key,
-        context=get_context(docs),
-        expires_in=expires_in,
-        extractor=extractor,
-        force=force,
-        format=format
-    )
 
 async def ask_context(
     question,
     initial_context,
-    state={},
     provider="http://ollama-gpu:11434",
     example_response={"result":"This is an example response."},
     answer_key="result",
@@ -103,7 +57,6 @@ async def ask_context(
     cached_answer=collection.find_one({"question":question,"format":format})
     print("question",datetime.datetime.now())
     print(question)
-    # print(f"state: {state}")
 
     if cached_answer and not force:
         if  cached_answer["expires_at"]>datetime.datetime.now():
@@ -113,10 +66,7 @@ async def ask_context(
         else:
             collection.delete_one({"_id":cached_answer["_id"]})
     
-    context=initial_context+[
-        # system_message(f"The current state of the system is: `{state}`"),
-        # system_message("If a query contains the name of a key in the object, assume they want to talk about its contents."),
-    ]
+    context=[*initial_context]
 
     if format=="json": 
         context.append(system_message(f"Respond using json format. Example:`{example_response}`. The system will read the contents of {answer_key}."))

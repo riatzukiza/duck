@@ -32,29 +32,3 @@ chroma_collection = chroma_client.get_or_create_collection(name="discord_message
 # print(f"Search results for query '{query}':")
 # print(results)
 
-async def generate_embedding(text):
-    response = await client.embeddings(
-        model=MODEL_NAME,
-        prompt=text
-    )
-    return response["embedding"]
-
-def update_embeddings(n=1000):
-    # Find all documents in the collection
-    random_documents = get_random_unique_messages(n)
-
-    for doc in random_documents:
-        content = doc.get("content")
-
-        print("indexing", doc["_id"])
-        print(content)
-
-        chroma_collection.upsert(ids=[str(doc["_id"])], documents=[content])
-    
-    latest_documents = discord_message_collection.find().sort([("_id", -1)]).limit(n)
-
-    for doc in latest_documents:
-        content = doc.get("content")
-        print("indexing", doc["_id"])
-        print(content)
-        chroma_collection.upsert(ids=[str(doc["_id"])], documents=[content])

@@ -1,20 +1,17 @@
 import asyncio
 import json
-from shared.mongodb import discord_message_collection
 
-from discussion import discuss_everything, complete_latest_chat_stream
-from shared.create_message_embeddings import update_embeddings
-from context import clear_answers, get_all_text_channels
+from discussion import  complete_latest_chat_stream
+from context import clear_answers
 from sent_messages import sent_messages
-from discussion import generate_channel_state,respond_to_state, update_state
-from state import state, update_state_from_search
+from discussion import respond_to_state, update_state
+from state import state
 
 import shared.settings as settings
 
-from shared.discord import send_message, get_latest_channel_docs
+from shared.discord import send_message
 from shared.mongodb import timmy_answer_cache_collection
 from discord_client import client
-from discord.ext import commands
 
 # Global state variable
 state = {}
@@ -93,9 +90,6 @@ async def on_message(message):
     if state.get('channel_name', settings.DEFAULT_CHANNEL_NAME) == message.channel.id:
         print("got a new message")
         update_state({"new_message": message.content})
-
-    if "discuss" in message.content:
-        await discuss_everything()
 
     await respond_to_state(message)
     await client.process_commands(message)

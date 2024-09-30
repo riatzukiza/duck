@@ -22,13 +22,12 @@ def split_markdown(markdown,finished=False):
 
     for line in lines:
         if "```" in line :
-            split_line=line.split("```")
-            if code_block:
+            if code_block and not (code_block.count("```") % 2):
                 code_block+=line+ "\n\n"
                 results.append(code_block)
                 code_block=""
             else:
-                code_block+=line 
+                code_block+=line + "\n\n"
         elif code_block:
             code_block+=line + "\n\n"
         elif re.match(r"^\d+\.",line):

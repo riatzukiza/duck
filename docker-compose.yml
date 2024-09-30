@@ -6,7 +6,6 @@ services:
       - mongo
     networks:
       - mongo
-      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -14,43 +13,60 @@ services:
       - ./shared:/app/shared
     build: ./services/discord-indexer
 
-  twitch:
-    restart: always
-    depends_on:
-      - mongo
-    networks:
-      - mongo
-    env_file:
-      - .env.twitch
-    volumes:
-      - ./services/twitch:/app
-      - ./shared:/app/shared
-    build: ./services/twitch
-  duckman-http:
-    restart: always
-    command: python3 http_server.py
-    depends_on:
-      - mongo
-      - indexer
-      - ollama-gpu
-      - duckman-embedding-manager
-      - duckman-search-manager
-      # - duckman-state-manager
-      # - ollama
-    networks:
-      - mongo
-      - ollama_gpu_network
-      # - ollama_network
-    env_file:
-      - .env.duck
-    volumes:
-      - ./services/Duckman:/app
-      - ./shared:/app/shared
-    build: 
-      context: services/Duckman
-      dockerfile: ../../Dockerfile
+  # twitch:
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - mongo
+  #   env_file:
+  #     - .env.twitch
+  #   volumes:
+  #     - ./services/twitch:/app
+  #     - ./shared:/app/shared
+  #   build: ./services/twitch
+  # duckman-http:
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities:
+  #               - gpu
+  #   restart: always
+  #   command: python3 http_server.py
+  #   depends_on:
+  #     - mongo
+  #     - indexer
+  #     - ollama-gpu
+  #     - duckman-embedding-manager
+  #     - duckman-search-manager
+  #   ports:
+  #     - 8000:8000
+  #   expose: 
+  #     - 8000:8000
+  #   networks:
+  #     - mongo
+  #     - ollama_gpu_network
+  #   env_file:
+  #     - .env.duck
+  #   volumes:
+  #     - ./services/Duckman:/app
+  #     - ./shared:/app/shared
+  #   build: 
+  #     context: services/Duckman
+  #     dockerfile: ../../Dockerfile
 
   duckman-file-indexer:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
     restart: always
     command: python3 file_indexer.py
     depends_on:
@@ -59,12 +75,9 @@ services:
       - ollama-gpu
       - duckman-embedding-manager
       - duckman-search-manager
-      # - duckman-state-manager
-      # - ollama
     networks:
       - mongo
       - ollama_gpu_network
-      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -81,12 +94,9 @@ services:
       - ollama-gpu
       - duckman-embedding-manager
       - duckman-search-manager
-      # - duckman-state-manager
-      # - ollama
     networks:
       - mongo
       - ollama_gpu_network
-      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -95,18 +105,33 @@ services:
     build: 
       context: services/Duckman
       dockerfile: ../../Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
 
   duckman-search-manager:
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
     restart: always
     depends_on:
       - mongo
       - indexer
       - ollama-gpu
-      # - ollama
     networks:
       - mongo
       - ollama_gpu_network
-      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -117,16 +142,22 @@ services:
       dockerfile: ../../Dockerfile
     command: python3 search_manager.py
   duckman-embedding-manager:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
     restart: always
     depends_on:
       - mongo
       - indexer
       - ollama-gpu
-      # - ollama
     networks:
       - mongo
       - ollama_gpu_network
-      # - ollama_network
     env_file:
       - .env.duck
     volumes:
@@ -136,26 +167,24 @@ services:
       context: services/Duckman
       dockerfile: ../../Dockerfile
     command: python3 embedding_manager.py
-  duckman-state-manager:
-    restart: always
-    depends_on:
-      - mongo
-      - indexer
-      - ollama-gpu
-      # - ollama
-    networks:
-      - mongo
-      - ollama_gpu_network
-      # - ollama_network
-    env_file:
-      - .env.duck
-    volumes:
-      - ./services/Duckman:/app
-      - ./shared:/app/shared
-    build: 
-      context: services/Duckman
-      dockerfile: ../../Dockerfile
-    command: python3 state_manager.py
+  # duckman-state-manager:
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #     - indexer
+  #     - ollama-gpu
+  #   networks:
+  #     - mongo
+  #     - ollama_gpu_network
+  #   env_file:
+  #     - .env.duck
+  #   volumes:
+  #     - ./services/Duckman:/app
+  #     - ./shared:/app/shared
+  #   build: 
+  #     context: services/Duckman
+  #     dockerfile: ../../Dockerfile
+  #   command: python3 state_manager.py
 
   mongo:
     restart: always
@@ -194,8 +223,11 @@ services:
     volumes:
       - ollama-gpu:/root/.ollama
     # Uncomment below to expose Ollama API outside the container stack
-    # ports:
-    #   - 11434:11434
+    ports:
+      - 11434:11434
+    
+    expose:
+      - 11434
     container_name: ollama-gpu
     pull_policy: always
     tty: true
