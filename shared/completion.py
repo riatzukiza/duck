@@ -6,7 +6,7 @@ async def async_complete(
     context,
     provider="http://ollama-gpu:11434", 
     format=None,
-    model="Godmoded/llama3-lexi-uncensored",
+    model="artifish/llama3.2-uncensored",
     temperature=0.9,
     streaming=False,
     streaming_callback=None

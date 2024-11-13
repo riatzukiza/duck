@@ -25,5 +25,6 @@ async def generate_embedding(text):
         print(e)
         await asyncio.sleep(5)
         return await generate_embedding(text)
+    print("embedding response",response)
     embeddings[text]=response["embedding"]
     return response["embedding"]

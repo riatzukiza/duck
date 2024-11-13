@@ -8,6 +8,7 @@ data/
 models/
 ollama-webui
 frontend/node_modules/
+services/frontend/node_modules/
 services/Duckman/chroma_db
 services/Duckman/files
 games

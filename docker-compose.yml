@@ -25,38 +25,38 @@ services:
   #     - ./services/twitch:/app
   #     - ./shared:/app/shared
   #   build: ./services/twitch
-  # duckman-http:
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: 1
-  #             capabilities:
-  #               - gpu
-  #   restart: always
-  #   command: python3 http_server.py
-  #   depends_on:
-  #     - mongo
-  #     - indexer
-  #     - ollama-gpu
-  #     - duckman-embedding-manager
-  #     - duckman-search-manager
-  #   ports:
-  #     - 8000:8000
-  #   expose: 
-  #     - 8000:8000
-  #   networks:
-  #     - mongo
-  #     - ollama_gpu_network
-  #   env_file:
-  #     - .env.duck
-  #   volumes:
-  #     - ./services/Duckman:/app
-  #     - ./shared:/app/shared
-  #   build: 
-  #     context: services/Duckman
-  #     dockerfile: ../../Dockerfile
+  duckman-http:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    restart: always
+    command: python3 http_server.py
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+    ports:
+      - 8000:8000
+    expose: 
+      - 8000:8000
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
 
   duckman-file-indexer:
     deploy:

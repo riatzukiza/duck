@@ -10,7 +10,6 @@ client = motor.motor_asyncio.AsyncIOMotorClient(CONNECTION_STRING, 27017)
 
 @app.get("/collections/{collection}/")
 async def read_collection(collection:str, limit:int=10, skip:int=0,channel_name:str="duck-bots",user_name:str=""):
-    print("What?")
     collection = client[settings.MONGODB_ADMIN_DATABASE_NAME][collection]
     docs = await collection.aggregate([
         {"$sort": {"_id": -1}},

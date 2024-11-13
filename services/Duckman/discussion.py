@@ -14,7 +14,12 @@ from context import  get_all_text_channels
 from discord_client import client
 import chromadb
 
-search_collection = chromadb.PersistentClient(path="./chroma_db").get_or_create_collection(name="search_results")
+
+chroma_client = chromadb.PersistentClient(path="./chroma_db")
+
+file_chroma = chroma_client.get_or_create_collection(name="duckman_files")
+message_chroma = chroma_client.get_or_create_collection(name="discord_messages")
+search_chroma = chroma_client.get_or_create_collection(name="search-results")
 
 def get_documents_by_ids(ids): return list(discord_message_collection.find({'_id': {'$in': ids}}).sort([("created_at", -1)]))
 
@@ -31,20 +36,20 @@ async def complete_latest_chat_stream(channel_id,question,key="last_user_questio
 
     # for now load the client in the function so the context is as fresh as possible.
     
-    chroma_client = chromadb.PersistentClient(path="./chroma_db")
-
-    file_chroma = chroma_client.get_or_create_collection(name="duckman_files")
-    message_chroma = chroma_client.get_or_create_collection(name="discord_messages")
-    search_chroma = chroma_client.get_or_create_collection(name="search-results")
 
     question_embedding = await generate_embedding(question)
 
-    results = get_documents_by_ids(message_chroma.query(
-        query_embeddings=[question_embedding], n_results=200)['ids'][0])
-    relavent_files= file_chroma.query(
-        query_embeddings=[question_embedding], n_results=20)['documents'][0]
+    result_query = message_chroma.query(
+        query_embeddings=[question_embedding], n_results=200)
+
+    results = get_documents_by_ids(result_query['ids'][0])
+    relavent_file_query= file_chroma.query(
+        query_embeddings=[question_embedding], n_results=20)
     search_results= search_chroma.query(
         query_embeddings=[question_embedding], n_results=20)['documents'][0]
+    relavent_files=relavent_file_query['documents'][0]
+    print("RELAVANT FILE QUERY",relavent_file_query)
+    print("RESULTS",result_query)
 
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
     unique_docs=set()

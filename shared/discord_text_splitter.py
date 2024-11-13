@@ -3,6 +3,7 @@ import re
 
 import nltk
 nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Extract sentences from a text
 def extract_sentences(text):

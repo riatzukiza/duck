@@ -17,17 +17,17 @@ file_collection = db["duckman_files"]
 
 directory = "."
 
-def format_code_chunks(path,i,sha,contents,extension):
+def format_code_chunks(path,i,contents,extension):
     return f"""
-Contents of {path} (SHA: {sha}, chunk {i}):
+Contents of {path} (chunk {i}):
 ```{extension}
 {contents}
 ```
 """
 
-def format_code_lines(path,i,sha,contents,extension):
+def format_code_lines(path,i,contents,extension):
     return f"""
-Contents of {path} (SHA: {sha}, line {i}):
+Contents of {path} (line {i}):
 ```{extension}
 {contents}
 ```
@@ -37,13 +37,16 @@ Contents of {path} (SHA: {sha}, line {i}):
 async def index_file(file,root,extension):
     with open(os.path.join(root, file), "r") as f:
         contents=f.read()
-        shasum=hash(contents)
 
         sleep(5)
         for i,chunk in enumerate(contents.split('\n\n')):
-            text=format_code_chunks(os.path.join(root, file),i,shasum,chunk,extension)
+            text=format_code_chunks(os.path.join(root, file),i,chunk,extension)
             embedding = await generate_embedding(text)
-            chroma_collection.upsert(ids=[os.path.join(root, file)+"-"+str(shasum)+"-chunk-"+str(i)],embeddings=[embedding])
+            print("upserting",os.path.join(root, file))
+            print("embedding",embedding)
+            chroma_collection.upsert(ids=[os.path.join(root, file)],
+                                     embeddings=[embedding],
+                                     documents=[text])
 async def main():
     while True:
         for root, dirs, files in os.walk(directory):

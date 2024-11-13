@@ -7,6 +7,7 @@ from shared import settings
 from shared.data import assistant_message, system_message, user_message
 from shared.discord import get_channel_by_id, get_channel_by_name
 import discord
+from discord_client import client
 
 from shared.mongodb import discord_message_collection, timmy_answer_cache_collection
 
@@ -16,8 +17,8 @@ def get_all_text_channels(client):
 def assign_role_from_name(message):
     if message['author_name'] == 'Duck':
         return 'assistant'
-    if settings.AUTHOR_NAME.lower() in message['author_name'].lower()  in message['author_name'].lower() or "jim" in message['author_name'].lower():
-        return 'system'
+    # if settings.AUTHOR_NAME.lower() in message['author_name'].lower()  in message['author_name'].lower() or "jim" in message['author_name'].lower():
+    #     return 'system'
     else :
         # print("ASSIGNING USER ROLE TO",message['author_name'], message['content'], message['channel_name'])
         return 'user'
@@ -28,28 +29,24 @@ def message_to_string(message):
     return f"{author} said '{message['content']}' in {message['channel_name']} at {message['created_at']}"
 
 def get_context(docs,search_results=[],relavent_files=[]):
+    # print("DOCS",docs)
+    print("SEARCH RESULTS",search_results)
+    print("RELAVANT FILES",relavent_files)
 
     discord_messages=[ {"role":assign_role_from_name(doc),"content":message_to_string(doc)} for doc in docs ]
-    search_messages=[ {"role":"user","content":doc}  for doc in search_results ]
-    file_messages=[ {"role":"user","content":doc}  for doc in relavent_files ]
+    search_messages=[ {"role":"system","content":doc}  for doc in search_results ]
+    file_messages=[ {"role":"system","content":doc}  for doc in relavent_files ]
 
     return [
-        system_message("What time is it?"),
-        assistant_message(f"The time is {datetime.datetime.now()}"),
-        assistant_message("Good I was getting bored reading all the trash you guy's all post."),
-        system_message("You are about to get some discord messages relavent to the current conversation."),
+        system_message(f"The time is {datetime.datetime.now()}"),
+        system_message(f"You will be able to see the messages from the following channels: {get_all_text_channels(client)}"),
+        system_message(f"Here are the messages from the discord server:"),
         *discord_messages,
-        system_message("That was the last of the discord messages"),
-        system_message("The following messages are from search results relavent to the query:"),
+        system_message(f"Here are the search results:"),
         *search_messages,
-        system_message("That was the last of the search results."),
-        system_message("Use the search results to address the users query."),
-        system_message("The following messages are chunks of relavent files."),
+        system_message(f"Here are the files:"),
         *file_messages,
-        system_message("That was the last of the relavent files."),
-        system_message("Use the file to respond to the discord messages."),
-
-
+        system_message(f"End of context.")
     ]
 def valid_message_content(message):
     message=message.get('content',message.get('text',message.get('message')))
