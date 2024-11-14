@@ -12,7 +12,6 @@ def extract_sentences(text):
 
 def split_into_sentences(text):
     # Define the regex pattern for sentence boundaries
-    
     return text.split(".\n\n")
 
 def split_markdown(markdown,finished=False):

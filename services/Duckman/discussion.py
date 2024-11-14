@@ -21,39 +21,44 @@ file_chroma = chroma_client.get_or_create_collection(name="duckman_files")
 message_chroma = chroma_client.get_or_create_collection(name="discord_messages")
 search_chroma = chroma_client.get_or_create_collection(name="search-results")
 
-def get_documents_by_ids(ids): return list(discord_message_collection.find({'_id': {'$in': ids}}).sort([("created_at", -1)]))
+def get_documents_by_ids(ids):
+    return list(discord_message_collection.find({'_id': {'$in': ids}}).sort([("created_at", -1)]))
 
 async def respond_to_state(message):
     # use vision model if message has image.
-
     return await complete_latest_chat_stream(
         message.channel.id,
         f"{message.author.name.replace('[Scriptly] ','(Transcribed)')} said '{message.content}' in {message.channel.name}.",
     )
 
+async def get_
+
 async def complete_latest_chat_stream(channel_id,question,key="last_user_question",image=None):
     update_state({ "channel_id":channel_id })
 
     # for now load the client in the function so the context is as fresh as possible.
-    
-
     question_embedding = await generate_embedding(question)
 
     result_query = message_chroma.query(
         query_embeddings=[question_embedding], n_results=200)
 
     results = get_documents_by_ids(result_query['ids'][0])
+
     relavent_file_query= file_chroma.query(
         query_embeddings=[question_embedding], n_results=20)
+
     search_results= search_chroma.query(
         query_embeddings=[question_embedding], n_results=20)['documents'][0]
+
     relavent_files=relavent_file_query['documents'][0]
+
     print("RELAVANT FILE QUERY",relavent_file_query)
     print("RESULTS",result_query)
 
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
     unique_docs=set()
-    def is_unique_document(doc): 
+
+    def is_unique_document(doc):
         if doc['_id'] in unique_docs:
             return False
         else:
@@ -70,8 +75,8 @@ async def complete_latest_chat_stream(channel_id,question,key="last_user_questio
         if finished or state.get("new_message","")!="":
             split=split_markdown(state.get(stream_key,""),finished=True)
             update_state({ "new_message":"" })
-            await send_message({ 
-                    "content":split[0], 
+            await send_message({
+                    "content":split[0],
                     "channel": state.get("channel_id",settings.DEFAULT_CHANNEL)
                 },
                 sent_messages,

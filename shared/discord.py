@@ -11,7 +11,7 @@ from shared import settings
 from shared.discord_text_splitter import split_markdown
 from shared.mongodb import discord_message_collection, generated_message_collection
 from shared.wiki import crawl, get_wikipedia_chunks
-    
+
 CONTENT_FILTER=[
     {"content":{"$nin":[None, "",".featured"]}},
     {"content":{"$not":{"$regex":r"(youtube.com|pplx.ai)","$options":"i"}}}
