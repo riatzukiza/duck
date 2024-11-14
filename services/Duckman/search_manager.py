@@ -51,7 +51,7 @@ def convert_html_to_markdown(html_content):
     return split_markdown(converter.handle(html_content))
 
 def split_into_chunks(input_string, chunk_size=1000):
-    '''Splits the input string into chunks of specified size.'''  
+    '''Splits the input string into chunks of specified size.'''
     return [input_string[i:i + chunk_size] for i in range(0, len(input_string), chunk_size)]
 
 
@@ -90,9 +90,12 @@ async def handle_search_result(result,keyword):
 
     completed_searches.add(keyword)
     scraped_sources.add(result['href'])
+
 async def update_state_from_search( question,key,examples=["Search term","AI","hacking","bananas","minecraft recipes"],get_docs=get_latest_channel_docs):
 
     # Define the search keywords
+    # We want to move away from this approach.
+    # We don't use the state property the same way any more.
     keywords = await generate_state_property_update(
         f"Generate a list of search terms from '{question}'",
         f'{key}_search_keywords',
