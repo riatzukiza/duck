@@ -30,7 +30,10 @@ async def main():
             header_dict=dict(response.headers)
             print(json.dumps(header_dict,indent=4))
 
-            json.dump(header_dict,open(f"{href.replace('/','_').replace(':','_').replace('.','_')}.header.json",'w'), indent=4)
+            json.dump(header_dict, open(
+                f"{href.replace('/','_').replace(':','_').replace('.','_')}.header.json",'w'),
+                      indent=4)
+
             with open(f"{href.replace('/','_').replace(':','_').replace('.','_')}_body",'wb') as f:
                 f.write(response.content)
             print("Saved",href)
