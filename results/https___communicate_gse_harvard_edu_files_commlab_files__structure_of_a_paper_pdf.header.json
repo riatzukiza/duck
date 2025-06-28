@@ -1,0 +1,17 @@
+{
+    "Content-Type": "application/pdf",
+    "Content-Length": "185008",
+    "Last-Modified": "Wed, 17 Feb 2021 15:41:37 GMT",
+    "ETag": "\"2d2b0-5bb8a0df52988\"",
+    "X-Request-ID": "v-c6e928b8-a48d-11ef-a2d3-e3d0a80659ea",
+    "X-AH-Environment": "prod",
+    "X-Cache-Hits": "1",
+    "X-Age": "466",
+    "Accept-Ranges": "bytes",
+    "Cache-Control": "public, max-age=60",
+    "Expires": "Tue, 19 Nov 2024 01:35:51 GMT",
+    "Date": "Tue, 19 Nov 2024 01:34:51 GMT",
+    "Connection": "keep-alive",
+    "Server-Timing": "cdn-cache; desc=HIT, edge; dur=42, origin; dur=0, ak_p; desc=\"1731980090984_399098171_229261399_4248_11806_117_190_-\";dur=1",
+    "Strict-Transport-Security": "max-age=15768000"
+}

@@ -1,0 +1,22 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:35:53 GMT",
+    "Content-Type": "text/html;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "vary": "Accept-Encoding,User-Agent",
+    "x-tserver": "ip-10-145-21-72/127.0.1.1",
+    "Set-Cookie": "bcomID=-288199502104091718; Max-Age=315360000; Expires=Fri, 17 Nov 2034 01:35:53 GMT; Domain=britannica.com; Path=/, SessionAuth=gCaOwOycH1zzMsqMHTj6tHL04Kt4DaPKNF4nBLy2tMLXwDTk8j/napyin2M8I3Ch+mRAtXF01zQ5w5j0XJyqiQ==; Domain=britannica.com; Path=/, subreturn=https%3A%2F%2Fwww.britannica.com%2Ftechnology%2Fartificial-intelligence; Domain=britannica.com; Path=/, webstats=referer_page=https%3A%2F%2Fwww.britannica.com%2Ftechnology%2Fartificial-intelligence; Domain=britannica.com; Path=/, __mendel=%7B%27surveyShown%27%3Afalse%2C%27visitedTopicId%27%3A37146%2C%27currentDate%27%3A20241118%7D; Domain=britannica.com; Path=/, JSESSIONID=FBEE4B2153E1EF2A46AC9D4FCCA458B2; Path=/; Secure; HttpOnly, __cf_bm=4WtSiXn4hYyNJu71SHACVcWZ8ndSENdjYY_1scVZt7U-1731980153-1.0.1.1-uCRL7xPSSkJi43BFZUFWcDqEVhMrHljbLSiqDaMv..aDVCAuztL_1R8qeYNQTSrYOFxkHnRO3ieGwFyo9azUPw; path=/; expires=Tue, 19-Nov-24 02:05:53 GMT; domain=.britannica.com; HttpOnly; Secure; SameSite=None",
+    "content-language": "en-US",
+    "x-wserver": "127.0.0.1",
+    "x-iset": "green",
+    "x-xss-protection": "1; mode=block",
+    "x-permitted-cross-domain-policies": "master-only",
+    "expect-ct": "max-age=604800",
+    "CF-Cache-Status": "DYNAMIC",
+    "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=LD5GGgHHbRzJigI6THDA5iKemLwdpX1jEkaeV3wO8oToU39glYBfoUF8pqhEkqyUH4PPPYS1XOYVrWY75EDG03wHV8jgUBn%2BviibywBf49qB6fPBd%2BXlrCF7KghGs1RvMmkupQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+    "NEL": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+    "Server": "cloudflare",
+    "CF-RAY": "8e4c7754b8620d58-LAX",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+}

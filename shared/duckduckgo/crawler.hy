@@ -4,6 +4,24 @@
 (import requests)
 (import json)
 (import mimetypes)
+(import os)
+
+;; (require macros.macros)
+
+
+(defmacro property [cls name & body]
+  `(defn :property ~name [self]
+     ~@body))
+
+(defmacro cprop [cls name & body]
+  `(defn :cached_property ~name [self]
+     ~@body))
+
+(defmacro init [cls prop_args]
+  "defines an init for a class that takes a list of properties"
+  `(defn __init__ [self ~@prop_args]
+     ~@(lfor prop_name prop_args
+             `(setv (. self ~prop_name) ~prop_name))))
 
 (setv keywords ["research papers filetype:pdf" "Search term" "AI" "hacking" "bananas" "minecraft recipes"])
 
@@ -19,36 +37,65 @@
         extension
         (if (and extension (.startswith extension "."))
           (str (cut extension 1 (len extension)))
-          ".unknown")))) 
-
-(defmacro property [cls name & body]
-  `(defn :property ~name [self]
-     ~@body))
-
-(defmacro cprop [cls name & body]
-  `(defn :cached_property ~name [self]
-     ~@body))
-
-(defmacro init [cls prop_args]
-"defines an init for a class that takes a list of properties"
-  `(defn __init__ [self ~@prop_args]
-    ~@(lfor prop_name prop_args
-        `(setv (. self ~prop_name) ~prop_name)))))))
+          ".unknown"))))
 
 (defclass SearchResult []
-  (init [_result])  
+  "A class for interacting with meta data returned from a search client."
+
+  (init [_result_dict])
+
+  (property _result self._result_dict)
+
+
   (property href (.get self._result "href" (.get self._result "url")))
   (property sanitized_url (. href (replace "/" "_") (replace ":" "_") (replace "." "_")))
-  (cprop extension (get-extension response))
 
-  (cprop response (.get requests self.href))
+  ; (cprop extension (get-extension self.response))
+  ; (cprop response (.get requests self.href))
+  (cprop response (SearchResultResponse self._result))
 
   (property title (.get self._result "title"))
   (property description (.get self._result "description"))
   (property source (.get self._result "source"))
   (property date (.get self._result "date"))
   (property image (.get self._result "image"))
-  (property thumbnail (.get self._result "thumbnail")))
+  (property thumbnail (.get self._result "thumbnail"))
+  (property result_file_name (os.path.join path f"{self.title}.result.json"))
+
+  (defn save [self path]
+    "Save the results returned from the search client"
+
+    (setv result_file_name (os.path.join path f"{self.result_file_name}.result.json"))
+
+    (.dump json result (open  result_file_name "w") :indent 4)))
+
+(defclass SearchResultResponse []
+  "A class for interacting with the web page associated with a search result's source/href/url"
+  (init [ _result])
+
+  (cprop extension (get-extension self.response))
+  (cprop response (.get requests self.href))
+  (cprop headers (.get self.response "headers"))
+
+  (property result self._result)
+  (property href self.result.href)
+
+  (property header_file_name (os.path.join path f"{self.result.title}.header.json"))
+  (property body_file_name (os.path.join path f"{self.result.title}_body.{extension}"))
+
+  (property sanitized_url (. href (replace "/" "_") (replace ":" "_") (replace "." "_")))
+
+  (defn  save [self path]
+    "Save the result dictionary and response (headers and response body) to the local file system for later use."
+    (.save self.result)
+
+    (setv header_file_name (os.path.join path f"{self.sanitized_url}.header.json"))
+    (setv body_file_name (os.path.join path f"{self.sanitized_url}_body.{extension}"))
+
+    (.dump json headers (open  header_file_name "w") :indent 4)
+
+    (with [f (open body_file_name "wb")]
+      (.write f response.content))))
 
 (defclass SearchClient []
 
@@ -59,24 +106,8 @@
       (await (.sleep asyncio 1))
       (try
         (let [result (SearchResult _result)]
-          (print f"Searching for {query}")
 
           (print (.dumps json headers :indent 4))
-
-          (setv sanitized_url (. href (replace "/" "_") (replace ":" "_") (replace "." "_")) )
-          (setv extension (get-extension response))
-
-          (setv header_file_name f"{self._base_path}{sanitized_url}.header.json")
-          (setv result_file_name f"{self._base_path}{sanitized_url}.result.json")
-          (setv body_file_name f"{self._base_path}{sanitized_url}_body.{extension}")
-
-          (.dump json headers (open  header_file_name "w") :indent 4)
-          (.dump json result (open  result_file_name "w") :indent 4)
-
-          (with [f (open body_file_name "wb")]
-            (.write f response.content))
-
-          (print "Saved" href "to" body_file_name)
 
           (except [e Exception]
             (print f"Failed to fetch {href}: {e}")

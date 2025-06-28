@@ -1,0 +1,21 @@
+{
+    "Connection": "keep-alive",
+    "Content-Length": "33253",
+    "Cache-Control": "public, max-age=604800",
+    "Content-Encoding": "gzip",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Link": "<https://nutritionsource.hsph.harvard.edu/wp-json/>; rel=\"https://api.w.org/\", <https://nutritionsource.hsph.harvard.edu/wp-json/wp/v2/pages/14967>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://nutritionsource.hsph.harvard.edu/?p=14967>; rel=shortlink",
+    "Server": "nginx",
+    "Strict-Transport-Security": "max-age=300",
+    "X-Pantheon-Styx-Hostname": "styx-fe2-a-5466c7c5b8-prs6f",
+    "X-Styx-Req-Id": "2c014ab8-a2a2-11ef-a4b2-865bfe08344e",
+    "Age": "379918",
+    "Accept-Ranges": "bytes",
+    "Via": "1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+    "Date": "Tue, 19 Nov 2024 01:36:46 GMT",
+    "X-Served-By": "cache-chi-klot8100085-CHI, cache-phx1710081-PHX, cache-phx1710037-PHX, cache-phx1710037-PHX",
+    "X-Cache": "HIT, HIT, MISS, MISS",
+    "X-Cache-Hits": "61, 0, 0, 0",
+    "X-Timer": "S1731980207.544742,VS0,VE10",
+    "Vary": "Accept-Encoding, Cookie, Cookie"
+}

@@ -1,0 +1,16 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:35:28 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "CF-Ray": "8e4c76bd48676a49-PHX",
+    "CF-Cache-Status": "BYPASS",
+    "Cache-Control": "no-store, no-cache",
+    "cf-apo-via": "origin,page-rules",
+    "content-security-policy": "frame-ancestors 'self'",
+    "Set-Cookie": "__cf_bm=oTWbb8MBkpdKhmXS5udzgU3LDVSXEw3IjPq7C_fdV10-1731980128-1.0.1.1-MkzysrNvQSS35kccod7YOx4KtrMxvERZl3CHhXAB3M7_nsxmsBdRcNrrGsx_.ZhENczcMpgV2GUT__iwJ4qj.A; path=/; expires=Tue, 19-Nov-24 02:05:28 GMT; domain=.ahrefs.com; HttpOnly; Secure; SameSite=None",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+}

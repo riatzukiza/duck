@@ -1,0 +1,18 @@
+{
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Tue, 19 Nov 2024 01:36:33 GMT",
+    "vary": "accept-encoding",
+    "content-encoding": "gzip",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy-report-only": "frame-ancestors 'self'; object-src 'none'; report-uri /api/csp-reporting",
+    "x-hl-ver": "11900678645",
+    "host": "www.healthline.com",
+    "cache-control": "max-age=300, must-revalidate, private",
+    "set-cookie": "blab=84472c7f-2048-48cf-a6ae-320ec871a0fd; Max-Age=315360000; Expires=Fri, 17 Nov 2034 01:36:33 GMT; Secure; SameSite=Lax; Domain=healthline.com; Path=/, lastContentSeen=/nutrition/foods/bananas|othernutrition; Max-Age=600; Expires=Tue, 19 Nov 2024 01:46:33 GMT; Secure; SameSite=Strict; Domain=healthline.com; Path=/",
+    "X-Cache": "Miss from cloudfront",
+    "Via": "1.1 924eb6575c2679d663c17bd1e792d09a.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "LAX50-C1",
+    "X-Amz-Cf-Id": "YahXiSxdJUCx9fn2FVYM50g34rYTotF2EbmiplwjXUuYsxIgEzhitg=="
+}

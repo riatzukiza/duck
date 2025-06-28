@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <title>TryHackMe | Cyber Security Training</title>
+
+  
+  <meta name="description" content="TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!" />
+  <meta name="og:description" content="TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!" />
+  
+
+  <meta name="keywords" content="cyber,security,cyber security,cyber security training,coding,computer,bitcoin,hacking,hackers,hacks,hack,exploits,keylogger,learn,poc" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!--{{BASE_URL}}-->
+  <meta property="og:site_name" content="TryHackMe">
+
+  
+  <meta property="og:title" content="TryHackMe | Cyber Security Training">
+  <meta property="og:image" content="https://tryhackme.com/img/meta/default.png">
+  <meta property="og:url" content="https://tryhackme.com">
+  
+
+  <meta name="twitter:image" content="https://tryhackme.com/img/meta/default.png">
+
+  
+  <meta property="og:description" content="An online platform for learning and teaching cyber security, all through your browser.">
+  
+
+  <meta charset="utf-8">
+
+  <script src="https://assets.tryhackme.com/js/jquery.min.js?v=3.5.1"></script>
+  <script src="https://assets.tryhackme.com/js/popper.min.js"></script>
+
+  <link rel="stylesheet" href="https://assets.tryhackme.com/css/boostrap431.min.css">
+
+  <script src="https://assets.tryhackme.com/js/bootstrap431.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+  <link href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="https://assets.tryhackme.com/img/favicon.png" />
+  <link rel="stylesheet" media="screen" href="https://assets.tryhackme.com/css/general-style.css?v=2.17">
+  <script src="https://assets.tryhackme.com/js/script.js?v=3.12"></script>
+  <script src="https://assets.tryhackme.com/js/validation.js"></script>
+  <script type="text/javascript">
+    !function () { "use strict"; !function (e, t) { var r = e.amplitude || { _q: [], _iq: {} }; if (r.invoked) e.console && console.error && console.error("Amplitude snippet has been loaded."); else { var n = function (e, t) { e.prototype[t] = function () { return this._q.push({ name: t, args: Array.prototype.slice.call(arguments, 0) }), this } }, s = function (e, t, r) { return function (n) { e._q.push({ name: t, args: Array.prototype.slice.call(r, 0), resolve: n }) } }, o = function (e, t, r) { e._q.push({ name: t, args: Array.prototype.slice.call(r, 0) }) }, i = function (e, t, r) { e[t] = function () { if (r) return { promise: new Promise(s(e, t, Array.prototype.slice.call(arguments))) }; o(e, t, Array.prototype.slice.call(arguments)) } }, a = function (e) { for (var t = 0; t < g.length; t++)i(e, g[t], !1); for (var r = 0; r < m.length; r++)i(e, m[r], !0) }; r.invoked = !0; var c = t.createElement("script"); c.type = "text/javascript", c.crossOrigin = "anonymous", c.async = !0, c.src = "https://cdn.amplitude.com/libs/analytics-browser-2.8.1-min.js.gz", c.onload = function () { e.amplitude.runQueuedFunctions || console.log("[Amplitude] Error: could not load SDK") }; var u = t.getElementsByTagName("script")[0]; u.parentNode.insertBefore(c, u); for (var l = function () { return this._q = [], this }, p = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove", "getUserProperties"], d = 0; d < p.length; d++)n(l, p[d]); r.Identify = l; for (var f = function () { return this._q = [], this }, v = ["getEventProperties", "setProductId", "setQuantity", "setPrice", "setRevenue", "setRevenueType", "setEventProperties"], y = 0; y < v.length; y++)n(f, v[y]); r.Revenue = f; var g = ["getDeviceId", "setDeviceId", "getSessionId", "setSessionId", "getUserId", "setUserId", "setOptOut", "setTransport", "reset", "extendSession"], m = ["init", "add", "remove", "track", "logEvent", "identify", "groupIdentify", "setGroup", "revenue", "flush"]; a(r), r.createInstance = function (e) { return r._iq[e] = { _q: [] }, a(r._iq[e]), r._iq[e] }, e.amplitude = r } }(window, document) }();
+
+    amplitude.init("d09a34bd2da2173645f4671e8b72dc11", "", {
+      defaultTracking: {
+        attribution: false,
+        pageViews: false,
+        sessions: true,
+        formInteractions: false,
+        fileDownloads: false,
+      },
+    })
+  </script>
+  
+  <script>
+    paceOptions = {
+      ajax: false, // disabled
+      document: true, // enabled
+      eventLag: true, // disabled
+    }
+  </script>
+  <script src="/assets/pace/pace.js"></script>
+  <link href="/assets/pace/themes/green/pace-theme-flash.css" rel="stylesheet" />
+  
+
+  <!-- For cookies -->
+  <link rel="stylesheet" type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPFM5LPL');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- <link rel="stylesheet" media="screen" href="https://assets.tryhackme.com/css/dark-style.css"> -->
+  <script>
+    window.intercomSettings = {
+      api_base: "https://api-iam.intercom.io",
+      app_id: "pgpbhph6"
+    };
+  </script>
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 1950941, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+  
+    <script type="text/javascript">
+      var _cio = _cio || [];
+      (function() {
+          var a,b,c;a=function(f){return function(){_cio.push([f].
+          concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+          "sidentify","track","page","on","off"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+          var t = document.createElement('script'),
+              s = document.getElementsByTagName('script')[0];
+          t.async = true;
+          t.id    = 'cio-tracker';
+          const siteId = '1fb6cc3507accadb5446';
+          t.setAttribute('data-site-id', siteId);
+          t.setAttribute('data-use-array-params', 'true');
+          t.setAttribute('data-use-in-app', 'true');
+          t.src = 'https://assets.customer.io/assets/track-eu.js';
+          s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+    <script src="/api/v2/customer-io" ></script>
+    
+  
+  <script>
+    /* Global javascript variables */
+
+    // Used inside script.js for createRooms completed users.
+    const username = ''
+    const subscribed = ''
+    const level = '0'
+    const intercomEnabled = ''
+  </script>
+  
+  <script type="application/ld+json">
+
+   {
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "url":"https://tryhackme.com",
+      "name":"TryHackMe",
+      "logo":"https://tryhackme.com/img/favicon.png",
+      "description":"TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!",
+      "email": "support@tryhackme.com",
+      "sameAs":[
+         "https://www.linkedin.com/company/tryhackme",
+         "https://twitter.com/realtryhackme"
+      ]
+   }
+
+</script>
+  
+  <script>
+    console.log(`%c
+      ------------------
+      < Happy Hacking! >
+      ------------------
+              \\   ^__^
+               \\  (oo)\\_______
+                  (__)\\       )\\/\\
+                      ||----w |
+                      ||     ||`, "font-family:monospace")
+  </script>
+
+<script>
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/pgpbhph6';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+</script>
+
+</head>
+
+    <link rel="stylesheet" href="https://assets.tryhackme.com/css/pages/index.css?v=1.0">
+
+    <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css">
+    <link rel="stylesheet" href="https://assets.tryhackme.com/css/utils/slick-data.css">
+    <script src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+
+    <body>
+      <nav class="navbar navbar-expand-md navbar-dark navbar-colour-index fixed-top logged-out-navbar show-nav-pagelinks" aria-label="Primary navigation menu">
+
+  <div class="container">
+    <div class="navbar-brand mr-4" href="/">
+      <a href='/'>
+        <img width="140" src='https://assets.tryhackme.com/img/logo/tryhackme_logo_full.svg' alt='TryHackMe' class='logo' />
+      </a>
+    </div>
+
+    <button id="thm-mobile-nav-open" class="thm-nav__hamburger-btn" data-target="#thm-mobile-nav-menu"
+      aria-controls="thm-mobile-nav-menu" aria-expanded="false" aria-label="Open mobile navigation">
+      <span class="thm-nav__hamburger-lines"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-pagelinks d-none">
+        
+
+<li class="nav-item  dropdown lite-removable" id='nav-learn'>
+  <a id='nav-other' class="nav-link" href="#" data-toggle="dropdown">
+      <i class='navbar-item-icon far fa-book-open'></i>
+      <div class='navbar-item-text'>Learn</div>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    
+        <a class="dropdown-item d-flex vertical-align-custom" href="/r/hacktivities">
+            <div class='dropdown-menu-icon'>
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div class='dropdown-menu-desc'>
+                <span class='mb-0'>Learn</span>
+                <div class='text-lgray size-12'>Hands-on Hacking</div>
+            </div>
+        </a>
+      
+
+      
+        <a class="dropdown-item d-flex vertical-align-custom" href="/r/hacktivities/practice">
+            <div class='dropdown-menu-icon'>
+                <i class="fas fa-bullseye-arrow"></i>
+            </div>
+            <div class='dropdown-menu-desc'>
+                <span class='mb-0'>Practice</span>
+                <div class='text-lgray size-12'>Reinforce your learning</div>
+            </div>
+        </a>
+      
+      
+      
+        <a class="dropdown-item d-flex vertical-align-custom" href="/r/hacktivities/search">
+            <div class='dropdown-menu-icon'>
+                <i class="fas fa-search"></i>
+            </div>
+            <div class='dropdown-menu-desc'>
+                <span class='mb-0'>Search</span>
+                <div class='text-lgray size-12'>Explore over 800 rooms</div>
+            </div>
+        </a>
+    
+      
+  </div>
+</li>
+
+<li class="nav-item  dropdown lite-removable">
+    <a id='nav-other' class="nav-link" href="#" data-toggle="dropdown">
+        <i class='navbar-item-icon far fa-trophy'></i>
+        <div class='navbar-item-text'>Compete</div>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item d-flex vertical-align-custom" href="/games/koth">
+        <div class='dropdown-menu-icon'>
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class='dropdown-menu-desc'>
+            <span class='mb-0'>King of the Hill</span>
+            <div class='text-lgray size-12'>Attack & Defend</div>
+        </div>
+      </a>
+      <a class="dropdown-item d-flex vertical-align-custom" href="/leaderboards">
+          <div class='dropdown-menu-icon'>
+              <i class="fas fa-trophy"></i>
+          </div>
+          <div class='dropdown-menu-desc'>
+              <span class='mb-0'>Leaderboards</span>
+              <div class='text-lgray size-12'>Platform Rankings</div>
+          </div>
+      </a>
+    </div>
+</li>
+
+<li class="nav-item dropdown  lite-removable">
+  <a id='nav-other' class="nav-link" href="#" data-toggle="dropdown">
+      <i class='navbar-item-icon far fa-university'></i>
+      <div class='navbar-item-text'>For Education</div>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item d-flex vertical-align-custom" href="/classrooms">
+      <div class='dropdown-menu-icon'>
+        <i class="fas fa-chalkboard-teacher"></i>
+      </div>
+      <div class='dropdown-menu-desc'>
+          <span class='mb-0'>Teaching</span>
+          <div class='text-lgray size-12'>Use our security labs</div>
+      </div>
+    </a>
+    <a class="dropdown-item d-flex vertical-align-custom" href="/develop-rooms">
+      <div class='dropdown-menu-icon'>
+        <i class="fas fa-flask"></i>
+      </div>
+      <div class='dropdown-menu-desc'>
+          <span class='mb-0'>Create Labs</span>
+          <div class='text-lgray size-12'>Upload & Deploy VMs</div>
+      </div>
+    </a>
+  </div>
+</li>
+
+<li class="nav-item ">
+  <a class="nav-link" href="https://business.tryhackme.com">
+      <i class="navbar-item-icon far fa-briefcase"></i>
+      <div class='navbar-item-text'>For Business</div>
+  </a>
+</li>
+
+
+  <li class="nav-item">
+    <a class="nav-link" href="/r/pricing">
+        <i class="navbar-item-icon far fa-usd-circle"></i>
+        <div class='navbar-item-text'>Pricing</div>
+    </a>
+  </li>
+
+      </ul>
+    </div>
+
+    <ul class="navbar-nav options horizontal-align-custom navbar-login-signup-container mobile-navbar-hide-login-signup">
+      
+      
+        
+        <div class="search-header-wrapper">
+            <li class="nav-item">
+                <button onclick="openSearchResultsPopup()" class="search-header-button" type="button" id="header--search-button" >
+                    <i class="far fa-search"></i>
+                </button>
+               
+            </li>
+            <div class="search-results-popup ">
+  <div class="input-group search-results-input">
+    <div class="input-group-prepend"><span class='input-group-text'><i class="fa fa-search"></i></span></div>
+    <input id="search-input-id" type="text" class="form-control" autocomplete="off" onChange={handleSearch} >
+    <button id="clear-button" class=" input-clear-button" type="button" onclick="clearSearchInput()"><span aria-hidden="true">&times;</span></button>
+  </div>
+
+  <div class="alert alert-info search-alert-info"></div>
+
+  <div class='results-this-week-list'>
+
+    <div class="results-title-list ">
+      <p>Recently released
+      </p>
+      <a href="/r/hacktivities/search?&page=1&kind=rooms&order=newest" class="view-all-link" >View all</a>
+    </div>
+    <div class="spinner-border spinner-border-sm loading-indicator" role="status">
+      <span class="sr-only"></span>
+    </div>
+    <ul class="search-results-list" id="search-results-new-rooms-list"></ul>
+
+  </div>
+ 
+  <div class="search-results-wrapper">
+    <div>
+      <div class="results-title-list">
+        <p>Rooms 
+          <span id="rooms-count"></span>
+        </p>
+        <a href="" id="view-all-rooms" class="view-all-link">View all</a>
+      </div>
+      <div class="spinner-border spinner-border-sm loading-indicator" role="status">
+        <span class="sr-only"></span>
+      </div>
+      <ul class="search-results-list" id="search-results-rooms-list"></ul>
+    </div>
+    <div>
+      
+      <div class="results-title-list">
+        <p>Modules <span id="modules-count"></span></p>
+        <a href="" id="view-all-modules" class="view-all-link">View all</a>
+      </div>
+      <div class="spinner-border spinner-border-sm loading-indicator" role="status">
+        <span class="sr-only"></span>
+      </div>
+      <ul class="search-results-list" id="search-results-modules-list"></ul>
+    </div>
+    <div>
+      <div class="results-title-list">
+        <p>Learning paths <span id="paths-count"></span></p>
+        <a href="" id="view-all-paths" class="view-all-link">View all</a>
+      </div>
+      <div class="spinner-border spinner-border-sm loading-indicator" role="status">
+        <span class="sr-only"></span>
+      </div>
+      <ul class="search-results-list" id="search-results-paths-list"></ul>
+    </div>
+    <div>
+      
+      <div class="results-title-list">
+        <p>Networks <span id="networks-count"></span></p>
+        <a href="" id="view-all-networks" class="view-all-link">View all</a>
+      </div>
+      <div class="spinner-border spinner-border-sm loading-indicator" role="status">
+        <span class="sr-only"></span>
+      </div>
+      <ul class="search-results-list" id="search-results-networks-list"></ul>
+    </div>
+  </div>
+
+</div>
+        </div>
+          
+      <li class="nav-item vertical-align-custom">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item vertical-align-custom">
+        <a id='navbar-signup' class="nav-link" href="/signup">
+          <button type="button" class="btn btn-hgreen">
+            Join for FREE
+          </button>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav id="thm-mobile-nav-menu" class="thm-mobile-nav" aria-label="Mobile secondary navigation menu.">
+  <header>
+    <a href='/' aria-label="Go to the home page">
+      <img width="140" src='https://assets.tryhackme.com/img/logo/tryhackme_logo_full.svg' alt='TryHackMe' class='logo' />
+    </a>
+
+    <button
+      id="thm-mobile-nav-close"
+      data-target="#thm-mobile-nav-menu"
+      aria-controls="thm-mobile-nav-menu"
+      aria-expanded="false"
+      aria-label="Close mobile navigation"
+    >
+      <i class="fal fa-times"></i>
+    </button>
+
+  </header>
+
+  <ul class="thm-mobile-nav-items mb-0">
+    
+  <li class="nav-item ">
+  <a class="nav-link" href="/hacktivities">
+    <i class="nav-title-icon far fa-book-open"></i>
+    <div class="nav-title">Learn</div>
+  </a>
+</li>
+
+<li class="nav-item ">
+  <a aria-expanded="false" aria-controls="mobile-nav-compete" aria-label="Toggle Compete menu" data-dropdownid="mobile-nav-compete" class="sublinks-toggle nav-link">
+    <i class='nav-title-icon far fa-trophy'></i>
+    <div class="nav-title">Compete</div>
+    <i class="far fa-angle-down"></i>
+  </a>
+  <div id="mobile-nav-compete" class="dropdown-wrapper">
+    <a href="/games/koth">
+      <div>
+        <i class="fas fa-crown"></i>
+      </div>
+      <div>
+        <span class='mb-0'>King of the Hill</span>
+        <div class='text-lgray size-12'>Attack & Defend</div>
+      </div>
+    </a>
+    <a href="/leaderboards">
+      <div>
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div>
+        <span class='mb-0'>Leaderboards</span>
+        <div class='text-lgray size-12'>Platform Rankings</div>
+      </div>
+    </a>
+  </div>
+</li>
+
+<li class="nav-item">
+  <a aria-expanded="false" aria-controls="mobile-nav-networks" aria-label="Toggle Networks menu" data-dropdownid="mobile-nav-networks" class="sublinks-toggle nav-link">
+    <i class='nav-title-icon far fa-network-wired'></i>
+    <div class="nav-title">Networks</div>
+    <i class="far fa-angle-down"></i>
+  </a>
+  <div id="mobile-nav-networks" class="dropdown-wrapper">
+    <a href="/network/throwback">
+      <div>
+        <i class="fab fa-windows"></i>
+      </div>
+      <div class='mr-3'>
+        <span class='mb-0'>Throwback</span>
+        <div class='text-lgray size-12'>Attacking Active Directory</div>
+      </div>
+    </a>
+    <a href="/room/wreath">
+      <div>
+        <i class="fas fa-stream"></i>
+      </div>
+        <div class='mr-3'>
+          <span class='mb-0'>Wreath</span>
+          <div class='text-lgray size-12'>Network Pivoting</div>
+        </div>
+    </a>
+  </div>
+</li>
+
+<li class="nav-item ">
+  <a aria-expanded="false" aria-controls="mobile-nav-education" aria-label="Toggle For Education menu" data-dropdownid="mobile-nav-education" class="sublinks-toggle nav-link">
+    <i class='nav-title-icon far fa-university'></i>
+    <div class="nav-title">For Education</div>
+    <i class="far fa-angle-down"></i>
+  </a>
+  <div id="mobile-nav-education" class="dropdown-wrapper">
+    <a href="/classrooms">
+      <div>
+        <i class="fas fa-chalkboard-teacher"></i>
+      </div>
+      <div>
+        <span class='mb-0'>Teaching</span>
+        <div class='text-lgray size-12'>Use our security labs</div>
+      </div>
+    </a>
+    <a href="/develop-rooms">
+      <div>
+        <i class="fas fa-flask"></i>
+      </div>
+      <div>
+        <span class='mb-0'>Create Labs</span>
+        <div class='text-lgray size-12'>Upload & Deploy VMs</div>
+      </div>
+    </a>
+  </div>
+</li>
+
+<li class="nav-item ">
+  <a class="nav-link" href="https://business.tryhackme.com">
+    <i class="nav-title-icon far fa-briefcase"></i>
+    <div class="nav-title">For Business</div>
+  </a>
+</li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/r/pricing">
+        <i class="navbar-item-icon far fa-usd-circle"></i>
+        <div class='nav-title'>Pricing</div>
+    </a>
+  </li>
+
+<li class="nav-item ">
+  <a class="nav-link size-22 " href="/r/hacktivities/search" > <i class="nav-title-icon far fa-search"></i>
+    <div class="nav-title">Search</div>
+  </a>
+  </li> 
+
+
+
+
+  
+  </ul>
+
+  
+    <ul class="auth-actions">
+      <li>
+        <a class="login" href="/login">Login</a>
+      </li>
+  
+      <li>
+        <a id='mobiile-navbar-signup' class="nav-link" href="/signup">
+          <button type="button" class="btn btn-hgreen">
+            Join for FREE
+          </button>
+        </a>
+      </li>
+    </ul>
+  
+</nav>
+
+
+<script defer src="https://assets.tryhackme.com/js/mobile-nav.js"></script>
+<script src="https://assets.tryhackme.com/js/utils/searchPopup.js?v=1"></script>
+
+
+      <div class="jumbotron star-background vertical-align-custom noselect">
+    <section class="short-home-container container vertical-align-custom animated fadeIn">
+        <div class='banner-items-container d-flex vertical-align-custom w-100 row'>
+            <div class="col-auto col-md-9">
+                <h2 class="display-4 mb-3 i-text-shadow main-heading">
+                    Anyone can learn cyber security with TryHackMe
+                </h2>
+                <p class='size-30 faded mb-4 i-text-shadow main-sub-heading'>Hands-on cyber security training through real-world
+                    scenarios</p>
+
+                <div class="short-signup form-row">
+                    <div class="col-md-4">
+                        <input id="jumbo-email" type="email" class="form-control md-mr-2 my-1" placeholder="Email">
+                    </div>
+                    <div class="col mt-3 mt-md-0">
+                        <button type="submit" onclick="signupModal()" class="btn btn-hgreen my-1">Join for FREE</button>
+                    </div>
+                </div>
+
+                <div class='d-flex mt-4 faded row no-gutters'>
+                    <div class='col-sm-6 col-md-auto mr-4'>
+                        <i class="fas text-accent fa-check mr-1"></i> Beginner Friendly
+                    </div>
+                    <div class='col-sm-6 col-md-auto mr-4'>
+                        <i class="fas text-accent fa-check mr-1"></i> Guides and Challenges
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-auto col-md-3 mt-4 mt-md-0">
+                <img class='rocket-man' src='/img/getting-started/rocketman.svg'>
+            </div>
+        </div>
+
+    </section>
+    <img class='jumbo-svg-waves' src='/img/illustrations/waves.svg'>
+</div>
+
+    <div class="container main" id='why-tryhackme'>
+      <div class='row vertical-align-custom'>
+    <div class='col-sm-3 text-center mb-4 mb-md-0'>
+        <img src="https://assets.tryhackme.com/img/getting-started/badges.png" style="width:230px;">
+    </div>
+    <div class='col-sm-9'>
+        <h3 class='bold-header'><i>Byte</i>-sized gamified lessons</h3>
+        <div class="titleunderline"></div>
+        <p class='text-lgray size-18'>Learning cyber security on TryHackMe is fun and addictive. Earn points by answering questions, taking on challenges and maintain your hacking streak through short lessons. </p>
+    </div>
+</div>
+      <div class='home-break'></div>
+      <div class='row vertical-align-custom'>
+    <div class='col-sm-5'>
+        <h3 class='bold-header'>Learn and Practice</h3>
+        <div class="titleunderline"></div>
+        <p class='text-lgray size-18'>Learn by following a structured paths and reinforce your skills in a real-world environment by completing guided, objective-based tasks and challenges.</p>
+    </div>
+    <div class='col-sm-7 pl-0'>
+        <div id='paths'><i>Loading...</i></div>
+    </div>
+</div>
+
+      <div class='home-break'></div>
+      <div class='carousel-container'>
+    <!-- Page will be SEO optimised, want users to find us organically and sign up instantly -->
+    <!-- <div><button type="button" onclick="signupModal()" class="float-right btn btn-success btn-hgreen">Join for FREE</button></div> -->
+    <div class='m-auto'>
+        <h3 class='m-auto text-center mb-3'>Hands-on hacking for all skill levels</h3>
+        <p class='mt-2 size-18 text-center faded'>Learn cyber security with fun gamified labs and challenges</p>
+    </div></br>
+    <div id="carouselWhyTHM" class="carousel slide row" data-ride="carousel" data-interval="false">
+        <div class="carousel-indicators col-md-12 col-lg-3">
+            <div data-target="#carouselWhyTHM" data-slide-to="0" class="active">Exercises in every lesson</div>
+            <div data-target="#carouselWhyTHM" data-slide-to="1">Beginner Friendly</div>
+            <div data-target="#carouselWhyTHM" data-slide-to="2">Start Hacking Instantly</div>
+            <div data-target="#carouselWhyTHM" data-slide-to="3">Real-world Networks</div>
+        </div>
+        <div class="carousel-inner col-md-12 col-lg-9">
+            <div class="carousel-item active">
+                <div class="console-header">
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                </div>
+                <div style="position:relative; overflow: hidden;" class="embed-container">
+                    <iframe title="Exercises in every lesson" allow="autoplay; fullscreen; picture-in-picture" frameborder="0"
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        src="https://player.vimeo.com/video/554897147?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
+                    </iframe>
+                </div>
+
+                <h3 class='mt-4 mb-2'>Exercises in every lesson</h3>
+                <p class='size-18 faded mb-0'>TryHackMe goes way beyond textbooks and focuses on fun interactive lessons
+                    that make you put theory into practice. You'll get an immersive learning experience with network
+                    simulations, intentionally vulnerable technology based on real world examples and more.</p>
+            </div>
+            <div class="carousel-item">
+                <div class="console-header">
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                </div>
+                <div style="position:relative; overflow: hidden;" class="embed-container">
+                    <iframe title="Beginner Friendly" allow="autoplay; fullscreen; picture-in-picture" frameborder="0" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen
+                        src="https://player.vimeo.com/video/554870915?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
+                    </iframe>
+                </div>
+                <h3 class='mt-4 mb-2'>Beginner Friendly</h3>
+                <p class='size-18 faded mb-0'>New to security? No problem! We have learning paths that will teach you
+                    the fundamental cyber security skills, which will help set you up to land a job in cyber security.
+                </p>
+            </div>
+            <div class="carousel-item">
+                <div class="console-header">
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                </div>
+                <div style="position:relative; overflow: hidden;" class="embed-container">
+                    <iframe title="Start Hacking Instantly" allow="autoplay; fullscreen; picture-in-picture" frameborder="0" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen
+                        src="https://player.vimeo.com/video/554870858?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
+                    </iframe>
+                </div>
+
+                <h3 class='mt-4 mb-2'>Start Hacking Instantly</h3>
+                <p class='size-18 faded mb-0'>We give you all the tools you need to start learning. Access a machine
+                    with the security tools you'll need through the browser, and starting learning from anywhere at any
+                    time. All you need is an internet connection!</p>
+            </div>
+            <div class="carousel-item">
+                <div class="console-header">
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                    <span class="console-button"></span>
+                </div>
+                <img class='whyTHMImg' src='/img/general/networks.png'>
+
+                <h3 class='mt-4 mb-2'>Real-world Networks</h3>
+                <p class='size-18 faded mb-0'>Take your cyber security training to the next stage by learning to attack
+                    and defend computer networks similar to those used by various organisations today.</p>
+            </div>
+        </div>
+    </div>
+</div>
+      <div class='home-break'></div>
+      <div class='row vertical-align-custom'>
+    <div class='col-sm-9'>
+        <h3 class='bold-header'>Community</h3>
+        <div class="titleunderline"></div>
+        <p class='text-lgray size-18'>Connect with other like-minded cyber security students and join our huge community. Ask questions, share knowledge and meet people on the same journey as you.</p>
+    </div>
+    <div class='col-sm-3 text-center'>
+        <div class="stat-circle">
+            <span id="usercount">352k</span>
+        </div>
+        <h5 class='bold-header mb-0'>Registered Users</h5>
+    </div>
+</div>
+      <div class='home-break'></div>
+
+      <div class="testimonial-tweets-container">
+        <img alt="tweet testimonials" class='tweet-testimonials' src='/img/why_subscribe/testimonial_tweets2.png'>
+      </div>
+      <div class='home-break'></div>
+
+      <style>
+  .secjuice {
+    background-color: #1e1a32; /* 220045 */
+    padding: .6em;
+    border-radius: 5px;
+    width: 225px;
+  }
+
+  .comptia-logo {
+    width: 200px;
+    margin: 10px;
+    object-fit: cover;
+  }
+
+  .connectivity4ir-logo {
+    width: 180px;
+    border-radius: 10px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .infosec-mag-logo {
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .enterprisetimes-logo {
+    width: 180px;
+    height: 65px;
+  }
+
+  .used-by > a {
+    display: inline-block;
+  }
+</style>
+<div class='row vertical-align-custom used-by'>
+  <div class='col-sm-6'>
+    <div class='text-center'>
+      <h2>Used By</h2>
+      <div class="titleunderline"></div>
+    </div>
+    <section class='used-by text-center d-flex align-items-center'>
+      <div>
+        <img style="width: 160px; margin: 10px;" src='https://assets.tryhackme.com/img/business/google-color.png'>
+      </div>
+      <div>
+        <img style="width: 140px; margin: 10px;" src='https://assets.tryhackme.com/img/business/kpmg-color.png'>
+      </div>
+      <div>
+        <img class='comptia-logo' src='https://assets.tryhackme.com/img/comptia.png'>
+      </div>
+    </section>
+  </div>
+  <div class='col-sm-6 mt-4 mt-md-0'>
+    <div class='text-center'>
+      <h2>Media</h2>
+      <div class="titleunderline"></div>
+    </div>
+    <section class='used-by text-center pb'>
+      <a href="https://www.secjuice.com/tryhackme-learn-teach-cybersecurity/" class='m-2' target="_blank">
+        <img class='secjuice' src='https://assets.tryhackme.com/img/secjuice.png'>
+      </a>
+      <a href="https://www.enterprisetimes.co.uk/2019/02/27/tryhackme-a-new-cyber-security-skills-platform/" class='m-2' target="_blank">
+        <img class='enterprisetimes-logo' src='https://assets.tryhackme.com/img/enterprisetimes.png'>
+      </a>
+      <!-- <a href="http://www.connectivity4ir.co.uk/article/167599/Student-entrepreneur-launches-TryHackMe-to-help-fill-the-cyber-skills-gap.aspx" class='ml mt' target="_blank">
+        <img class='connectivity4ir-logo' src='https://assets.tryhackme.com/img/connectivity4ir.jpeg'>
+      </a> -->
+      <a href="https://www.contextis.com/en/news/context-sponsors-first-university-hackback-ctf-event" class='m-2' target="_blank">
+        <img class='hb-sponsor-logo' src='https://assets.tryhackme.com/img/contextis.png'>
+      </a>
+
+      <a href="https://www.infosecurity-magazine.com/next-gen-infosec/interview-portsmouth-tryhackme-1-1/" class='m-2' target="_blank">
+        <img class='infosec-mag-logo' src='https://assets.tryhackme.com/img/infosec-magazine.png'>
+      </a>
+
+    </section>
+  </div>
+</div>
+
+    </div>
+
+    <div class="star-background">
+    <footer class="container pt-5 pb-5" style="margin: auto;">
+
+        <div class="row signup-footer">
+            <div class="col-sm-12 col-md-auto mb-4 p-0">
+                <h2 class="bold mb-0 mr-3">Ready to start learning cyber security?</h2>
+            </div>
+            <div class="col-sm-12 col-md-auto mb-4 p-0">
+                <button type="submit" onclick="signupModal()" class="btn btn-hgreen">Join for FREE</button>
+            </div>
+        </div>
+
+        <div class="row">
+  <div class="col-md-12 col-lg-3 text-center mt-4">
+    <img src="https://assets.tryhackme.com/img/logo/tryhackme_logo.png" alt="TryHackMe Logo" width=55>
+    <p class="d-block mt-3 faded"><small id="copyright-small"></small>
+<script>
+    document.getElementById("copyright-small").innerHTML = "Copyright TryHackMe 2018-" + new Date().getFullYear();
+</script>
+</p>
+    <small class='faded'>128 City Road, London, EC1V 2NX</small>
+  </div>
+  <div class="col-md-4 col-lg-3">
+    <h5 class='bold-header mt-4'>Learning</h5>
+    <ul class="list-unstyled text-small mb-0">
+      <li><a href="/hacktivities">Hands-on Labs</a></li>
+      <li><a href="https://business.tryhackme.com">For Business</a></li>
+      <li><a href="/classrooms">For Education</a></li>
+      <li><a href="/games/koth">Competitive Hacking</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4 col-lg-3">
+    <h5 class='bold-header mt-4'>Resources</h5>
+    <ul class="list-unstyled text-small mb-0">
+      <li><a href="/resources/newsroom">Newsroom</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/resources/blog">Blog</a></li>
+      <li><a href="/subscriptions">Buy Vouchers</a></li>
+      <li><a href="/glossary">Glossary</a></li>
+      <li><a href="/work-at-thm">Work at TryHackMe</a></li>
+      <li><a href="/careers">Careers in Cyber</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4 col-lg-3">
+    <h5 class='bold-header mt-4'>Socials</h5>
+    <ul class="list-unstyled text-small mb-0">
+      <li><a href="https://twitter.com/realtryhackme">Twitter</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#c0a8a5acacaf80b4b2b9a8a1a3abada5eea3afad">Email</a></li>
+      <li><a href="https://discord.gg/tryhackme">Discord</a></li>
+      <li><a href="/forum">Forum</a></li>
+    </ul>
+  </div>
+</div>
+
+    </footer>
+</div>
+    <div class="modal-design-green modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+  
+            <div class='text-center'>
+                <h2 class='bold'>Sign up</h2>
+                <p class='size-18 faded'>Join over 3 million others learning cyber security</p>
+            </div>
+
+            <div class='m-auto'>
+                
+
+
+
+<form action="/signup" method="post" id='signup-form'>
+    <div class="form-group">
+        <label class='bold mb-1' id='username-label'>Username</label>
+        <input data-cy="signup-username-input" type="text" class="form-control" id='signup-username' name="username" placeholder="Fred.Bloggs" maxlength="16" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class='bold mb-1' id='email-label'>Email</label>
+        <input data-cy="signup-email-input" id='signup-email' type="email" class="form-control" name="email" placeholder="example@example.com" required>
+        
+    </div>
+    <div class="form-group">
+        <label class='bold mb-1'>Password</label>
+        <input data-cy="signup-password-input" type="password" class="form-control" name="password" id="password" placeholder="Please make me strong..." required>
+    </div>
+
+    <div class="g-recaptcha" data-sitekey="6LdnORYTAAAAAD3XKUn8v29ONJnxgF87-OnLqYdv"></div></br>
+    <div class="d-flex justify-content-between align-content-middle">
+        <button data-cy="signup-button" type="submit" class="btn btn-hgreen" id="passSubmitBtn">Signup</button>   
+        <div class="flex-column">
+            <div class="size-14 faded">By signing up you agree to our <a href="/legal/terms-of-use">Terms and Conditions</a></div>
+            <div class="size-14 faded">Already have an account? <a href="/login">Log in</a></div>
+        </div>
+    </div>
+       
+    <div class="text-in-lines">
+        <div class="text-lines"></div>
+        <div class="text-in-lines-text">OR</div>
+        <div class="text-lines"></div>
+    </div>
+
+    <button data-cy="auth-google-button" class="btn btn-light" id="googleSignUpButton" type="button">
+      <img alt="google-logo" src="img/google-logo.png"> 
+      Sign up with Google
+    </button>     
+
+    
+      <a href="/r/login/sso" class="btn btn-light ml-3">
+        <i class="far fa-key mr-1"></i>
+        Continue with SSO
+      </a>
+    
+</form>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+  
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src='https://assets.tryhackme.com/js/paths.js?v=1.5'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://assets.tryhackme.com/js/password_strength.js'></script>
+    <script src='https://assets.tryhackme.com/js/pages/account/signup.js?v=0.1'></script>
+
+    <script>
+      function setNavbarCol() {
+        const scroll = $(window).scrollTop();
+
+        if (scroll >= 10) {
+          $(".navbar").addClass("navbar-colour-scroll");
+        } else {
+          $(".navbar").removeClass("navbar-colour-scroll");
+        }
+      };
+
+      function setLoginSignupOpacity () {
+        const scroll = $(window).scrollTop();
+
+        if (scroll >= ($(".short-signup").offset().top + $(".short-signup").outerHeight())) {
+          $(".navbar-login-signup-container").removeClass("mobile-navbar-hide-login-signup");
+        } else {
+          $(".navbar-login-signup-container").addClass("mobile-navbar-hide-login-signup");
+        }
+      };
+
+      $(window).scroll(function () {
+        setNavbarCol();
+        setLoginSignupOpacity();
+      });
+
+      function updateStats() {
+        $.getJSON('/api/site-stats', async function(response) {
+          document.querySelector('#usercount').textContent = nFormatter(response.totalUsers, 0)
+        });
+      };
+
+      function addPostToPage(post) {
+        const guideEl = document.querySelector('#guides');
+        let postDescription = post.meta_description != undefined
+          ? post.meta_description
+          : post.excerpt.slice(0, 150);
+
+        guideEl.innerHTML += `
+          <a class="nocss guide-link" target="_blank" href="${post.url}">
+            <div class="card guide-post noselect">
+              <img class="card-img-top guide-post-img" src="${post.feature_image}" alt="Card image cap">
+              <div class="card-body">
+              <h5 class="card-title bold">${post.title}</h5>
+              <p class="card-text">${postDescription}</p>
+              </div>
+            </div>
+          </a>`
+         };
+
+      function signupModal() {
+        const jumboEmailEl = document.querySelector('#jumbo-email');
+        const signupModalEmail = document.querySelector('#signup-email');
+        signupModalEmail.value = jumboEmailEl.value;
+        if (false) {
+          window.location.href = '/r/mobile-signup' + (jumboEmailEl.value ? `?email=${jumboEmailEl.value}` : '');
+        } else {
+          $('#signupModal').modal('toggle');
+        }
+      };
+
+      document.querySelector('#navbar-signup').addEventListener('click', function(e) {
+          e.preventDefault();
+          signupModal();
+      });
+
+      getPaths('/paths/summary', '#paths', true, false, 'There are no paths available yet.', {join: false});
+      updateStats();
+   </script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8e4c77b8bd735269',t:'MTczMTk4MDE2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
