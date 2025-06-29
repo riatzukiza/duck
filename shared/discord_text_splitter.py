@@ -12,7 +12,6 @@ def extract_sentences(text):
 
 def split_into_sentences(text):
     # Define the regex pattern for sentence boundaries
-    
     return text.split(".\n\n")
 
 def split_markdown(markdown,finished=False):
@@ -25,12 +24,13 @@ def split_markdown(markdown,finished=False):
         if "```" in line :
             if code_block and not (code_block.count("```") % 2):
                 code_block+=line+ "\n\n"
-                results.append(code_block)
-                code_block=""
+                # results.append(code_block)
             else:
                 code_block+=line + "\n\n"
+                # results.append(code_block)
         elif code_block:
             code_block+=line + "\n\n"
+            # results.append(code_block)
         elif re.match(r"^\d+\.",line):
             results.append(line)
         else:
@@ -39,6 +39,6 @@ def split_markdown(markdown,finished=False):
                 results.append(sentance)
     if code_block:
         end_code_block_chunk='\n```\n\n'
-        results.append(f"{code_block}{end_code_block_chunk if finished else ''}")
+        results.append(f"{code_block}{end_code_block_chunk if finished else code_block}")
     return results
             
