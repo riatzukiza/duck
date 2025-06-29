@@ -16,7 +16,9 @@ async def generate_embedding(text):
     try:
         response = await client.embeddings(
             model=MODEL_NAME,
-            prompt=text
+            prompt=text,
+            options={"num_ctx":256}
+
         )
     except Exception as e:
         print("There was an issue embedding the text.")
