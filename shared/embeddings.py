@@ -5,8 +5,6 @@ import ollama
 
 embeddings={}
 async def generate_embedding(text):
-    print("embedding")
-    print(text)
     OLLAMA_API_URL = "http://ollama-gpu:11434"
     MODEL_NAME = "all-minilm"
 
@@ -25,6 +23,5 @@ async def generate_embedding(text):
         print(e)
         await asyncio.sleep(5)
         return await generate_embedding(text)
-    print("embedding response",response)
     embeddings[text]=response["embedding"]
     return response["embedding"]
