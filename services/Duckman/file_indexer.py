@@ -43,7 +43,6 @@ async def index_file(file,root,extension):
             text=format_code_chunks(os.path.join(root, file),i,chunk,extension)
             embedding = await generate_embedding(text)
             print("upserting",os.path.join(root, file))
-            print("embedding",embedding)
             chroma_collection.upsert(ids=[os.path.join(root, file)],
                                      embeddings=[embedding],
                                      documents=[text])
