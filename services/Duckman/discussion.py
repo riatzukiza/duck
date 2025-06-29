@@ -21,21 +21,21 @@ file_chroma = chroma_client.get_or_create_collection(name="duckman_files")
 message_chroma = chroma_client.get_or_create_collection(name="discord_messages")
 search_chroma = chroma_client.get_or_create_collection(name="search-results")
 
-def get_documents_by_ids(ids):
-    return list(discord_message_collection.find({'_id': {'$in': ids}}).sort([("created_at", -1)]))
+def get_documents_by_ids(ids): return list(discord_message_collection.find({'_id': {'$in': ids}}).sort([("created_at", -1)]))
 
 async def respond_to_state(message):
     # use vision model if message has image.
 
     return await complete_latest_chat_stream(
         message.channel.id,
-        f"{message.author.name.replace('[Scriptly] ', '(Transcribed)')} said '{message.content}' in {message.channel.name}.",
+        f"{message.author.name.replace('[Scriptly] ','(Transcribed)')} said '{message.content}' in {message.channel.name}.",
     )
 
 async def complete_latest_chat_stream(channel_id,question,key="last_user_question",image=None):
     update_state({ "channel_id":channel_id })
 
     # for now load the client in the function so the context is as fresh as possible.
+    
 
     question_embedding = await generate_embedding(question)
 
@@ -48,8 +48,8 @@ async def complete_latest_chat_stream(channel_id,question,key="last_user_questio
     search_results= search_chroma.query(
         query_embeddings=[question_embedding], n_results=20)['documents'][0]
     relavent_files=relavent_file_query['documents'][0]
-    # print("RELAVANT FILE QUERY",relavent_file_query)
-    # print("RESULTS",result_query)
+    print("RELAVANT FILE QUERY",relavent_file_query)
+    print("RESULTS",result_query)
 
     profile_docs=get_latest_channel_docs(settings.PROFILE_CHANNEL_ID)
     unique_docs=set()
@@ -67,23 +67,24 @@ async def complete_latest_chat_stream(channel_id,question,key="last_user_questio
 
     async def handle_chunk(chunk,stream_id,finished=False):
         stream_key='current_text:'+stream_id
-        if finished or state.get(stream_key,"")!="":
+        if finished or state.get("new_message","")!="":
             split=split_markdown(state.get(stream_key,""),finished=True)
-            update_state({ stream_key:"" })
-            await send_message({"content":split[0], "channel": state.get(stream_key,settings.DEFAULT_CHANNEL).split(":")[1],},
-                               sent_messages, client, mark_sent=False)
+            update_state({ "new_message":"" })
+            await send_message({ 
+                    "content":split[0], 
+                    "channel": state.get("channel_id",settings.DEFAULT_CHANNEL)
+                },
+                sent_messages,
+                client,
+                mark_sent=False
+            )
             return chunk
         update_state({ stream_key: state.get(stream_key,"")+chunk })
 
         split=split_markdown(state.get(stream_key,""))
 
         if len(split)>1:
-            await send_message(
-                { "content":split[0], 
-                  "channel":state['channel_id'] }, 
-                sent_messages, 
-                client,mark_sent=False)
-
+            await send_message({ "content":split[0], "channel":state['channel_id'] },sent_messages,client,mark_sent=False)
             update_state({ stream_key: "".join(split[1:]) })
     return await ask_docs( 
         question, streaming=True, docs=docs, 
