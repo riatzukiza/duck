@@ -1,0 +1,19 @@
+{
+    "Server": "nginx",
+    "Date": "Tue, 19 Nov 2024 01:35:21 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Vary": "Accept-Encoding",
+    "Set-Cookie": "localization=%7B%22locale%22%3A%22en%22%7D; Domain=.semrush.com; Path=/, GCLB=CPi125bbx4-t2wEQAw; path=/; HttpOnly; expires=Wed, 20-Nov-2024 01:35:21 GMT",
+    "cache": "GET",
+    "ETag": "W/\"12b3jlijtpe4g58\"",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Cache-Control": "no-cache",
+    "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+    "sm-log-id": "flb-5b12dd91d63627776d8aedc74effb70e",
+    "Content-Encoding": "gzip",
+    "Via": "1.1 google",
+    "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "Transfer-Encoding": "chunked"
+}

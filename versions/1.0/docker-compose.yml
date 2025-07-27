@@ -1,0 +1,249 @@
+services:
+
+  indexer:
+    restart: always
+    depends_on:
+      - mongo
+    networks:
+      - mongo
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/discord-indexer:/app
+      - ./shared:/app/shared
+    build: ./services/discord-indexer
+
+  # twitch:
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - mongo
+  #   env_file:
+  #     - .env.twitch
+  #   volumes:
+  #     - ./services/twitch:/app
+  #     - ./shared:/app/shared
+  #   build: ./services/twitch
+  duckman-http:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    restart: always
+    command: python3 http_server.py
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+    ports:
+      - 8000:8000
+    expose: 
+      - 8000:8000
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+
+  duckman-file-indexer:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    restart: always
+    command: python3 file_indexer.py
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+  duckman:
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+      - duckman-embedding-manager
+      - duckman-search-manager
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+
+  duckman-search-manager:
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    command: python3 search_manager.py
+  duckman-embedding-manager:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    restart: always
+    depends_on:
+      - mongo
+      - indexer
+      - ollama-gpu
+    networks:
+      - mongo
+      - ollama_gpu_network
+    env_file:
+      - .env.duck
+    volumes:
+      - ./services/Duckman:/app
+      - ./shared:/app/shared
+    build: 
+      context: services/Duckman
+      dockerfile: ../../Dockerfile
+    command: python3 embedding_manager.py
+  # duckman-state-manager:
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #     - indexer
+  #     - ollama-gpu
+  #   networks:
+  #     - mongo
+  #     - ollama_gpu_network
+  #   env_file:
+  #     - .env.duck
+  #   volumes:
+  #     - ./services/Duckman:/app
+  #     - ./shared:/app/shared
+  #   build: 
+  #     context: services/Duckman
+  #     dockerfile: ../../Dockerfile
+  #   command: python3 state_manager.py
+
+  mongo:
+    restart: always
+    image: mongo
+    volumes:
+      - ./data/mongodb:/data/db
+    networks:
+      - mongo
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command:
+      redis-server --save 20 1 \
+        --loglevel warning \
+        --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+
+  ollama-gpu:
+    # Uncomment below for GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
+    volumes:
+      - ollama-gpu:/root/.ollama
+    # Uncomment below to expose Ollama API outside the container stack
+    ports:
+      - 11434:11434
+    
+    expose:
+      - 11434
+    container_name: ollama-gpu
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:latest
+    # environment:
+    #   - OLLAMA_NUM_PARALLEL=2
+    networks:
+      - ollama_gpu_network
+volumes:
+  # ollama: {}
+  ollama-gpu: {}
+  cache:
+    driver: local
+networks:
+  mongo:
+  chroma:
+  # ollama_network:
+  ollama_gpu_network:

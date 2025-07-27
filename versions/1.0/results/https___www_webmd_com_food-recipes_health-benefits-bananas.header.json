@@ -1,0 +1,18 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:36:44 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "same-origin",
+    "Cache-Control": "max-age=15",
+    "Expires": "Tue, 19 Nov 2024 01:36:59 GMT",
+    "Set-Cookie": "__cf_bm=E7O_v3ZGFbcgswqkoJO1sKsyB6oY6iaeKR7RZVKkDmU-1731980204-1.0.1.1-0_u78lsVZdtuvUcazqPe2P2Wtv4MnHjzT43BItZenbZmNyuWWENxKaN3uzd1Qbc8pcBtl8cl1zbLATVT713j6w; path=/; expires=Tue, 19-Nov-24 02:06:44 GMT; domain=.www.webmd.com; HttpOnly; Secure; SameSite=None",
+    "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=6nii50U3jMwuNMYMOkvRpq5OlyXQqC4c31fACAn1Jc7PxBwfQWnkRfROEcxpQXlTDMqGyGXroDBU6g0K3zWcjBIjVpp%2BvReGBmAVIxH%2BnWPdtA%2FfaMypI53bfKhHknQ%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+    "NEL": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "CF-RAY": "8e4c7898ba12a726-PHX",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+}

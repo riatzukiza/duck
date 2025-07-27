@@ -1,0 +1,20 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:36:24 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "CF-Ray": "8e4c78172b6b2eeb-LAX",
+    "CF-Cache-Status": "DYNAMIC",
+    "Cache-Control": "max-age=300, must-revalidate",
+    "Link": "<https://www.codecademy.com/resources/blog/wp-json/>; rel=\"https://api.w.org/\", <https://www.codecademy.com/resources/blog/wp-json/wp/v2/posts/5921>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://www.codecademy.com/resources/blog/?p=5921>; rel=shortlink",
+    "Vary": "Accept-Encoding",
+    "host-header": "a9130478a60e5f9135f765b23f26593b",
+    "x-cache": "HIT",
+    "x-hacker": "If you're reading this, you should visit wpvip.com/careers and apply to join the fun, mention this header.",
+    "x-pingback": "https://www.codecademy.com/resources/blog/xmlrpc.php",
+    "x-powered-by": "WordPress VIP <https://wpvip.com>",
+    "x-rq": "bur8 123 243 443",
+    "Set-Cookie": "__cf_bm=rP_td6J7pQeld7Sntt.Axmq9NL0KvXo3IglxjBngs8s-1731980184-1.0.1.1-ND.jwy3303.mG9No7YFcWqQvv0qyYpM6ijx2ICBeRwn43OsWJ7VgmOy7ne0YsF.jRXaG75o0ba3M9LDghvt7kg; path=/; expires=Tue, 19-Nov-24 02:06:24 GMT; domain=.codecademy.com; HttpOnly; Secure; SameSite=None, __cfruid=3d25bf5d49cf0a2f8665e182c3af0cfcf86a5aff-1731980184; path=/; domain=.codecademy.com; HttpOnly; Secure; SameSite=None, _cfuvid=tGwHYQomQRaFB3fBACO3rzYEbpU3A.UVtu9gYrHwu9U-1731980184353-0.0.1.1-604800000; path=/; domain=.codecademy.com; HttpOnly; Secure; SameSite=None",
+    "Server": "cloudflare",
+    "Content-Encoding": "gzip"
+}

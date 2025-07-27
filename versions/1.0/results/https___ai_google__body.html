@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <title>Making AI helpful for everyone - Google AI – Google AI</title>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Google AI",
+        "url": "https://ai.google",
+        "logo": "https://ai.google/static/images/share.png"
+      }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      function glueCookieNotificationBarLoaded() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MTDXW5P');
+      }
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta property="og:image" content="https://ai.google/static/images/share.png">
+    <meta property="og:title" content="Making AI helpful for everyone - Google AI – Google AI">
+    <meta property="og:site_name" content="Google AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ai.google/">
+
+    <meta name="description" content="At Google, we want to make AI helpful for everyone because we think that AI can meaningfully improve people&#39;s lives.">
+    <meta property="og:description" content="At Google, we want to make AI helpful for everyone because we think that AI can meaningfully improve people&#39;s lives.">
+    <link rel="shortcut icon" href="/static/images/favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="https://www.gstatic.com/glue/v27_1/glue.min.css?cache=124abc">
+    <link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet">
+    <noscript>
+      <link href="https://www.gstatic.com/glue/v27_1/glue.min.css?cache=124abc" rel="stylesheet">
+    </noscript>
+    <link rel='stylesheet' href="/css/main.min.css?cache=124efg">
+    <noscript><link href="/css/main.min.css" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css?family=Google+Sans:+400,500,700|Product+Sans:400|Roboto+Mono:500&display=swap" media="all" rel="stylesheet" rel="preload" as="font">
+
+    <script rel="preload" as="script" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?cache=124eff"></script>
+    <script rel="preload" as="script" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js?cache=124eff"></script>
+
+    <!-- HaTS Survey API -->
+    <script rel="preload" type="text/javascript" src="https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js?cache=123efg"></script>
+    <script>
+      window.setTimeout(() =>{
+        helpApi = window.help.service.Lazy.create(0, {
+          apiKey: 'AIzaSyDe7OKxRllcPjRwvZdSftLIYlpqP-QRTXo',
+          locale: 'en-US'
+        });
+
+        helpApi.requestSurvey({
+          triggerId: '11gopKrj40eBRg1cvMm0TaQYHFsq',
+          enableTestingMode: false, // Will always trigger a survey. Do not set this to prod!
+          callback: function(requestSurveyCallbackParam) {
+            if (!requestSurveyCallbackParam.surveyData) {
+              return;
+            }
+            helpApi.presentSurvey({
+              surveyData: requestSurveyCallbackParam.surveyData,
+              colorScheme: 1, // light
+              customZIndex: 10000,
+            });
+          }
+        });
+      },1000);
+    </script>
+    <!-- End HaTS Survey API -->
+    <meta name="google-site-verification" content="G3MdGe21KckAzaq-CvR3yzGBED9cJh-0hcwsePJwQ4o" />
+  </head>
+  <body class="page--home">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTDXW5P"
+    height="0" width="0" style="display:none;visibility:hidden" async></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+<header    ng-controller="HeaderController as headerCtrl">
+  <div class="header__top">
+    <button class="header__hamburger" ng-click="headerCtrl.open()" aria-expanded="false" aria-label="Open the navigation drawer" aria-controls="header__nav">
+      <div class="header__hamburger-burger"></div>
+    </button>
+
+    <a href="/" class="header__lockup">
+      <div class="header__logo">
+        <svg>
+          <path fill="#4285F4" d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"></path>
+          <path fill="#EA4335" d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+          <path fill="#4285F4" d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.5 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"></path>
+          <path fill="#FBBC05" d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+          <path fill="#34A853" d="M58 .24h2.51v17.57H58z"></path>
+          <path fill="#EA4335" d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z"></path>
+        </svg>
+      </div>
+      <div class="header__product">AI</div>
+    </a>
+
+    <nav class="header__nav" id="header__nav" aria-label="Navigation">
+      <a href="/" class="header__lockup">
+        <div class="header__logo">
+          <svg>
+            <path fill="#4285F4" d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"></path>
+            <path fill="#EA4335" d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+            <path fill="#4285F4" d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.5 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"></path>
+            <path fill="#FBBC05" d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+            <path fill="#34A853" d="M58 .24h2.51v17.57H58z"></path>
+            <path fill="#EA4335" d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z"></path>
+          </svg>
+        </div>
+        <div class="header__product">AI</div>
+      </a>
+
+
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a href="/why-ai/"                data-attri-id="Why-ai" data-event-type="header"
+                data-event-label="Why AI" class="navigation-track-js parent-link header__link header-nav-js first-header-link">
+              Why AI
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a                data-attri-id="Responsibility" data-event-type="header"
+                data-event-label="Responsibility" class="navigation-track-js parent-link header__link header-nav-js">
+              Responsibility
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+              <div class="mega-parent mega-menu-hide mega-menu-js" id="Responsibility">
+                <div class="mega-child">
+                  <div class="mega-menu glue-page">
+                    <div class="mega-menu-content">
+                      <a class="mega-menu-link" data-event-name="Responsibility">
+                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6.00003 12L7.41003 10.59L2.83003 6L7.41003 1.41L6.00003 0L3.43323e-05 6L6.00003 12Z" fill="#5F6368"/>
+                        </svg>
+                        <h3 class="mega-menu-link-header">Responsibility</h3>
+                      </a>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover  mega-menu-details-wide">
+
+                                <a href="/responsibility/principles/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:AI Principles"
+                                      aria-label="Overview">AI Principles</h3>
+                              <p class="mega-menu-description">Objectives for building beneficial AI</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/responsible-ai-practices/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Responsible AI Practices"
+                                      aria-label="Overview">Responsible AI Practices</h3>
+                              <p class="mega-menu-description">Guiding responsible AI development</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/ai-governance-operations/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:AI Governance &amp; Operations"
+                                      aria-label="Overview">AI Governance &amp; Operations</h3>
+                              <p class="mega-menu-description">Our review and approval process</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/social-good/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Social Good"
+                                      aria-label="Overview">Social Good</h3>
+                              <p class="mega-menu-description">Addressing societal challenges with AI</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/public-policy-perspectives/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Policy"
+                                      aria-label="Overview">Policy</h3>
+                              <p class="mega-menu-description">Our contributions to AI Governance</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mega-menu-details">
+                      <div class="mega-menu-details-wrapper">
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="/responsibility/social-good/" data-event-feature="1" data-event-type="feature"
+                                data-event-label="Responsibility:AI for the benefit of humanity" class="navigation-track-js"
+ >
+                              <p class="content-brow">FEATURED RESEARCH</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/8b35672404c17773768b5d4fc0e9fa2ec81f1dd188657dc0a5fb63d185b8dd643f8e6f8ce2252ddd81019e4cdee3ab2d9b37d59710b4005c2d721d8c19fcdb75" role="presenatation">
+                                <h3 class="content-sub-title">AI for the benefit of humanity</h3>
+                            </a>
+                          </div>
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="/responsibility/principles/" data-event-feature="2" data-event-type="feature"
+                                data-event-label="Responsibility:Improving skin tone evaluation in machine learning to uphold our AI principles" class="navigation-track-js"
+ >
+                              <p class="content-brow">EXAMPLES OF OUR WORK</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/8eb77472d5a6fdea96e4204bc5cbe737b8273ef7ec878ea38f60720ffd4c03dacd369d00d0644e6fee7c8c8c483d4b1d598efe60c21136020159ce8b3eb01274" role="presenatation">
+                                <h3 class="content-sub-title">Improving skin tone evaluation in machine learning to uphold our AI principles</h3>
+                            </a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a                data-attri-id="Discover" data-event-type="header"
+                data-event-label="Discover" class="navigation-track-js parent-link header__link header-nav-js">
+              Discover
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+              <div class="mega-parent mega-menu-hide mega-menu-js" id="Discover">
+                <div class="mega-child">
+                  <div class="mega-menu glue-page">
+                    <div class="mega-menu-content mega-menu-header">
+                      <a class="mega-menu-link" data-event-name="Discover">
+                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6.00003 12L7.41003 10.59L2.83003 6L7.41003 1.41L6.00003 0L3.43323e-05 6L6.00003 12Z" fill="#5F6368"/>
+                        </svg>
+                        <h3 class="mega-menu-link-header">Discover</h3>
+                      </a>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new  mega-menu-details-wide">
+                            <p class="content__brow mega-menu-heading">Generative AI</p>
+                              <a class="mega-menu--details" href="/discover/generativeai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Overview"
+                                    aria-label="Overview">Overview</h3>
+                                <p class="mega-menu-description">How teams at Google are using AI</p>
+                              </a>
+                              <a class="mega-menu--details" href="/gemini-ecosystem"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Gemini ecosystem"
+                                    aria-label="Overview">Gemini ecosystem</h3>
+                                <p class="mega-menu-description">Learn about our models, products, &amp; platforms</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/palm2/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:PaLM 2"
+                                    aria-label="Overview">PaLM 2</h3>
+                                <p class="mega-menu-description">Next generation language model</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/our-models/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Our leading models"
+                                    aria-label="Overview">Our leading models</h3>
+                                <p class="mega-menu-description">Learn more about our models</p>
+                              </a>
+
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new ">
+                            <p class="content__brow mega-menu-heading">Focus Areas</p>
+                              <a class="mega-menu--details" href="/discover/scienceai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Science AI"
+                                    aria-label="Overview">Science AI</h3>
+                                <p class="mega-menu-description">Accelerating scientific discovery</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/healthai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Health AI"
+                                    aria-label="Overview">Health AI</h3>
+                                <p class="mega-menu-description">Human-centered AI in healthcare</p>
+                              </a>
+                              <a class="mega-menu--details" href="https://quantumai.google/"
+target="_blank" rel="noopener">
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Quantum AI"
+                                    aria-label="Overview">Quantum AI</h3>
+                                <p class="mega-menu-description">Building a useful quantum computer</p>
+                              </a>
+
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new ">
+                            <p class="content__brow mega-menu-heading">Learn</p>
+                              <a class="mega-menu--details" href="/discover/blogs/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:AI Blogs"
+                                    aria-label="Overview">AI Blogs</h3>
+                                <p class="mega-menu-description">Current news and stories from Google</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/research/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Research"
+                                    aria-label="Overview">Research</h3>
+                                <p class="mega-menu-description">AI publications, tools, and datasets</p>
+                              </a>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mega-menu-details mega-menu-details-new">
+                      <div class="mega-menu-details-wrapper">
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="https://ai.google.dev/" data-event-feature="1" data-event-type="feature"
+                                data-event-label="Discover:Our largest and most capable AI model" class="navigation-track-js"
+target="_blank" rel="noopener" >
+                              <p class="content-brow">FEATURED CONTENT</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/5bc640ee2f9f779b863f853edbe412bf2ddb2d331bd1c6c34186674a570ad543260ca16c9cdd1b295c2246a55732d35ee4e03a2c58492c324f8bbe83f9e59740" role="presenatation">
+                                <h3 class="content-sub-title">Our largest and most capable AI model</h3>
+                            </a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a href="https://ai.google/build"                data-attri-id="Build" data-event-type="header"
+                data-event-label="Build" class="navigation-track-js parent-link header__link header-nav-js first-header-link">
+              Build
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+          </div>
+    </nav>
+
+    <div class="header__overlay" ng-click="headerCtrl.close()"></div>
+  </div>
+</header>    <main class="section-wrapper" id="section-main-wrapper" ng-controller="MainController as mainCtrl">
+      <div class="main-overlay" ng-controller="HomeController as homectrl">
+<div class="home-banner">
+  <div class="glue-page">
+    <div class="hero-new-wrapper">
+      <div class="hero-new-content">
+        <h1 class="hero-new-title">Making AI helpful for everyone</h1>
+        <div class="hero-new-description">
+          We&#39;re committed to improving the lives of as many people as possible. And we’ll continue to responsibly build products and platforms – powered by the most advanced technology – for billions of people around the world.
+        </div>
+      </div>
+    </div>
+  </div>
+</div><section class="hero-video new-home-hero">
+  <div class="glue-page">
+    <div class="hero-video-wrapper">
+      <div class="glue-video hero-glue-video">
+        <div class="glue-video__preview-container glue-video__preview-container--modal"
+            role="menuitem" id="hero-video-modal" aria-label="hero-video-modal">
+          <picture class="glue-video__preview">
+              <img class="image-preview-desktop" src="https://i.ytimg.com/vi/9n0_I16KvHU/maxresdefault.jpg" role="presentation" loading="lazy">
+          </picture>
+          <div class="glue-video__info">
+            <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+            </svg>
+          </div>
+        </div>
+        <div class="glue-modal glue-modal--dark">
+          <div class="glue-video__container glue-modal__content-wrapper"tabindex="0"
+              data-glue-yt-video-vid="9n0_I16KvHU"
+              data-glue-yt-video-height="100%"
+              data-glue-yt-video-width="100%">
+            <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="hero-video-content">
+        <div class="glue-grid">
+            <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+              <div class="hero-video-content-title">
+                The Gemini ecosystem brings together our models, products and platforms.
+              </div>
+            </div>
+            <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+              <div class="hero-video-content-description">
+                Gemini is evolving to be more than just the models. It supports an entire ecosystem — from products to the APIs and platforms helping developers and businesses innovate.
+              </div>
+            </div>
+            <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+                <a href="/gemini-ecosystem" class="hero-video-content-cta glue-button cta-primary-button-dark content-tract-js"  data-event-content="Discover the Gemini ecosystem - The Gemini ecosystem brings together our models, products and platforms." data-event-content-type="internal">
+                  Discover the Gemini ecosystem
+                </a>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>
+<div class="jumplinks-container">
+  <div class="glue-jumplinks glue-jumplinks--rewind homepage-jumplinks" id="jumplinks" role="navigation">
+    <button class="glue-jumplinks__button glue-jumplinks__button--prev" tabindex="-1" aria-hidden="true">
+      <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--18px">
+        <use href="/static/images/glue-icons.svg#chevron-left"></use>
+      </svg>
+    </button>
+    <div class="homepage-jumplinks-wrappper">
+      <div class="glue-jumplinks__list" data-glue-jumplink-label="Jump to section within page">
+        <div class="glue-jumplinks__list-item">
+          <a class="glue-jumplinks__link glue-jumplinks__link--active" href="#Improving-knowledge" aria-label="Improving knowledge, learning, creativity &amp; productivity in our products" aria-current="true" data-event-label="Improving knowledge, learning, creativity &amp; productivity in our products">
+            <span class="homepage-jumplinks-link-text">Improving knowledge, learning, creativity &amp; productivity in our products</span>
+          </a>
+        </div>
+        <div class="glue-jumplinks__list-item ">
+          <a class="glue-jumplinks__link" href="#computing-platforms" aria-label="Building the most helpful personal computing platforms and devices" data-event-label="Building the most helpful personal computing platforms and devices">
+            <span class="homepage-jumplinks-link-text">Building the most helpful personal computing platforms and devices</span>
+          </a>
+        </div>
+        <div class="glue-jumplinks__list-item ">
+          <a class="glue-jumplinks__link" href="#Enabling-organizations" aria-label="Enabling organizations and developers to innovate &amp; grow" data-event-label="Enabling organizations and developers to innovate &amp; grow">
+            <span class="homepage-jumplinks-link-text">Enabling organizations and developers to innovate &amp; grow</span>
+          </a>
+        </div>
+        <div class="glue-jumplinks__list-item glue-jumplinks__list-item-last-child" >
+          <a class="glue-jumplinks__link" href="#responsible-AI" aria-label="Building and deploying AI responsibly" data-event-label="Building and deploying AI responsibly">
+            <span class="homepage-jumplinks-link-text">Building and deploying AI responsibly</span>
+          </a>
+        </div>
+        <div class="homepage-jumpling-line"></div>
+      </div>
+    </div>
+    <button class="glue-jumplinks__button glue-jumplinks__button--next" tabindex="-1" aria-hidden="true">
+      <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--18px">
+        <use href="/static/images/glue-icons.svg#chevron-right"></use>
+      </svg>
+    </button>
+  </div>
+
+<section id="Improving-knowledge">
+  <div class="hero-animation-content glue-page">
+    <div class="glue-grid">
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="hero-animation-content-title">
+            AI that helps people do what they care about most
+          </div>
+        </div>
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="hero-animation-content-description">
+            From sparking your creativity to boosting productivity and enriching knowledge &amp; learning, AI makes our products even more helpful.
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="glue-fullbleed hero-animation">
+    <div class="animation-container">
+      <div class="animation-picture">
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/525e786fa55d7ce253e731ec73b5ec5af60ca071cbed9c1129763debf1439874b432210eda7791d4841d038255c71f0f680a280f9eb5c5e1170b1d280b3b1af8" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/0FUeC6_xZBkxmmeKNax3Y-4KA3aJge3Fg_NG4-VZHulGNUyd-XK1X8PFLZbOC51B64umYc6yl0RZ4_V0yWNG9gNTWesqFIKVw6Oo0qRNMzy5Zn2Q_CM=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Supercharge your creativity and productivity with our most helpful AI assistant</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="http://gemini.google.com/"  data-event-content="Chat with Gemini - Supercharge your creativity and productivity with our most helpful AI assistant" data-event-content-type="outbound">
+                      Chat with Gemini
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/6c8922a7c167074461f5a15c64743bfc010ceaa1c34c42aa377f302abbc2ddadab5a0f8d490b9bfe24b296641ae58061e28a5dda41352d8830659c2e028a97b0" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/pnkmsJVPrY4_Fcts6OA8ZHU4SAHi7DQvRZ5QV6uCjdo-u7cE15gRT4jtUccBTr9_BK4ukRl_pZsmkNvWHaGxy0YLdl5-47dOvly62xu9-nDvfheM5BY=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">A simpler, smarter way to search with generative AI</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://search.google/features/search-labs/"  data-event-content="Try generative AI in Search - A simpler, smarter way to search with generative AI" data-event-content-type="outbound">
+                      Try generative AI in Search
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/8ecfa38be04faee4a3f8621e3ff536a9a803caf42c8487184dc3db2bc1ca6a5789e219f78e76d4a17ed28c0b28847ca5a5334f640b0f7c9ce62934b9ec82f20f" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/6DZlIPsF403b-m8owZajqMEVN2wlfSjsYDBMgee8Nz89xpvGdHAZiZYIJEEaFp0oKfDQAsRgg6dtLwWHQwRNsL-CNy2HwAcv3YS43B9CEJAGFZFjng=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Conquer the blank page by turning a few keywords into an email</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://workspace.google.com/solutions/ai/"  data-event-content="Write better emails - Conquer the blank page by turning a few keywords into an email" data-event-content-type="outbound">
+                      Write better emails
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/48d8975952bfd0d078d06149319f15011460e0195cce5e3e8be59565852bf9bd78bdcd8f46cfa1a7d106585995c48fdeda3ba9c3936652657110ed6bf5055a8a" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/W1UXAaf2GPIDGrWlR4ROdvZmOAh3TzOvvAxdmnzMcEGmf3nb_qoRDHNwbk9T8mmzTZd0yhb52X93LQkfsXarYHBXkihwxIv1CFEteA4pdOxCbTGukA=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Reimagine your photos with Magic Editor in Google Photos</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://blog.google/products/photos/google-photos-editing-features-availability/"  data-event-content="Make complex edits easy - Reimagine your photos with Magic Editor in Google Photos" data-event-content-type="outbound">
+                      Make complex edits easy
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/589ec6893758cc417362a673dcb370e1980e424be6232640ae83f6f3bb63f834d3b5cb06781ce7fe8e7df60c01814060efa6c974c7a5a54efaa638fd5f185183" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/qtv2tVYh1KLF2t9gqBosN8zSvooQq2PZ7Mxgrxs37I1XftqKldS4NSwtep8z6JfDFXalpgTKk_vELm1hJnQ4r8NcIPT5L8z2kcDT_nuT8gO0jks4YjP_=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Create high-quality, photorealistic images with ImageFX</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aitestkitchen.withgoogle.com/tools/image-fx"  data-event-content="Generate images - Create high-quality, photorealistic images with ImageFX" data-event-content-type="outbound">
+                      Generate images
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/1b7dec05991c9372beadb6829b238784e29c9ba72975ebd66de23cf06a26980a091648db09be7670df3d2b5665b33969e8d6e03c984229e23286751d24f04fda" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/eZm_pdTCgkPJ5I8OWfuIc_IflgLSGk2wfw1vpcM9PuWOYjq5ZUtE4x33gMnBtIHcmrc37n1roNE8pIPQF1KKkJIsWIyHMWzbO98tbnJ1L36lgV1zb9Y=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Automatic adjustments for improved quality with Video Boost on Pixel 8 Pro</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://store.google.com/intl/en/ideas/articles/what-is-an-ai-camera/"  data-event-content="Discover advanced video processing - Automatic adjustments for improved quality with Video Boost on Pixel 8 Pro" data-event-content-type="outbound">
+                      Discover advanced video processing
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/279194eb8730f3b490f66d09119bc65fd25f666ce10a0fbe805e7fa87a8ba036c59ce1353e7658d110008b59c5c5de7f6f8a78ef70e5be18d5009da74521ab5a" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/ygAfXftupXAv7SodbrLWCtysIBwjFxMA7AHqgEaTpc4UYswqUIbKjtizzsgMWsdwEF5PF859XVeRqlVYg5ZhlfO8gtDQKpDUp5s8tLzjGOXMT8-ACw=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Mix and generate custom sounds with MusicFX</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aitestkitchen.withgoogle.com/tools/music-fx"  data-event-content="Generate music - Mix and generate custom sounds with MusicFX" data-event-content-type="outbound">
+                      Generate music
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/fc3e9b90c4e90a37367f7823cb04e2e5a98c167d2dee88bac0b9001d53cf3641e2d88fb927e60123cdd7824fac8a97cf01432cbcd37ce7f182a5b5b425df8af1" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/NojiGLKtwB6qAm5CIFSxuVyj5j3pfJROrye_I-510I9aMfpj8y-1q6u2Yoc1WPG69HOsSAxVVFOh8wQm5jjRcT5B7BnZgax_FbpCvvBA67wqRm7daJA=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Tackle the language barrier in videos with AI-powered dubbing</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aloud.ai/"  data-event-content="Learn about YouTube&#39;s dubbing tool - Tackle the language barrier in videos with AI-powered dubbing" data-event-content-type="outbound">
+                      Learn about YouTube&#39;s dubbing tool
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/525e786fa55d7ce253e731ec73b5ec5af60ca071cbed9c1129763debf1439874b432210eda7791d4841d038255c71f0f680a280f9eb5c5e1170b1d280b3b1af8" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/0FUeC6_xZBkxmmeKNax3Y-4KA3aJge3Fg_NG4-VZHulGNUyd-XK1X8PFLZbOC51B64umYc6yl0RZ4_V0yWNG9gNTWesqFIKVw6Oo0qRNMzy5Zn2Q_CM=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Supercharge your creativity and productivity with our most helpful AI assistant</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="http://gemini.google.com/"  data-event-content="Chat with Gemini - Supercharge your creativity and productivity with our most helpful AI assistant" data-event-content-type="outbound">
+                      Chat with Gemini
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/6c8922a7c167074461f5a15c64743bfc010ceaa1c34c42aa377f302abbc2ddadab5a0f8d490b9bfe24b296641ae58061e28a5dda41352d8830659c2e028a97b0" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/pnkmsJVPrY4_Fcts6OA8ZHU4SAHi7DQvRZ5QV6uCjdo-u7cE15gRT4jtUccBTr9_BK4ukRl_pZsmkNvWHaGxy0YLdl5-47dOvly62xu9-nDvfheM5BY=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">A simpler, smarter way to search with generative AI</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://search.google/features/search-labs/"  data-event-content="Try generative AI in Search - A simpler, smarter way to search with generative AI" data-event-content-type="outbound">
+                      Try generative AI in Search
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/8ecfa38be04faee4a3f8621e3ff536a9a803caf42c8487184dc3db2bc1ca6a5789e219f78e76d4a17ed28c0b28847ca5a5334f640b0f7c9ce62934b9ec82f20f" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/6DZlIPsF403b-m8owZajqMEVN2wlfSjsYDBMgee8Nz89xpvGdHAZiZYIJEEaFp0oKfDQAsRgg6dtLwWHQwRNsL-CNy2HwAcv3YS43B9CEJAGFZFjng=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Conquer the blank page by turning a few keywords into an email</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://workspace.google.com/solutions/ai/"  data-event-content="Write better emails - Conquer the blank page by turning a few keywords into an email" data-event-content-type="outbound">
+                      Write better emails
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/48d8975952bfd0d078d06149319f15011460e0195cce5e3e8be59565852bf9bd78bdcd8f46cfa1a7d106585995c48fdeda3ba9c3936652657110ed6bf5055a8a" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/W1UXAaf2GPIDGrWlR4ROdvZmOAh3TzOvvAxdmnzMcEGmf3nb_qoRDHNwbk9T8mmzTZd0yhb52X93LQkfsXarYHBXkihwxIv1CFEteA4pdOxCbTGukA=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Reimagine your photos with Magic Editor in Google Photos</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://blog.google/products/photos/google-photos-editing-features-availability/"  data-event-content="Make complex edits easy - Reimagine your photos with Magic Editor in Google Photos" data-event-content-type="outbound">
+                      Make complex edits easy
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/589ec6893758cc417362a673dcb370e1980e424be6232640ae83f6f3bb63f834d3b5cb06781ce7fe8e7df60c01814060efa6c974c7a5a54efaa638fd5f185183" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/qtv2tVYh1KLF2t9gqBosN8zSvooQq2PZ7Mxgrxs37I1XftqKldS4NSwtep8z6JfDFXalpgTKk_vELm1hJnQ4r8NcIPT5L8z2kcDT_nuT8gO0jks4YjP_=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Create high-quality, photorealistic images with ImageFX</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aitestkitchen.withgoogle.com/tools/image-fx"  data-event-content="Generate images - Create high-quality, photorealistic images with ImageFX" data-event-content-type="outbound">
+                      Generate images
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/1b7dec05991c9372beadb6829b238784e29c9ba72975ebd66de23cf06a26980a091648db09be7670df3d2b5665b33969e8d6e03c984229e23286751d24f04fda" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/eZm_pdTCgkPJ5I8OWfuIc_IflgLSGk2wfw1vpcM9PuWOYjq5ZUtE4x33gMnBtIHcmrc37n1roNE8pIPQF1KKkJIsWIyHMWzbO98tbnJ1L36lgV1zb9Y=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Automatic adjustments for improved quality with Video Boost on Pixel 8 Pro</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://store.google.com/intl/en/ideas/articles/what-is-an-ai-camera/"  data-event-content="Discover advanced video processing - Automatic adjustments for improved quality with Video Boost on Pixel 8 Pro" data-event-content-type="outbound">
+                      Discover advanced video processing
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/279194eb8730f3b490f66d09119bc65fd25f666ce10a0fbe805e7fa87a8ba036c59ce1353e7658d110008b59c5c5de7f6f8a78ef70e5be18d5009da74521ab5a" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/ygAfXftupXAv7SodbrLWCtysIBwjFxMA7AHqgEaTpc4UYswqUIbKjtizzsgMWsdwEF5PF859XVeRqlVYg5ZhlfO8gtDQKpDUp5s8tLzjGOXMT8-ACw=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Mix and generate custom sounds with MusicFX</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aitestkitchen.withgoogle.com/tools/music-fx"  data-event-content="Generate music - Mix and generate custom sounds with MusicFX" data-event-content-type="outbound">
+                      Generate music
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="animation-card">
+              <div class="animation-card-picture">
+                  <video class="animation-video" loop muted playsinline>
+                    <source src="https://kstatic.googleusercontent.com/files/fc3e9b90c4e90a37367f7823cb04e2e5a98c167d2dee88bac0b9001d53cf3641e2d88fb927e60123cdd7824fac8a97cf01432cbcd37ce7f182a5b5b425df8af1" type="video/mp4">
+                  </video>
+                <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/NojiGLKtwB6qAm5CIFSxuVyj5j3pfJROrye_I-510I9aMfpj8y-1q6u2Yoc1WPG69HOsSAxVVFOh8wQm5jjRcT5B7BnZgax_FbpCvvBA67wqRm7daJA=-rw">
+                  <div class="animation-overlay"></div>
+                  <div class="video-icon">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                    </svg>
+                  </div>
+              </div>
+              <div class="animation-content">
+                <p class="animation-title">Tackle the language barrier in videos with AI-powered dubbing</p>
+                <div class="cards-cta">
+                    <a class="cards-cta-link cta-link-tertiary-external content-tract-js" href="https://aloud.ai/"  data-event-content="Learn about YouTube&#39;s dubbing tool - Tackle the language barrier in videos with AI-powered dubbing" data-event-content-type="outbound">
+                      Learn about YouTube&#39;s dubbing tool
+                      <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="animation-icon">
+      <button class="animation-control" aria-label="play-button">
+        <svg class="pause-button" xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+          <use href="/static/images/glue-icons.svg#pause-button"></use>
+        </svg>
+        <svg class="play-button" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 17" >
+          <use href="/static/images/glue-icons.svg#play-button"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="glue-fullbleed hero-animation hero-animation-mob ">
+    <div class="glue-page homepage-carousel">
+      <div id="homepage-carousel" class="glue-carousel" aria-label="">
+        <button class="glue-carousel__button glue-carousel__button--prev"
+            aria-label="Previous slide"
+            data-event-type="left">
+          <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--32px">
+            <use href="/static/images/glue-icons.svg#chevron-left"></use>
+          </svg>
+        </button>
+        <button class="glue-carousel__button glue-carousel__button--next"
+            aria-label="Next slide"
+            data-event-type="right">
+          <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--32px">
+            <use href="/static/images/glue-icons.svg#chevron-right"></use>
+          </svg>
+        </button>
+        <div class="glue-carousel__viewport">
+          <div class="glue-carousel__list">
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-1"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/525e786fa55d7ce253e731ec73b5ec5af60ca071cbed9c1129763debf1439874b432210eda7791d4841d038255c71f0f680a280f9eb5c5e1170b1d280b3b1af8" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/0FUeC6_xZBkxmmeKNax3Y-4KA3aJge3Fg_NG4-VZHulGNUyd-XK1X8PFLZbOC51B64umYc6yl0RZ4_V0yWNG9gNTWesqFIKVw6Oo0qRNMzy5Zn2Q_CM=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Supercharge your creativity and productivity with our most helpful AI assistant</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="http://gemini.google.com/">
+                            Chat with Gemini
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-2"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/6c8922a7c167074461f5a15c64743bfc010ceaa1c34c42aa377f302abbc2ddadab5a0f8d490b9bfe24b296641ae58061e28a5dda41352d8830659c2e028a97b0" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/pnkmsJVPrY4_Fcts6OA8ZHU4SAHi7DQvRZ5QV6uCjdo-u7cE15gRT4jtUccBTr9_BK4ukRl_pZsmkNvWHaGxy0YLdl5-47dOvly62xu9-nDvfheM5BY=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">A simpler, smarter way to search with generative AI</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://search.google/features/search-labs/">
+                            Try generative AI in Search
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-3"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/8ecfa38be04faee4a3f8621e3ff536a9a803caf42c8487184dc3db2bc1ca6a5789e219f78e76d4a17ed28c0b28847ca5a5334f640b0f7c9ce62934b9ec82f20f" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/6DZlIPsF403b-m8owZajqMEVN2wlfSjsYDBMgee8Nz89xpvGdHAZiZYIJEEaFp0oKfDQAsRgg6dtLwWHQwRNsL-CNy2HwAcv3YS43B9CEJAGFZFjng=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Conquer the blank page by turning a few keywords into an email</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://workspace.google.com/solutions/ai/">
+                            Write better emails
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-4"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/48d8975952bfd0d078d06149319f15011460e0195cce5e3e8be59565852bf9bd78bdcd8f46cfa1a7d106585995c48fdeda3ba9c3936652657110ed6bf5055a8a" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/W1UXAaf2GPIDGrWlR4ROdvZmOAh3TzOvvAxdmnzMcEGmf3nb_qoRDHNwbk9T8mmzTZd0yhb52X93LQkfsXarYHBXkihwxIv1CFEteA4pdOxCbTGukA=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Reimagine your photos with Magic Editor in Google Photos</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://blog.google/products/photos/google-photos-editing-features-availability/">
+                            Make complex edits easy
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-5"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/589ec6893758cc417362a673dcb370e1980e424be6232640ae83f6f3bb63f834d3b5cb06781ce7fe8e7df60c01814060efa6c974c7a5a54efaa638fd5f185183" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/qtv2tVYh1KLF2t9gqBosN8zSvooQq2PZ7Mxgrxs37I1XftqKldS4NSwtep8z6JfDFXalpgTKk_vELm1hJnQ4r8NcIPT5L8z2kcDT_nuT8gO0jks4YjP_=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Create high-quality, photorealistic images with ImageFX</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://aitestkitchen.withgoogle.com/tools/image-fx">
+                            Generate images
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-6"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/1b7dec05991c9372beadb6829b238784e29c9ba72975ebd66de23cf06a26980a091648db09be7670df3d2b5665b33969e8d6e03c984229e23286751d24f04fda" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/eZm_pdTCgkPJ5I8OWfuIc_IflgLSGk2wfw1vpcM9PuWOYjq5ZUtE4x33gMnBtIHcmrc37n1roNE8pIPQF1KKkJIsWIyHMWzbO98tbnJ1L36lgV1zb9Y=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Automatic adjustments for improved quality with Video Boost on Pixel 8 Pro</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://store.google.com/intl/en/ideas/articles/what-is-an-ai-camera/">
+                            Discover advanced video processing
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-7"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/279194eb8730f3b490f66d09119bc65fd25f666ce10a0fbe805e7fa87a8ba036c59ce1353e7658d110008b59c5c5de7f6f8a78ef70e5be18d5009da74521ab5a" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/ygAfXftupXAv7SodbrLWCtysIBwjFxMA7AHqgEaTpc4UYswqUIbKjtizzsgMWsdwEF5PF859XVeRqlVYg5ZhlfO8gtDQKpDUp5s8tLzjGOXMT8-ACw=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Mix and generate custom sounds with MusicFX</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://aitestkitchen.withgoogle.com/tools/music-fx">
+                            Generate music
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-carousel__item animation-carousel-item" id="homepage-carousel-slide-8"
+                  aria-label="None">
+                <div class="homepage-carousel__item">
+                  <div class="home-carousel__media-mobile">
+                    <div class="animation-card-mobile">
+                      <div class="animation-card-asset">
+                        <div class="animation-card-picture-mobile">
+                            <video class="animation-video" autoplay loop muted playsinline>
+                              <source src="https://kstatic.googleusercontent.com/files/fc3e9b90c4e90a37367f7823cb04e2e5a98c167d2dee88bac0b9001d53cf3641e2d88fb927e60123cdd7824fac8a97cf01432cbcd37ce7f182a5b5b425df8af1" type="video/mp4">
+                            </video>
+                            <div class="video-icon">
+                              <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                                <use href="/static/images/glue-icons.svg#video-youtube"></use>
+                              </svg>
+                            </div>
+                          <img class="animation-image" role="presentation" src="https://lh3.googleusercontent.com/NojiGLKtwB6qAm5CIFSxuVyj5j3pfJROrye_I-510I9aMfpj8y-1q6u2Yoc1WPG69HOsSAxVVFOh8wQm5jjRcT5B7BnZgax_FbpCvvBA67wqRm7daJA=-rw">
+                        </div>
+                      </div>
+                      <p class="animation-title-mobile">Tackle the language barrier in videos with AI-powered dubbing</p>
+                      <div class="cards-cta">
+                          <a class="cards-cta-link cta-link-tertiary-external" href="https://aloud.ai/">
+                            Learn about YouTube&#39;s dubbing tool
+                            <span class="cards-cta-svg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg></span>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="glue-carousel__navigation" aria-label=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="computing-platforms" class="home-card our-platform">
+  <div class="glue-page">
+      <div class="home-card-wrapper">
+        <div class="glue-grid">
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md home-card-picture">
+            <div class="home-card-assets">
+                <img class="home-card-desktop-image" src="https://kstatic.googleusercontent.com/files/b56e7b950f991e3d13fbc2d164d08ca5beb027834db8721347fc27527885c57da048bd91ed930ba91f4a434c4c19e2f884380c0e364ae4924ebd827dac94c236" role="presentation" loading="lazy">
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md home-card-content">
+            <div class="home-card-title">
+              Bringing AI to our platforms
+            </div>
+            <div class="home-card-description">
+                Google AI on Android reimagines your mobile device experience, helping you be more creative, get more done, and stay safe with powerful protection from Google. Just circle an image, text, or video to search anything across your phone with Circle to Search* and learn more with AI-powered overviews. Make complex edits without pro-level editing skills, with Magic Editor. Enjoy a personalized, smarter messaging experience with Magic Compose.
+            </div>
+            <div class="home-card-cta">
+                <a href="https://ai.android/?utm_source=google&amp;utm_medium=referral&amp;utm_campaign=%20ai.google%20homepage" target="_blank" rel="noopenner noreferrer"                    class="home-card-cta-link glue-button cta-primary-button-dark content-tract-js"  data-event-content="Explore Google AI on Android - Bringing AI to our platforms" data-event-content-type="outbound">
+                  Explore Google AI on Android
+                </a>
+            </div>
+              <div class="home-card-note">
+                *Available on select devices and internet connection required. Works on compatible apps and surfaces. Results may vary depending on visual matches and are for illustrative purposes only. Sequences are shortened.
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  <div id="Enabling-organizations">
+  <section class="glue-page section-heading" id="">
+    <div class="glue-grid">
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="heading__title">
+            Helping developers solve complex challenges
+          </div>
+        </div>
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="heading__description">
+            We enable developers by providing the building blocks, tools, and resources to solve complex challenges and build innovative solutions with AI.
+          </div>
+        </div>
+    </div>
+  </section>
+
+<section class="glue-page helping-devs-cards">
+  <div class="card-container helping-devs">
+      <div class="info-card">
+          <div class="video-container ">
+<div class="glue-video">
+  <div class="glue-video__preview-container glue-video__preview-container--modal">
+    <picture class="glue-video__preview">
+      <img class="glue-video__preview-image" alt="home-wayfair" src="https://kstatic.googleusercontent.com/files/0a919c2f20f1e2262c7aee69d9695d98df2a5caf0c1ec7bfa40d256a39533264ed1f025285fb8060687338b54e34122730da82621d881567dda29c936b64b786">
+      <div class="animation-overlay"></div>
+    </picture>
+    <div class="glue-video__info">
+      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+      </svg>
+    </div>
+  </div>
+  <div class="glue-modal glue-modal--dark">
+    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="VwZNWqh5ZWU" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+    </div>
+  </div>
+</div>          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Coding agents at Wayfair
+              </div>
+              <div class="info-content__desc">
+                How Wayfair is using Gemini CodeAssist to increase developer productivity.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://www.youtube.com/watch?v=_4b3ZlPZ8gk"
+ data-event-content="Learn more - Coding agents at Wayfair" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="info-card">
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Google AI for Developers
+              </div>
+              <div class="info-content__desc">
+                State-of-the-art generative AI models and tools for every developer.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://ai.google.dev/"
+ data-event-content="Learn more - Google AI for Developers" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/unaEc6I_VLa-rOnFbgEPoqUJ_FN9eThdC9sZfudv7-feolcKj_nUE6lo1LfRkJhicE-MRmenCPTdMejS9g9GYb1cUYVQ3jkt75woiv3iMcOlzn8aaL0d=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Google Cloud Vertex AI
+              </div>
+              <div class="info-content__desc">
+                A development platform for building and scaling generative AI applications.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://console.cloud.google.com/freetrial/?redirectPath=/vertex-ai/generative/multimodal/create/text"
+ data-event-content="Learn more - Google Cloud Vertex AI" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/qck72CVYF-i47rIO-FHOiyzYYFNjBeEel57I-L-2jc7635fc5nY87ja_brP7ZtJVyGDeOcpmp-_nYD3WQ7acxuet3Ll4g87H1p9VFyEaI6j5KGK8SQ=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Android for Developers
+              </div>
+              <div class="info-content__desc">
+                Leverage the power of generative AI on Android.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://developer.android.com/ai"
+ data-event-content="Learn more - Android for Developers" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/miuQivTPnYU73djUOnvqp9X7Gxz4PtEZrIH-tpd5paOuHzZHWXwp5FUbPm55BR4CMKVFnWbx12riaS76py1cz55woRJsdNuuGGb3_R9VIk6I_GgzTg=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Google AI Studio
+              </div>
+              <div class="info-content__desc">
+                The fastest and easiest way to start building with the Gemini API.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://aistudio.google.com"
+ data-event-content="Learn more - Google AI Studio" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/uOCbD_XNbSNRWice1YmasHQ9BJtqrY9c8VyhHk_T2zeletpCoX8WFMML11NJCS5nN6_rBxwy97o9DGEb6fEmrXwex2hRyT4ciZZNTghHjXX0KX5hC2s=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+  <section class="glue-page section-heading" id="">
+    <div class="glue-grid">
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="heading__title">
+            Enabling organizations to grow and innovate
+          </div>
+        </div>
+        <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md">
+          <div class="heading__description">
+            We enable organizations to use AI to work smarter, make better decisions, leverage powerful tools to streamline operations, gain deeper insights, and bring innovative ideas to life faster.
+          </div>
+        </div>
+    </div>
+  </section>
+
+<section class="glue-page helping-devs-cards">
+  <div class="card-container enabling-cards">
+      <div class="info-card">
+          <div class="video-container ">
+<div class="glue-video">
+  <div class="glue-video__preview-container glue-video__preview-container--modal">
+    <picture class="glue-video__preview">
+      <img class="glue-video__preview-image" alt="home-datakind" src="https://kstatic.googleusercontent.com/files/754afe3bdfa313fda3b8279d66150d71e671aa0b9d15e8dd3ee6e3e90b268f261ea7fc4b309cd74ac36439a3fc04635db88f475b9b5529404cb58791f25b4050">
+      <div class="animation-overlay"></div>
+    </picture>
+    <div class="glue-video__info">
+      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+      </svg>
+    </div>
+  </div>
+  <div class="glue-modal glue-modal--dark">
+    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="EfWgRAX0ICw" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+    </div>
+  </div>
+</div>          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                DataKind’s work with John Jay College
+              </div>
+              <div class="info-content__desc">
+                How using AI with support from Google.org helped increase senior graduation rates.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://publicpolicy.google/article/ai-helping-college-students-graduate/"
+ data-event-content="Learn more - DataKind’s work with John Jay College" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="info-card">
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Grow with Google
+              </div>
+              <div class="info-content__desc">
+                Help everyone build essential AI skills to boost productivity.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://grow.google/ai-essentials/?utm_source=google&amp;utm_medium=owned&amp;utm_campaign=ai-launch__geo--US&amp;utm_content=owned"
+ data-event-content="Learn more - Grow with Google" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/nAXD99J-RS0r-W3w96PKZbijnOEh8lmUV9ERyPaRxFnLbQmbkqK0H5TUiNcsLTCVuW9KD_5x_uA6ncsTUQmsWHMKIKq_KAv612FAdFxB-6vdfCuud5K8=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Google.org
+              </div>
+              <div class="info-content__desc">
+                Provide nonprofits with funding and access to AI tools and support.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://www.google.org/"
+ data-event-content="Learn more - Google.org" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/9P93P4MIp-3VgER1N0z9if6ZLPQLqzkUTQMGigqUJkU7MXSgWRuGEQeopYFUWpEIcOAzn-SGTiUY9meeYaKGKpl8Odj5x-Jcx_MA55gJo8SZbZ0aPkU=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="info-content">
+            <div class="content">
+              <div class="info-content__title">
+                Google Ads
+              </div>
+              <div class="info-content__desc">
+                Help businesses grow and reach customers around the world.
+              </div>
+              <div class="info-content__cta">
+                <a class="cta-link-tertiary-external                    content-tract-js" href="https://ads.google.com/"
+ data-event-content="Learn more - Google Ads" data-event-content-type="outbound">
+                  Learn more
+                  <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                    <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+              <div class="image-asset">
+                <div class="info-icon">
+                  <div class="info-icon__asset">
+                    <img src="https://lh3.googleusercontent.com/FQ3XZ6UXQZsoOQPUb0bgWP9aJOENM7Q0GQdgZP1Nzjc4jCA15F3wNIN9ASgeerMKCxcw2r2D7wIB7HxWQs2JVlXZCdsDbxassYJQZz1kHkXb_q_-HJE=-rw" role="presentation" class="">
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>  </div>
+
+  <div id="responsible-AI">
+  <div class="responsible-card" id="">
+    <div class="glue-page">
+      <div class="glue-grid">
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-left-title">
+            <div class="responsible-card-content">
+              <p class="responsible-card-content-title">Responsible AI is woven into the fabric of our work</p>
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-right-title">
+            <div class="responsible-card-content">
+              <p class="responsible-card-content-title">We approach AI boldly and responsibly, working together with experts, partners and other organizations  so our models, products and platforms can be safer, more inclusive, and benefit society.</p>
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-left ">
+            <div class="responsible-card-picture card-image card-image-left">
+              <img class="responsible-card-image-desktop" src="https://lh3.googleusercontent.com/5-O9Z3n1fddJRugl_gYu90zJxmYvFkJAGAIIIXAMSCl0vkoOd72L7KgDabcp0C-iwXjALDFkkVaH8TpLXc73FEQ1tk_FaCOR4SNnuMEvuLrodC6Vfw=-rw" role="presentation" loading="lazy">
+              <img class="responsible-card-image-mobile" src="https://lh3.googleusercontent.com/bUhzK21DoEVSDuhu1I1Ne1wB31otKxMHq70M1D4c7woq5MNjHIzsxD-kWCGvyOdPnu04RCdonBKSGYmbRR3tNsqo3wK1gwuU_OsL1jQQGcUU5x4ti4M=-rw" role="presentation" loading="lazy">
+            </div>
+            <div class="responsible-card-description-mobile">
+              <div class="responsible-card-description">
+                Guided by principles: our foundational approach to AI development.
+              </div>
+                <div class="responsible-card-cta">
+                  <a href=/responsibility/principles/ class="responsible-card-cta-link cta-link-tertiary-internal content-tract-js"  data-event-content="Learn more - Guided by principles" data-event-content-type="internal">
+                    <span class="responsible-card-cta-title">Learn more</span>
+                    <span class="responsible-card-cta-svg"><svg  class="responsible-card-cta-svg-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.73816 4.5L6.68066 5.5575L10.1157 9L6.68066 12.4425L7.73816 13.5L12.2382 9L7.73816 4.5Z" fill="#8AB4F8"/>
+</svg></span>
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-right">
+            <div class="responsible-card-picture card-image card-image-right">
+              <img class="responsible-card-image-desktop" src="https://lh3.googleusercontent.com/qSWEIirRjM7eRD8AZ_bWcih8-Lqy4Ig2a83qB18mEETVowbPxnKo4JiNHJ_JDUxWzIxMH6wOZ-q0na_eKVaXBwOWwyBtHqWdpxQhq77rzx8Q8p2p43I=-rw" role="presentation" loading="lazy">
+              <img class="responsible-card-image-mobile" src="https://lh3.googleusercontent.com/6AD-yA9a8jBqTFhjRJXpMxnZMw5-EchaVPum-qzVV4OJETpyNgtlaAc97CMOBOWHHh9fmGKL1a1qjgCCrmS1KRpSArX5JXB8Yr-k9hVVMGu-DN970j0=-rw" role="presentation" loading="lazy">
+            </div>
+            <div class="responsible-card-description-mobile">
+              <div class="responsible-card-description">
+                Our AI innovations are built using our responsible AI practices and led by teams at <a href="https://deepmind.google/" class="cta-link-tertiary-internal content-tract-js" data-event-content="Google DeepMind" data-event-content-type="outbound">Google DeepMind</a> and <a href="https://research.google/" class="cta-link-tertiary-internal content-tract-js" data-event-content="Google Research" data-event-content-type="outbound">Google Research</a>.
+              </div>
+                <div class="responsible-card-cta">
+                  <a href=/responsibility/responsible-ai-practices/ class="responsible-card-cta-link cta-link-tertiary-internal content-tract-js"  data-event-content="Learn more - Our AI innovations" data-event-content-type="internal">
+                    <span class="responsible-card-cta-title">Learn more</span>
+                    <span class="responsible-card-cta-svg"><svg  class="responsible-card-cta-svg-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.73816 4.5L6.68066 5.5575L10.1157 9L6.68066 12.4425L7.73816 13.5L12.2382 9L7.73816 4.5Z" fill="#8AB4F8"/>
+</svg></span>
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-left ">
+            <div class="responsible-card-description-desktop">
+              <div class="responsible-card-description">
+                Guided by principles: our foundational approach to AI development.
+              </div>
+              <div class="responsible-card-cta">
+                  <a href=/responsibility/principles/ class="responsible-card-cta-link cta-link-tertiary-internal content-tract-js"  data-event-content="Learn more - Guided by principles" data-event-content-type="internal">
+                    <span class="responsible-card-cta-title">Learn more</span>
+                    <span class="responsible-card-cta-svg"><svg  class="responsible-card-cta-svg-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.73816 4.5L6.68066 5.5575L10.1157 9L6.68066 12.4425L7.73816 13.5L12.2382 9L7.73816 4.5Z" fill="#8AB4F8"/>
+</svg></span>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md
+ responsible-card-right">
+            <div class="responsible-card-description-desktop">
+              <div class="responsible-card-description">
+                Our AI innovations are built using our responsible AI practices and led by teams at <a href="https://deepmind.google/" class="cta-link-tertiary-internal content-tract-js" data-event-content="Google DeepMind" data-event-content-type="outbound">Google DeepMind</a> and <a href="https://research.google/" class="cta-link-tertiary-internal content-tract-js" data-event-content="Google Research" data-event-content-type="outbound">Google Research</a>.
+              </div>
+              <div class="responsible-card-cta">
+                  <a href=/responsibility/responsible-ai-practices/ class="responsible-card-cta-link cta-link-tertiary-internal content-tract-js"  data-event-content="Learn more - Our AI innovations" data-event-content-type="internal">
+                    <span class="responsible-card-cta-title">Learn more</span>
+                    <span class="responsible-card-cta-svg"><svg  class="responsible-card-cta-svg-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.73816 4.5L6.68066 5.5575L10.1157 9L6.68066 12.4425L7.73816 13.5L12.2382 9L7.73816 4.5Z" fill="#8AB4F8"/>
+</svg></span>
+                  </a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<section class="sequencer">
+  <div class="glue-page slider-container">
+      <h1 class="sequencer__title">Building AI to be socially beneficial</h1>
+    <div class="slider">
+      <div class="glue-grid">
+        <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-12-md tab-container">
+          <div class="tabs">
+              <div class="tab" data-scroll-id="AlphaFold" data-event-label="AlphaFold">
+                <p class="tab-title">AlphaFold</p>
+              </div>
+              <div class="tab" data-scroll-id="Project Relate" data-event-label="Project Relate">
+                <p class="tab-title">Project Relate</p>
+              </div>
+              <div class="tab" data-scroll-id="Connectomics" data-event-label="Connectomics">
+                <p class="tab-title">Connectomics</p>
+              </div>
+              <div class="tab" data-scroll-id="Graphcast" data-event-label="Graphcast">
+                <p class="tab-title">Graphcast</p>
+              </div>
+              <div class="tabs-cta">
+                <a href="/responsibility/social-good/" class="cta-link content-tract-js"
+ data-event-content="See more - Building AI to be socially beneficial"
+                    data-event-content-type="internal">
+                  See more
+                </a>
+              </div>
+          </div>
+        </div>
+        <div class="glue-grid__col glue-grid__col--span-9 glue-grid__col--span-12-md">
+          <div class="slides">
+              <div class="slide" id="AlphaFold">
+                <div class="glue-video">
+                  <div class="glue-video__preview-container glue-video__preview-container--modal">
+                    <picture class="glue-video__preview">
+                      <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/6fa6f76100c3d9c307ee8773ea323bfa47f2db5c25cdff373137425c059384e479b95cba310b30ddc99ce964ecb2c15c0b2d6f7aa492e4c0414224857f9994c4">
+                    </picture>
+                    <div class="glue-video__info">
+                      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="glue-modal glue-modal--dark">
+                    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0"
+                        data-glue-yt-video-vid="gg7WjuFs8F4" data-glue-yt-video-height="100%"
+                        data-glue-yt-video-width="100%">
+                      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-container">
+                  <div class="slide-content">
+                    <div class="slide-content__item">
+                      <h2 class="heading">AlphaFold is accelerating research in nearly every field of biology</h2>
+                    </div>
+                    <div class="slide-content__item">
+                      <p class="description">By solving a decades-old scientific challenge, Google DeepMind’s AlphaFold gave millions of researchers a powerful new tool to help solve crucial problems like discovering new medicines or breaking down single-use plastics. One day, it might even help unlock the mysteries of how life itself works.</p>
+                    </div>
+                  </div>
+                    <div class="cta-container">
+                      <a href="https://deepmind.google/technologies/alphafold/" class="cta-link content-tract-js"
+                          target="_blank"                           data-event-content="Learn more - AlphaFold is accelerating research in nearly every field of biology"
+                          data-event-content-type="arrow">
+                        <span>Learn more</span>
+                        <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                          <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                        </svg>
+                      </a>
+                    </div>
+                </div>
+              </div>
+              <div class="slide" id="Project Relate">
+                <div class="glue-video">
+                  <div class="glue-video__preview-container glue-video__preview-container--modal">
+                    <picture class="glue-video__preview">
+                      <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/d3adec59f4e2ac56b9c15654b378747a8096143e7c91eaa9ec8d4c9b9eb348cf6dfab524eb45f507c0ddc140457e1c0d2e6f6945f6f01190fb8cafa1db7c3bed">
+                    </picture>
+                    <div class="glue-video__info">
+                      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="glue-modal glue-modal--dark">
+                    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0"
+                        data-glue-yt-video-vid="McA3a2ZNbO4" data-glue-yt-video-height="100%"
+                        data-glue-yt-video-width="100%">
+                      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-container">
+                  <div class="slide-content">
+                    <div class="slide-content__item">
+                      <h2 class="heading">Project Relate: communication made easier</h2>
+                    </div>
+                    <div class="slide-content__item">
+                      <p class="description">Around the world, it is estimated that 250,000,000 people have non-standard speech. Project Relate is a beta Android application that offers personalized speech recognition to empower people in their everyday lives.</p>
+                    </div>
+                  </div>
+                    <div class="cta-container">
+                      <a href="https://g.co/projectrelate" class="cta-link content-tract-js"
+                          target="_blank"                           data-event-content="Learn more - Project Relate: communication made easier"
+                          data-event-content-type="arrow">
+                        <span>Learn more</span>
+                        <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                          <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                        </svg>
+                      </a>
+                    </div>
+                </div>
+              </div>
+              <div class="slide" id="Connectomics">
+                <div class="glue-video">
+                  <div class="glue-video__preview-container glue-video__preview-container--modal">
+                    <picture class="glue-video__preview">
+                      <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/9a0c6a7f99513652f9cb982203bcf3e02b542b21fe2c6b1792f0e49ae795e1c16da5253cca8be033c88db96a8e207dd5d96a0cb426d1dda906c4ae892b945001">
+                    </picture>
+                    <div class="glue-video__info">
+                      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="glue-modal glue-modal--dark">
+                    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0"
+                        data-glue-yt-video-vid="VSG3_JvnCkU" data-glue-yt-video-height="100%"
+                        data-glue-yt-video-width="100%">
+                      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-container">
+                  <div class="slide-content">
+                    <div class="slide-content__item">
+                      <h2 class="heading">Helping map the human brain using connectomics</h2>
+                    </div>
+                    <div class="slide-content__item">
+                      <p class="description">Mapping the entire human brain could help us understand a lot about ourselves, from the causes of diseases to how we store memories. But mapping the brain with today’s technology would take billions of dollars and hundreds of years. Learn what Google Research is doing to make it easier for scientists to—someday—reach this goal.</p>
+                    </div>
+                  </div>
+                    <div class="cta-container">
+                      <a href="https://blog.google/technology/research/google-ai-research-new-images-human-brain/" class="cta-link content-tract-js"
+                          target="_blank"                           data-event-content="Learn more - Helping map the human brain using connectomics"
+                          data-event-content-type="arrow">
+                        <span>Learn more</span>
+                        <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                          <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                        </svg>
+                      </a>
+                    </div>
+                </div>
+              </div>
+              <div class="slide" id="Graphcast">
+                <div class="glue-video">
+                  <div class="glue-video__preview-container glue-video__preview-container--modal">
+                    <picture class="glue-video__preview">
+                      <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/1b86f03443ce2cd4f67a60eb9ff30285ef71fb5d8824a9acff8ce1621b1b045673bc92db39c79ba50301026fecbdd6ec1546a1eb0cad92769b57dd160231c20e">
+                    </picture>
+                    <div class="glue-video__info">
+                      <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="glue-modal glue-modal--dark">
+                    <div class="glue-video__container glue-modal__content-wrapper" tabindex="0"
+                        data-glue-yt-video-vid="-KFO0pES-zQ" data-glue-yt-video-height="100%"
+                        data-glue-yt-video-width="100%">
+                      <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-container">
+                  <div class="slide-content">
+                    <div class="slide-content__item">
+                      <h2 class="heading">Graphcast delivers 10-day weather predictions at unprecedented accuracy</h2>
+                    </div>
+                    <div class="slide-content__item">
+                      <p class="description">Google DeepMind’s state-of-the-art AI model provides faster, more accurate medium-range weather forecasts than the current industry standard, including earlier warnings for extreme weather events like cyclones, floods, and temperature spikes.</p>
+                    </div>
+                  </div>
+                    <div class="cta-container">
+                      <a href="https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/" class="cta-link content-tract-js"
+                          target="_blank"                           data-event-content="Learn more - Graphcast delivers 10-day weather predictions at unprecedented accuracy"
+                          data-event-content-type="arrow">
+                        <span>Learn more</span>
+                        <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                          <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                        </svg>
+                      </a>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="nav-dots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section class="sequencer-mobile">
+  <div class="glue-page">
+      <h1 class="sequencer__title">Building AI to be socially beneficial</h1>
+    <div id="glue-carousel" class="glue-carousel home-mobile-carousel" aria-label="Carousel description">
+      <button class="glue-carousel__button glue-carousel__button--prev"
+          aria-label="Previous slide">
+      </button>
+      <button class="glue-carousel__button glue-carousel__button--next"
+          aria-label="Next slide">
+      </button>
+      <div class="glue-carousel__viewport">
+        <div class="glue-carousel__list">
+            <div class="glue-carousel__item" id="glue-carousel-1"
+                aria-label="Slide 1">
+              <div class="sequencer-video">
+                <div class="glue-video__preview-container glue-video__preview-container--modal">
+                  <picture class="glue-video__preview">
+                    <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/6fa6f76100c3d9c307ee8773ea323bfa47f2db5c25cdff373137425c059384e479b95cba310b30ddc99ce964ecb2c15c0b2d6f7aa492e4c0414224857f9994c4">
+                  </picture>
+                  <div class="glue-video__info">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="content-container">
+                <div class="slide-content">
+                  <div class="slide-content__item">
+                    <h2 class="heading">AlphaFold is accelerating research in nearly every field of biology</h2>
+                  </div>
+                  <div class="slide-content__item">
+                    <p class="description">By solving a decades-old scientific challenge, Google DeepMind’s AlphaFold gave millions of researchers a powerful new tool to help solve crucial problems like discovering new medicines or breaking down single-use plastics. One day, it might even help unlock the mysteries of how life itself works.</p>
+                  </div>
+                </div>
+                  <div class="cta-container">
+                    <a href="https://deepmind.google/technologies/alphafold/" class="cta-link" target="_blank">Learn more</a>
+                    <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                      <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                    </svg>
+                  </div>
+              </div>
+            </div>
+            <div class="glue-carousel__item" id="glue-carousel-2"
+                aria-label="Slide 2">
+              <div class="sequencer-video">
+                <div class="glue-video__preview-container glue-video__preview-container--modal">
+                  <picture class="glue-video__preview">
+                    <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/d3adec59f4e2ac56b9c15654b378747a8096143e7c91eaa9ec8d4c9b9eb348cf6dfab524eb45f507c0ddc140457e1c0d2e6f6945f6f01190fb8cafa1db7c3bed">
+                  </picture>
+                  <div class="glue-video__info">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="content-container">
+                <div class="slide-content">
+                  <div class="slide-content__item">
+                    <h2 class="heading">Project Relate: communication made easier</h2>
+                  </div>
+                  <div class="slide-content__item">
+                    <p class="description">Around the world, it is estimated that 250,000,000 people have non-standard speech. Project Relate is a beta Android application that offers personalized speech recognition to empower people in their everyday lives.</p>
+                  </div>
+                </div>
+                  <div class="cta-container">
+                    <a href="https://g.co/projectrelate" class="cta-link" target="_blank">Learn more</a>
+                    <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                      <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                    </svg>
+                  </div>
+              </div>
+            </div>
+            <div class="glue-carousel__item" id="glue-carousel-3"
+                aria-label="Slide 3">
+              <div class="sequencer-video">
+                <div class="glue-video__preview-container glue-video__preview-container--modal">
+                  <picture class="glue-video__preview">
+                    <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/9a0c6a7f99513652f9cb982203bcf3e02b542b21fe2c6b1792f0e49ae795e1c16da5253cca8be033c88db96a8e207dd5d96a0cb426d1dda906c4ae892b945001">
+                  </picture>
+                  <div class="glue-video__info">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="content-container">
+                <div class="slide-content">
+                  <div class="slide-content__item">
+                    <h2 class="heading">Helping map the human brain using connectomics</h2>
+                  </div>
+                  <div class="slide-content__item">
+                    <p class="description">Mapping the entire human brain could help us understand a lot about ourselves, from the causes of diseases to how we store memories. But mapping the brain with today’s technology would take billions of dollars and hundreds of years. Learn what Google Research is doing to make it easier for scientists to—someday—reach this goal.</p>
+                  </div>
+                </div>
+                  <div class="cta-container">
+                    <a href="https://blog.google/technology/research/google-ai-research-new-images-human-brain/" class="cta-link" target="_blank">Learn more</a>
+                    <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                      <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                    </svg>
+                  </div>
+              </div>
+            </div>
+            <div class="glue-carousel__item" id="glue-carousel-4"
+                aria-label="Slide 4">
+              <div class="sequencer-video">
+                <div class="glue-video__preview-container glue-video__preview-container--modal">
+                  <picture class="glue-video__preview">
+                    <img class="glue-video__preview-image" alt="Video preview image" src="https://kstatic.googleusercontent.com/files/1b86f03443ce2cd4f67a60eb9ff30285ef71fb5d8824a9acff8ce1621b1b045673bc92db39c79ba50301026fecbdd6ec1546a1eb0cad92769b57dd160231c20e">
+                  </picture>
+                  <div class="glue-video__info">
+                    <svg class="glue-icon glue-video__play-button glue-video__play-button--white" role="presentation">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path 
+ d="M23.74 7.1s-.23-1.65-.95-2.37c-.91-.96-1.93-.96-2.4-1.02C17.04 3.47 12 3.5 12 3.5s-5.02-.03-8.37.21c-.46.06-1.48.06-2.39 1.02C.52 5.45.28 7.1.28 7.1S.04 9.05 0 10.98V13c.04 1.94.28 3.87.28 3.87s.24 1.65.96 2.38c.91.95 2.1.92 2.64 1.02 1.88.18 7.91.22 8.12.22 0 0 5.05.01 8.4-.23.46-.06 1.48-.06 2.39-1.02.72-.72.96-2.37.96-2.37s.24-1.94.25-3.87v-2.02c-.02-1.93-.26-3.88-.26-3.88zM9.57 15.5V8.49L16 12.13 9.57 15.5z"/></svg>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="content-container">
+                <div class="slide-content">
+                  <div class="slide-content__item">
+                    <h2 class="heading">Graphcast delivers 10-day weather predictions at unprecedented accuracy</h2>
+                  </div>
+                  <div class="slide-content__item">
+                    <p class="description">Google DeepMind’s state-of-the-art AI model provides faster, more accurate medium-range weather forecasts than the current industry standard, including earlier warnings for extreme weather events like cyclones, floods, and temperature spikes.</p>
+                  </div>
+                </div>
+                  <div class="cta-container">
+                    <a href="https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/" class="cta-link" target="_blank">Learn more</a>
+                    <svg role="presentation" aria-hidden="true" class="glue-icon cta-icon">
+                      <use href="/static/images/glue-icons.svg#open-in-new"></use>
+                    </svg>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="glue-carousel__navigation" aria-label="Choose slide to display"></div>
+    </div>
+
+      <div class="glue-video sequencer-mobile-video">
+        <div class="glue-video__preview-container  sequencer-mobile-modal"
+            role="menuitem" id="sequencer-mobile-video-1" aria-label="hero-video-modal">
+          <picture class="glue-video__preview sequencer-mobile-preview"></picture>
+        </div>
+        <div class="glue-modal glue-modal--dark">
+          <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="gg7WjuFs8F4" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+            <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+          </div>
+        </div>
+      </div>
+      <div class="glue-video sequencer-mobile-video">
+        <div class="glue-video__preview-container  sequencer-mobile-modal"
+            role="menuitem" id="sequencer-mobile-video-2" aria-label="hero-video-modal">
+          <picture class="glue-video__preview sequencer-mobile-preview"></picture>
+        </div>
+        <div class="glue-modal glue-modal--dark">
+          <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="McA3a2ZNbO4" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+            <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+          </div>
+        </div>
+      </div>
+      <div class="glue-video sequencer-mobile-video">
+        <div class="glue-video__preview-container  sequencer-mobile-modal"
+            role="menuitem" id="sequencer-mobile-video-3" aria-label="hero-video-modal">
+          <picture class="glue-video__preview sequencer-mobile-preview"></picture>
+        </div>
+        <div class="glue-modal glue-modal--dark">
+          <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="VSG3_JvnCkU" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+            <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+          </div>
+        </div>
+      </div>
+      <div class="glue-video sequencer-mobile-video">
+        <div class="glue-video__preview-container  sequencer-mobile-modal"
+            role="menuitem" id="sequencer-mobile-video-4" aria-label="hero-video-modal">
+          <picture class="glue-video__preview sequencer-mobile-preview"></picture>
+        </div>
+        <div class="glue-modal glue-modal--dark">
+          <div class="glue-video__container glue-modal__content-wrapper" tabindex="0" data-glue-yt-video-vid="-KFO0pES-zQ" data-glue-yt-video-height="100%" data-glue-yt-video-width="100%">
+            <div class="glue-modal__close-btn" tabindex="0" aria-label="Close this modal"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>  </div>
+</div><div id="ai-journey" class="home-card ai-journey">
+  <div class="glue-page">
+      <div class="home-card-wrapper">
+        <div class="glue-grid">
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md home-card-picture">
+            <div class="home-card-assets">
+                <img class="home-card-desktop-image" src="https://kstatic.googleusercontent.com/files/925e542e9afd20d26b8e240af6fb1c568a920ad5b15571bfba81284702358323fe681e2460a08778c140dce62b4d2c5e8f4df7405db95332a19a3e7075c1283b" role="presentation" loading="lazy">
+            </div>
+          </div>
+          <div class="glue-grid__col glue-grid__col--span-6 glue-grid__col--span-12-md home-card-content">
+            <div class="home-card-title">
+              Our AI journey
+            </div>
+            <div class="home-card-description">
+                Learn how Google has worked over the past 20 years to make AI helpful for everyone.
+            </div>
+            <div class="home-card-cta">
+                <a href="/ai-milestones"                    class="home-card-cta-link glue-button cta-primary-button-dark content-tract-js"  data-event-content="Explore - Our AI journey" data-event-content-type="internal">
+                  Explore
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div><section class="glue-page five-cards-section">
+  <div class="section-header">
+    <h2 class="blog-headline">What&#39;s new in Google AI</h2>
+      <div class="heading-cta">
+        <a href="https://blog.google/technology/developers/google-io-2024-collection?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="cta_link glue-button
+            glue-button--medium-emphasis content-tract-js" target="_blank"
+            rel="noopener noreferrer" data-event-content-type="outbound"
+            data-event-content="See more news - What&#39;s new in Google AI">
+          See more news
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>        </a>
+      </div>
+  </div>
+    <div class="new-glue-grid">
+        <div class="new-blog-cards">
+            <a href="https://blog.google/products/search/generative-ai-google-search-may-2024?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="content-tract-js"
+                target="_blank" rel="noopener noreferrer"
+                data-event-content="Read the article - Generative AI in Search: Let Google do the searching for you"
+                data-event-content-type="outbound">
+              <div class="blog-content-asset">
+                    <div class="ai-cards-image">
+                      <img class="ai-cards-image-desktop" loading="lazy"
+                          src="https://lh3.googleusercontent.com/XwWCPP3hgikREw6jKe6A7lC5hilSFCTztRpRdS1jiwjEJOseOIhnAhRg2CVHJP3cf3v03bNsJDn6XRZXB2GSV-lTp6T4h1_GJzqw2x-peHINoRnaxfg=-rw"
+                          role="presentation" width="640" height="360"/>
+                    </div>
+                <div class="blog-content-text                  content-blog-width">
+                    <div class="content-title">
+                      <p class="glue-headline">Generative AI in Search: Let Google do the searching for you</p>
+                    </div>
+                  <div class="content-cta">
+                    <span class="cta-title">Read the article</span>
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="https://blog.google/technology/ai/google-generative-ai-veo-imagen-3/?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="content-tract-js"
+                target="_blank" rel="noopener noreferrer"
+                data-event-content="Read the article - New generative models and tools, built with and for creators"
+                data-event-content-type="outbound">
+              <div class="blog-content-asset">
+                    <div class="ai-cards-image">
+                      <img class="ai-cards-image-desktop" loading="lazy"
+                          src="https://lh3.googleusercontent.com/1_eaVqidCaIOEt7ofLEWlavtWhKtd3C2ZNpEt_PXDPyPzmsMs2DeaNq1ZTtl-ZPFCgwrAvXI76OckUXj4cLwTs-eCz0eepSprjjLFmiEIaEfo9JYK6ZM=-rw"
+                          role="presentation" width="640" height="360"/>
+                    </div>
+                <div class="blog-content-text                  content-blog-width">
+                    <div class="content-title">
+                      <p class="glue-headline">New generative models and tools, built with and for creators</p>
+                    </div>
+                  <div class="content-cta">
+                    <span class="cta-title">Read the article</span>
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>                  </div>
+                </div>
+              </div>
+            </a>
+        </div>
+        <div class="new-blog-cards">
+            <a href="https://blog.google/inside-google/message-ceo/google-io-2024-keynote-sundar-pichai?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="content-tract-js"
+                target="_blank" rel="noopener noreferrer"
+                data-event-content="Read the article - Google I/O 2024: An I/O for a new generation"
+                data-event-content-type="outbound">
+              <div class="blog-content-asset">
+                  <div class="ai-cards-image">
+                    <img class="ai-cards-image-desktop right-images"
+                        src="https://kstatic.googleusercontent.com/files/4df6845a041055f36141ac3cf7abb1bce6aa417f6421817f0d04413d03f8396fc256015a9bb7d0cfcaf05d1066995f1d1530c47fc5ef4ea68654aa4655c26440" role="presentation"
+                        loading="lazy" width="640" height="360" />
+                  </div>
+                <div class="blog-content-text                  content-blog-width">
+                    <div class="content-title">
+                      <p class="glue-headline">Google I/O 2024: An I/O for a new generation</p>
+                    </div>
+                  <div class="content-cta">
+                    <span class="cta-title">Read the article</span>
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>                  </div>
+                </div>
+              </div>
+            </a>
+        </div>
+        <div class="new-blog-cards">
+            <a href="https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="content-tract-js"
+                target="_blank" rel="noopener noreferrer"
+                data-event-content="Read the article - Gemini breaks new ground with a faster model, longer context, AI agents and more"
+                data-event-content-type="outbound">
+              <div class="blog-content-asset">
+                    <div class="ai-cards-image">
+                      <img class="ai-cards-image-desktop" loading="lazy"
+                          src="https://lh3.googleusercontent.com/9nW0Nn94pvpAvFB-VuAytAiUXsw984ZDjh5A-bwL8p_5A8eFgd1LuNURu0cSU5ZOBC93LrgIqMEQgVtHGikDK4ubxvJ5U5oI-QVFuUMe8RXCJonKrQ=-rw"
+                          role="presentation" width="640" height="360"/>
+                    </div>
+                <div class="blog-content-text                  content-blog-width">
+                    <div class="content-title">
+                      <p class="glue-headline">Gemini breaks new ground with a faster model, longer context, AI agents and more</p>
+                    </div>
+                  <div class="content-cta">
+                    <span class="cta-title">Read the article</span>
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="https://blog.google/products/gemini/google-gemini-update-may-2024?utm_source=ai&amp;utm_medium=referral&amp;utm_campaign=io24" class="content-tract-js"
+                target="_blank" rel="noopener noreferrer"
+                data-event-content="Read the article - Get more done with Gemini: Try 1.5 Pro and more intelligent features"
+                data-event-content-type="outbound">
+              <div class="blog-content-asset">
+                    <div class="ai-cards-image">
+                      <img class="ai-cards-image-desktop" loading="lazy"
+                          src="https://lh3.googleusercontent.com/JWLa38qzkmg2LgLPzUfuIITnZTILMLyffrMEu7A5aZetUbtqsWHjJ1P2y1ENuPMSA0JvKS0tV36EofVFEZxvG070J55ae0JF6u-kxRSntaZ0TNnGFQ=-rw"
+                          role="presentation" width="640" height="360"/>
+                    </div>
+                <div class="blog-content-text                  content-blog-width">
+                    <div class="content-title">
+                      <p class="glue-headline">Get more done with Gemini: Try 1.5 Pro and more intelligent features</p>
+                    </div>
+                  <div class="content-cta">
+                    <span class="cta-title">Read the article</span>
+<svg class="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 12.25H1.75V1.75H7V0.25H1.75C0.9175 0.25 0.25 0.925 0.25 1.75V12.25C0.25 13.075 0.9175 13.75 1.75 13.75H12.25C13.075 13.75 13.75 13.075 13.75 12.25V7H12.25V12.25ZM8.5 0.25V1.75H11.1925L3.82 9.1225L4.8775 10.18L12.25 2.8075V5.5H13.75V0.25H8.5Z" fill="#1A73E8"/>
+</svg>                  </div>
+                </div>
+              </div>
+            </a>
+        </div>
+    </div>
+</section><section class="glue-page other-initiatives">
+  <div class="glue-grid">
+    <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-12-md section-header">
+      <h2 class="blog-headline">Explore our other teams and product areas</h2>
+    </div>
+      <div class="glue-grid__col glue-grid__col--span-9 glue-grid__col--span-12-md cards">
+        <div class="glue-grid">
+            <div class="glue-grid__col glue-grid__col--span-4 glue-grid__col--span-12-md">
+              <a href="https://deepmind.google" target="_blank" class="content-tract-js" data-event-content="Google DeepMind - Explore our other teams and product areas" data-event-content-type="outbound">
+                <div class="card-content">
+                  <div class="content-item">
+                    <img src="https://lh3.googleusercontent.com/lnmCRTeEPS5IYtI7U1CHfeE5umdD3gUejCVeVFew0djYCyzknLE58O3be6h0_lwVn70M0M0FMOGsAbAsdfnWu8xiB8lqKV3HONMCGjrTTi8gBeTF4EU" role="presentation" loading="lazy" width="24" height="24" />
+                  </div>
+                  <div class="content-item title">
+                    Google DeepMind
+                  </div>
+                  <div class="content-item content-cta">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#4285F4" fill-rule="evenodd" d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/></svg>                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="glue-grid__col glue-grid__col--span-4 glue-grid__col--span-12-md">
+              <a href="https://research.google/" target="_blank" class="content-tract-js" data-event-content="Google Research - Explore our other teams and product areas" data-event-content-type="outbound">
+                <div class="card-content">
+                  <div class="content-item">
+                    <img src="https://lh3.googleusercontent.com/t8JGohszA8uSUAQgQd0hUVxkVHTXot0YhlhgyZjYNiEAv6FzmD5U7a7ucZvsO3wlZBf7-iOp5hK0Dx2esIL2KxuesyCWwOGdrQ8O1p_fkG3ioRG6vas" role="presentation" loading="lazy" width="24" height="24" />
+                  </div>
+                  <div class="content-item title">
+                    Google Research
+                  </div>
+                  <div class="content-item content-cta">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#4285F4" fill-rule="evenodd" d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/></svg>                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="glue-grid__col glue-grid__col--span-4 glue-grid__col--span-12-md">
+              <a href="https://cloud.google.com/" target="_blank" class="content-tract-js" data-event-content="Google Cloud - Explore our other teams and product areas" data-event-content-type="outbound">
+                <div class="card-content">
+                  <div class="content-item">
+                    <img src="https://lh3.googleusercontent.com/lCYhhWXqaYVZLTicfQM6dr7R32XZ9eOI2GQIELJ0Fgt7vgewZ3AN0f-EZRbtGAUEIcDfY7xUa7kjo6p0VmPLzwSjYABZbmRgujJbYUPl_AEFNn4quJ4H" role="presentation" loading="lazy" width="24" height="24" />
+                  </div>
+                  <div class="content-item title">
+                    Google Cloud
+                  </div>
+                  <div class="content-item content-cta">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#4285F4" fill-rule="evenodd" d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/></svg>                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="glue-grid__col glue-grid__col--span-4 glue-grid__col--span-12-md">
+              <a href="https://labs.google/" target="_blank" class="content-tract-js" data-event-content="LABS.GOOGLE - Explore our other teams and product areas" data-event-content-type="outbound">
+                <div class="card-content">
+                  <div class="content-item">
+                    <img src="https://lh3.googleusercontent.com/Q4lVgTfEmqqY1PGYwSnWs10SVzxmJaCZ--B0ifZypvytB-WZU1g4lPG0QuVko0U1L-7h4L171f2qVwh66QC673OD-shgTjJ-wNEkRe3OKJucNtVveVc" role="presentation" loading="lazy" width="24" height="24" />
+                  </div>
+                  <div class="content-item title">
+                    LABS.GOOGLE
+                  </div>
+                  <div class="content-item content-cta">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#4285F4" fill-rule="evenodd" d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/></svg>                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>      </div>
+    </main>
+
+<footer>
+  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="Google" class="footer__logo">
+    <svg role="img" aria-hidden="true" viewBox="0 0 396 130">
+      <path d="M51.0745265,101.038701 C23.3283097,101.038701 9.65724009e-07,78.4212338 9.65724009e-07,50.645974 C-0.00548030982,22.8707143 23.3228284,0.253246753 51.0745265,0.253246753 C66.4220981,0.253246753 77.3517615,6.27798701 85.5736748,14.1408766 L75.8718171,23.8528896 C69.9794459,18.3219805 61.9987087,14.0201623 51.0690452,14.0201623 C30.8102508,14.0201623 14.9693645,30.365974 14.9693645,50.645974 C14.9693645,70.925974 30.8102508,87.2717857 51.0690452,87.2717857 C64.2076627,87.2717857 71.6950851,81.9877922 76.48572,77.1921429 C80.4157945,73.2579545 82.991994,67.6063312 83.9731424,59.8641558 L51.0745265,59.8641558 L51.0745265,46.1027273 L97.3638985,46.1027273 C97.8572133,48.5609091 98.0983894,51.5129221 98.0983894,54.7063636 C98.0983894,65.0329221 95.2755325,77.8121753 86.1875777,86.9096429 C77.3462802,96.1223377 66.0548526,101.038701 51.0745265,101.038701 L51.0745265,101.038701 Z"></path>
+      <path d="M167.573556,68.369026 C167.573556,87.0523052 152.965957,100.813734 135.036704,100.813734 C117.112933,100.813734 102.499853,87.0468182 102.499853,68.369026 C102.499853,49.5650325 117.112933,35.9188312 135.036704,35.9188312 C152.965957,35.9188312 167.573556,49.5650325 167.573556,68.369026 L167.573556,68.369026 Z M153.333202,68.369026 C153.333202,56.6926623 144.85915,48.7035714 135.036704,48.7035714 C125.214259,48.7035714 116.740207,56.6926623 116.740207,68.369026 C116.740207,79.9191883 125.214259,88.0344805 135.036704,88.0344805 C144.85915,88.0344805 153.333202,79.9191883 153.333202,68.369026 L153.333202,68.369026 Z"></path>
+      <path d="M238.282011,68.369026 C238.282011,87.0523052 223.674411,100.813734 205.745159,100.813734 C187.821388,100.813734 173.208307,87.0468182 173.208307,68.369026 C173.208307,49.5650325 187.821388,35.9188312 205.745159,35.9188312 C223.674411,35.9188312 238.282011,49.5650325 238.282011,68.369026 L238.282011,68.369026 Z M224.041657,68.369026 C224.041657,56.6926623 215.567605,48.7035714 205.745159,48.7035714 C195.922713,48.7035714 187.448661,56.6926623 187.448661,68.369026 C187.448661,79.9191883 195.922713,88.0344805 205.745159,88.0344805 C215.567605,88.0344805 224.041657,79.9191883 224.041657,68.369026 L224.041657,68.369026 Z"></path>
+      <path d="M306.04702,37.943539 L306.04702,96.1442857 C306.04702,120.111558 291.927254,129.944286 275.231289,129.944286 C259.516472,129.944286 250.061272,119.376299 246.498443,110.772662 L258.897088,105.609383 C261.106042,110.893377 266.51058,117.159545 275.225808,117.159545 C285.908814,117.159545 292.535676,110.52026 292.535676,98.1086364 L292.535676,93.4391883 L292.047842,93.4391883 C288.85774,97.3733766 282.71323,100.813734 274.97915,100.813734 C258.771019,100.813734 243.916762,86.6791883 243.916762,68.4897403 C243.916762,50.1740909 258.771019,35.9188312 274.97915,35.9188312 C282.71323,35.9188312 288.852259,39.3591883 292.047842,43.1726623 L292.535676,43.1726623 L292.535676,37.943539 L306.04702,37.943539 L306.04702,37.943539 Z M293.522306,68.4897403 C293.522306,57.0602922 285.908814,48.7035714 276.212437,48.7035714 C266.389992,48.7035714 258.162597,57.0602922 258.162597,68.4897403 C258.162597,79.798474 266.389992,88.0344805 276.212437,88.0344805 C285.908814,88.0344805 293.522306,79.798474 293.522306,68.4897403 L293.522306,68.4897403 Z"></path>
+      <path d="M329.961825,3.54545455 L329.961825,98.9207143 L315.721472,98.9207143 L315.721472,3.54545455 L329.961825,3.54545455 L329.961825,3.54545455 Z"></path>
+      <path d="M383.755064,79.0577273 L394.805315,86.4322727 C391.242486,91.7162662 382.647846,100.813734 367.793589,100.813734 C349.376503,100.813734 336.002191,86.558474 336.002191,68.369026 C336.002191,49.0712013 349.497091,35.9188312 366.198538,35.9188312 C383.020573,35.9188312 391.247967,49.3181169 393.944755,56.566461 L395.419218,60.2537338 L352.078772,78.1962662 C355.394944,84.7093506 360.552824,88.0289935 367.793589,88.0289935 C375.039836,88.0289935 380.071647,84.4624351 383.755064,79.0577273 L383.755064,79.0577273 Z M349.743749,67.3813636 L378.717771,55.3373701 C377.12272,51.2824675 372.332085,48.4566558 366.686372,48.4566558 C359.445607,48.4511688 349.376503,54.843539 349.743749,67.3813636 L349.743749,67.3813636 Z"></path>
+    </svg>
+  </a>
+
+  <div class="footer__links">
+      <a   href="https://www.google.com/intl/en/policies/privacy/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Privacy">Privacy</a>
+      <a   href="https://www.google.com/intl/en/policies/terms/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Terms">Terms</a>
+      <a   href="https://about.google/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="About Google">About Google</a>
+      <a   href="https://about.google/products/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Google Products">Google Products</a>
+      <button class="glue-cookie-notification-bar-control footer__link" aria-hidden="true">Cookies management controls</button>
+  </div>
+
+  <div class="footer__tertiary">
+
+    <a href="" class="footer__link footer__link--support navigation-track-js" data-event-label="Feedback" data-event-type="footer" onclick="sendFeedback()">
+      Feedback
+    </a>
+  </div>
+
+  <script>
+    function sendFeedback() {
+      var config = {
+        'productId': '720193',
+        'bucket': 'site',
+        'allowNonLoggedInFeedback' : true
+      };
+      userfeedback.api.startFeedback(config);
+    }
+  </script>
+  <script src="//www.gstatic.com/feedback/api.js" defer></script>
+</footer>
+    <div id="breakpoints"></div>
+    <script src="https://www.youtube.com/player_api" async></script>
+    <script src="https://www.gstatic.com/glue/v27_1/glue.min.js?cache=124efg" async></script>
+    <script src="/js/main.min.js?cache=124efg" async></script>
+
+
+    <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"
+        data-glue-cookie-notification-bar-category="2A"
+        data-glue-cookie-notification-bar-language="en"
+        data-glue-cookie-notification-bar-site-id="ai.google">
+    </script>
+  </body>
+</html>

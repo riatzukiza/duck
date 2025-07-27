@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
+  "name": "duck",
+  "version": "1.0.0",
+  "description": "Duckman is an LLM powered discord bot assistant. It has access to your servers entire discord chat history. It executes searches in the background based on the message history, and stores the results in a chromadb vector database. It has access to a filesystem, and also indexes the contents of those files and their histories.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

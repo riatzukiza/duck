@@ -1,0 +1,17 @@
+{
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Tue, 19 Nov 2024 01:36:39 GMT",
+    "vary": "accept-encoding",
+    "content-encoding": "gzip",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy-report-only": "frame-ancestors 'self'; object-src 'none'; report-uri /api/csp-reporting",
+    "x-hl-ver": "11900678645",
+    "cache-control": "max-age=300, must-revalidate, private",
+    "set-cookie": "blab=b14dc429-830f-4c7c-b70e-8f64e63b02f4; Max-Age=315360000; Expires=Fri, 17 Nov 2034 01:36:39 GMT; Secure; SameSite=Lax; Domain=medicalnewstoday.com; Path=/",
+    "X-Cache": "Miss from cloudfront",
+    "Via": "1.1 e6fb4d20d3fc90d1ccbeef6a92a122cc.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "LAX53-P1",
+    "X-Amz-Cf-Id": "fvOmIXKEPURG22Oq34v4_x0do2PFbdlN0_4X6lK5SqStq6epfv-qHg=="
+}

@@ -1,0 +1,21 @@
+{
+    "Content-Type": "text/html; charset=\"UTF-8\"",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sun, 17 Nov 2024 06:32:58 GMT",
+    "Server": "Apache",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "Cache-Control": "s-maxage=257469, max-age=3 ,stale-while-revalidate=0, stale-if-error=0",
+    "Link": "<https://www.geeksforgeeks.org/wp-json/>; rel=\"https://api.w.org/\", <https://www.geeksforgeeks.org/?p=671841>; rel=shortlink",
+    "Set-Cookie": "671841=5090%2C4677%2C2078; expires=Sun, 17-Nov-2024 06:34:39 GMT; Max-Age=100; path=/",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Credentials": "true",
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Vary": "Accept-Encoding,Cookie",
+    "X-Cache": "Hit from cloudfront",
+    "Via": "1.1 757859dde738c4c5e4578c9e4d55006c.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "LAX54-P2",
+    "X-Amz-Cf-Id": "EQm1YMAw45A4bZi_asiG1rnV7ajwk_QCOpldbAvxIxreDCgMiJhYpg==",
+    "Age": "154979"
+}

@@ -1,0 +1,17 @@
+{
+    "set-cookie": "MoodleSession=ddtu8jccgp7ns6k32gp65nbnpi; path=/; secure; SameSite=None",
+    "content-language": "en",
+    "content-type": "text/html; charset=utf-8",
+    "content-script-type": "text/javascript",
+    "content-style-type": "text/css",
+    "x-ua-compatible": "IE=edge",
+    "cache-control": "private, pre-check=0, post-check=0, max-age=0, no-transform",
+    "pragma": "no-cache",
+    "accept-ranges": "none",
+    "x-frame-options": "sameorigin",
+    "x-server-id": "saas-app31c",
+    "access-control-allow-origin": "*",
+    "transfer-encoding": "chunked",
+    "date": "Tue, 19 Nov 2024 01:35:10 GMT",
+    "server": "lighttpd/1.4.55"
+}

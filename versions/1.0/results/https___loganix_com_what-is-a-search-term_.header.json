@@ -1,0 +1,16 @@
+{
+    "Connection": "Keep-Alive",
+    "Keep-Alive": "timeout=5, max=100",
+    "x-dns-prefetch-control": "on",
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://loganix.com/wp-json/>; rel=\"https://api.w.org/\", <https://loganix.com/wp-json/wp/v2/posts/25472>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://loganix.com/?p=25472>; rel=shortlink",
+    "cache-control": "no-cache, must-revalidate, max-age=0",
+    "etag": "\"95069-1731653065;gz\"",
+    "x-litespeed-cache": "hit",
+    "transfer-encoding": "chunked",
+    "content-encoding": "gzip",
+    "vary": "Accept-Encoding",
+    "date": "Tue, 19 Nov 2024 01:35:33 GMT",
+    "server": "LiteSpeed",
+    "alt-svc": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
+}

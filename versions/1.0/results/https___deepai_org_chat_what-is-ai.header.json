@@ -1,0 +1,20 @@
+{
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Mon, 18 Nov 2024 21:57:19 GMT",
+    "Status": "200 OK",
+    "Referrer-Policy": "same-origin",
+    "X-Frame-Options": "ALLOWALL",
+    "X-Content-Type-Options": "nosniff",
+    "X-Powered-By": "Phusion Passenger(R)",
+    "Server": "nginx + Phusion Passenger(R)",
+    "Content-Encoding": "gzip",
+    "X-Cache": "Hit from cloudfront",
+    "Via": "1.1 26f6cb7bc27a3b1f385b3c58823ff51c.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "LAX50-P3",
+    "Alt-Svc": "h3=\":443\"; ma=86400",
+    "X-Amz-Cf-Id": "fN0zy0tHrKTlEOoSOJiFILZ1oPm7zuvNFgcfRVnsruGQ7TItvxJl8Q==",
+    "Age": "13105",
+    "Vary": "Origin"
+}
