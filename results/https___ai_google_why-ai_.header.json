@@ -1,0 +1,12 @@
+{
+    "X-Cloud-Trace-Context": "442ec1d4b857e62e072e8f9dc71b312e",
+    "Server": "Google Frontend",
+    "Content-Length": "78897",
+    "Date": "Tue, 19 Nov 2024 01:26:04 GMT",
+    "Expires": "Tue, 19 Nov 2024 01:36:04 GMT",
+    "Cache-Control": "public, max-age=600",
+    "Age": "594",
+    "ETag": "\"vtWpMA\"",
+    "Content-Type": "text/html",
+    "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+}

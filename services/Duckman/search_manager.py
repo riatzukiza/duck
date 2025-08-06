@@ -86,7 +86,7 @@ async def handle_search_result(result,keyword):
     else:
         print("html source",result['href'])
         await asyncio.sleep(1)
-        markdown=convert_html_to_markdown()
+        return [convert_html_to_markdown()]
 
     completed_searches.add(keyword)
     scraped_sources.add(result['href'])
@@ -106,7 +106,7 @@ async def update_state_from_search( question,key,examples=["Search term","AI","h
         try:
             print("searching for",keyword)
             for result in (await AsyncDDGS().atext(keyword, region='wt-wt', safesearch='Moderate', max_results=10)):
-                handle_search_result(result,keyword)
+                text=await handle_search_result(result,keyword)
 
 
         except Exception as e:

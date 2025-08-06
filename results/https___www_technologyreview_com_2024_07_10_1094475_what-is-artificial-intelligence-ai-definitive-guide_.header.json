@@ -1,0 +1,18 @@
+{
+    "Server": "nginx",
+    "Date": "Tue, 19 Nov 2024 01:36:01 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "X-Powered-By": "Express",
+    "X-Frame-Options": "sameorigin",
+    "Content-Security-Policy": "frame-ancestors 'self';",
+    "ETag": "W/\"8f75b-XawDu3eCi18UHWPQ2geek9/tKEo\"",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=31536000;includeSubdomains;preload",
+    "cache-control": "max-age=300, must-revalidate",
+    "accept-ranges": "bytes",
+    "x-cache": "STALE",
+    "x-rq": "bur8 123 243 443"
+}

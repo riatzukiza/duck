@@ -1,0 +1,13 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:36:09 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "CF-Ray": "8e4c77b8bd735269-LAX",
+    "CF-Cache-Status": "DYNAMIC",
+    "Set-Cookie": "AWSALB=VdqALRvZ6jbq6joqAQF8TTdMHuXqFhmYJ47QUXdC3npac7zaG4DzhJnXLxlH1jyI/vTLK/TMdmayk9xrI0AFr/5PyHXpkGcbdEOm/cJ3fMONopHx0EleTIirzzpA; Expires=Tue, 26 Nov 2024 01:36:09 GMT; Path=/, AWSALBCORS=VdqALRvZ6jbq6joqAQF8TTdMHuXqFhmYJ47QUXdC3npac7zaG4DzhJnXLxlH1jyI/vTLK/TMdmayk9xrI0AFr/5PyHXpkGcbdEOm/cJ3fMONopHx0EleTIirzzpA; Expires=Tue, 26 Nov 2024 01:36:09 GMT; Path=/; SameSite=None, _csrf=66Re4RfmEkmU7Zuy54keftIi; Path=/, connect.sid=s%3AFCDoNUKg9xLgRev0T35OCIHNt8hAHIUs.PND5b8gKroMZwZYH1gihx2fdfjaHAwAVCxgd4lF6gGI; Path=/; Expires=Tue, 26 Nov 2024 01:36:09 GMT; HttpOnly",
+    "X-Powered-By": "Express",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "Content-Encoding": "gzip"
+}

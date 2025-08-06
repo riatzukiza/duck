@@ -1,0 +1,19 @@
+{
+    "Date": "Tue, 19 Nov 2024 01:35:23 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Cache-Control": "public, max-age=604800, s-maxage=604800, stale-while-revalidate=120, stale-if-error=14400",
+    "link": "<https://yoast.com/app/themes/yoast-theme/css/style.min.css?ver=1731914676>; rel=preload; as=style; nopush, <https://yoast.com/app/themes/yoast-theme/css/templates/menu.min.css?ver=1727337749>; rel=preload; as=style; nopush, <https://cdn-4.convertexperiments.com/>; rel=dns-prefetch, <https://cdn-4.convertexperiments.com/>; rel=preconnect",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Last-Modified": "Tue, 19 Nov 2024 00:54:51 GMT",
+    "CF-Cache-Status": "HIT",
+    "Age": "2432",
+    "Set-Cookie": "__cf_bm=aXDvhH9fcurLsaJ56ZH0IDalY.axwFld8ue93BTnimg-1731980123-1.0.1.1-1VA48ZbhB_PlPbL35VxR9nrbbPdsenlQlyQN2IiG6k.chj2HyljUVQyWCiAmLdUd_jdU1Ygh5EabJTw2AWXqXQ; path=/; expires=Tue, 19-Nov-24 02:05:23 GMT; domain=.yoast.com; HttpOnly; Secure; SameSite=None",
+    "X-Content-Type-Options": "nosniff",
+    "vary": "Accept-Encoding, Cookie",
+    "Server": "cloudflare",
+    "CF-RAY": "8e4c769bb84b7d37-LAX",
+    "Content-Encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+}

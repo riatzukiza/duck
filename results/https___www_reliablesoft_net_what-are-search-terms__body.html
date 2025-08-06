@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head ><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v23.8 (Yoast SEO v23.8) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>What are Search Terms? (With Examples)</title>
+<link rel="preload" as="font" href="https://www.reliablesoft.net/wp-content/themes/rstheme/assets/fonts/geomanist/geomanist-regular-webfont.woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.reliablesoft.net/wp-content/themes/rstheme/assets/fonts/geomanist/geomanist-book-webfont.woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.reliablesoft.net/wp-content/themes/rstheme/assets/fonts/geomanist/geomanist-medium-webfont.woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.reliablesoft.net/wp-content/themes/rstheme/assets/fonts/geomanist/geomanist-regular-italic-webfont.woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.reliablesoft.net/wp-content/themes/rstheme/assets/fonts/geomanist/geomanist-bold-webfont.woff2" crossorigin><link rel="preload" data-rocket-preload as="image" href="https://www.reliablesoft.net/icons/keyword-research.png" fetchpriority="high">
+	<meta name="description" content="Anything that people type into a search engine is considered a search term. Learn why they are important and how to differentiate them with keywords." />
+	<link rel="canonical" href="https://www.reliablesoft.net/what-are-search-terms/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="What are Search Terms? (With Examples)" />
+	<meta property="og:description" content="Anything that people type into a search engine is considered a search term. Learn why they are important and how to differentiate them with keywords." />
+	<meta property="og:url" content="https://www.reliablesoft.net/what-are-search-terms/" />
+	<meta property="og:site_name" content="reliablesoft.net" />
+	<meta property="article:publisher" content="https://www.facebook.com/ReliablesoftNet" />
+	<meta property="article:published_time" content="2019-06-11T06:00:21+00:00" />
+	<meta property="article:modified_time" content="2024-11-04T17:36:28+00:00" />
+	<meta property="og:image" content="https://www.reliablesoft.net/wp-content/uploads/2019/06/what-is-a-search-term.png" />
+	<meta property="og:image:width" content="1338" />
+	<meta property="og:image:height" content="744" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Alex Chris" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@reliablesoftnet" />
+	<meta name="twitter:site" content="@reliablesoftnet" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.reliablesoft.net/what-are-search-terms/#article","isPartOf":{"@id":"https://www.reliablesoft.net/what-are-search-terms/"},"author":{"name":"Alex Chris","@id":"https://www.reliablesoft.net/#/schema/person/948bf0ac4dad494d74d5a6396b3d5c6d"},"headline":"What are Search Terms? (With Examples)","datePublished":"2019-06-11T06:00:21+00:00","dateModified":"2024-11-04T17:36:28+00:00","mainEntityOfPage":{"@id":"https://www.reliablesoft.net/what-are-search-terms/"},"wordCount":1082,"publisher":{"@id":"https://www.reliablesoft.net/#organization"},"image":{"@id":"https://www.reliablesoft.net/what-are-search-terms/#primaryimage"},"thumbnailUrl":"https://www.reliablesoft.net/wp-content/uploads/2019/06/what-is-a-search-term.png","keywords":["keyword research","keywords","search terms","what are search terms"],"articleSection":["Keyword Research"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.reliablesoft.net/what-are-search-terms/","url":"https://www.reliablesoft.net/what-are-search-terms/","name":"What are Search Terms? (With Examples)","isPartOf":{"@id":"https://www.reliablesoft.net/#website"},"primaryImageOfPage":{"@id":"https://www.reliablesoft.net/what-are-search-terms/#primaryimage"},"image":{"@id":"https://www.reliablesoft.net/what-are-search-terms/#primaryimage"},"thumbnailUrl":"https://www.reliablesoft.net/wp-content/uploads/2019/06/what-is-a-search-term.png","datePublished":"2019-06-11T06:00:21+00:00","dateModified":"2024-11-04T17:36:28+00:00","description":"Anything that people type into a search engine is considered a search term. Learn why they are important and how to differentiate them with keywords.","breadcrumb":{"@id":"https://www.reliablesoft.net/what-are-search-terms/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.reliablesoft.net/what-are-search-terms/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.reliablesoft.net/what-are-search-terms/#primaryimage","url":"https://www.reliablesoft.net/wp-content/uploads/2019/06/what-is-a-search-term.png","contentUrl":"https://www.reliablesoft.net/wp-content/uploads/2019/06/what-is-a-search-term.png","width":1338,"height":744,"caption":"what is a search term"},{"@type":"BreadcrumbList","@id":"https://www.reliablesoft.net/what-are-search-terms/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Blog","item":"https://www.reliablesoft.net/blog/"},{"@type":"ListItem","position":2,"name":"SEO","item":"https://www.reliablesoft.net/blog/category/seo/"},{"@type":"ListItem","position":3,"name":"Keyword Research","item":"https://www.reliablesoft.net/blog/category/seo/keyword-research/"},{"@type":"ListItem","position":4,"name":"What are Search Terms? (With Examples)"}]},{"@type":"WebSite","@id":"https://www.reliablesoft.net/#website","url":"https://www.reliablesoft.net/","name":"Reliablesoft","description":"Digital Marketing Training &amp; Consulting Since 2002","publisher":{"@id":"https://www.reliablesoft.net/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.reliablesoft.net/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.reliablesoft.net/#organization","name":"Reliablesoft Academy","url":"https://www.reliablesoft.net/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.reliablesoft.net/#/schema/logo/image/","url":"https://www.reliablesoft.net/wp-content/uploads/2024/05/reliablesoft-icon-1152.png","contentUrl":"https://www.reliablesoft.net/wp-content/uploads/2024/05/reliablesoft-icon-1152.png","width":1152,"height":1152,"caption":"Reliablesoft Academy"},"image":{"@id":"https://www.reliablesoft.net/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/ReliablesoftNet","https://x.com/reliablesoftnet","https://pinterest.com/reliablesoft/","https://www.youtube.com/c/reliablesoftacademy"],"description":"Reliablesoft Academy provides digital marketing courses and expert consulting services to help businesses increase their traffic and improve their online presence. Established in 2002.","email":"sales@reliablesoft.net","telephone":"1-866-229-2557","foundingDate":"2002-02-01","numberOfEmployees":{"@type":"QuantitativeValue","minValue":"1","maxValue":"10"}},{"@type":"Person","@id":"https://www.reliablesoft.net/#/schema/person/948bf0ac4dad494d74d5a6396b3d5c6d","name":"Alex Chris","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.reliablesoft.net/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/19674df252f31b0df799b6e4f32e6bfc?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/19674df252f31b0df799b6e4f32e6bfc?s=96&d=mm&r=g","caption":"Alex Chris"},"description":"Alex Chris is a digital marketing consultant, author, and instructor. He has more than 18 years of practical experience with SEO and digital marketing. Alex holds an MSc Degree in eCommerce and has consulted with Fortune 500 companies in different industries. He blogs regularly about SEO and Digital marketing, and his work has been referenced by leading marketing websites. Connect with Alex on Twitter and LinkedIn.","sameAs":["https://www.reliablesoft.net/alex-chris-author-bio/"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//a.omappapi.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//a.opmnstr.com' />
+
+<link rel="alternate" type="application/rss+xml" title="reliablesoft.net &raquo; Feed" href="https://feeds.feedburner.com/Reliablesoftnet" />
+<link data-minify="1" rel='stylesheet' id='wc-stripe-blocks-checkout-style-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/woocommerce-gateway-stripe/build/upe_blocks.css?ver=1731840868' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='rstheme-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/themes/rstheme/style.css?ver=1731840868' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--inter: "Inter", sans-serif;--wp--preset--font-family--cardo: Cardo;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='learndash-notes-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/learndash-notes/css/note.css?ver=1731840868' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link data-minify="1" rel='stylesheet' id='gateway-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/woocommerce-paypal-payments/modules/ppcp-button/assets/css/gateway.css?ver=1731840868' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='font-awesome-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/font-awesome/latest/css/font-awesome.min.css?ver=1731840869' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='learndash-front-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/sfwd-lms/themes/ld30/assets/css/learndash.min.css?ver=1731840869' type='text/css' media='all' />
+<style id='learndash-front-inline-css' type='text/css'>
+		.learndash-wrapper .ld-item-list .ld-item-list-item.ld-is-next,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label:focus-within {
+			border-color: #603f97;
+		}
+
+		/*
+		.learndash-wrapper a:not(.ld-button):not(#quiz_continue_link):not(.ld-focus-menu-link):not(.btn-blue):not(#quiz_continue_link):not(.ld-js-register-account):not(#ld-focus-mode-course-heading):not(#btn-join):not(.ld-item-name):not(.ld-table-list-item-preview):not(.ld-lesson-item-preview-heading),
+		 */
+
+		.learndash-wrapper .ld-breadcrumbs a,
+		.learndash-wrapper .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+		.learndash-wrapper .ld-lesson-item.ld-is-current-lesson .ld-lesson-title,
+		.learndash-wrapper .ld-primary-color-hover:hover,
+		.learndash-wrapper .ld-primary-color,
+		.learndash-wrapper .ld-primary-color-hover:hover,
+		.learndash-wrapper .ld-primary-color,
+		.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active,
+		.learndash-wrapper .ld-button.ld-button-transparent,
+		.learndash-wrapper .ld-button.ld-button-reverse,
+		.learndash-wrapper .ld-icon-certificate,
+		.learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-heading,
+		#wpProQuiz_user_content a,
+		.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name:hover,
+		.learndash-wrapper .ld-focus-comments__heading-actions .ld-expand-button,
+		.learndash-wrapper .ld-focus-comments__heading a,
+		.learndash-wrapper .ld-focus-comments .comment-respond a,
+		.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link:hover,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate {
+			color: #603f97 !important;
+		}
+
+		.learndash-wrapper .ld-focus-comment.bypostauthor>.ld-comment-wrapper,
+		.learndash-wrapper .ld-focus-comment.role-group_leader>.ld-comment-wrapper,
+		.learndash-wrapper .ld-focus-comment.role-administrator>.ld-comment-wrapper {
+			background-color:rgba(96, 63, 151, 0.03) !important;
+		}
+
+
+		.learndash-wrapper .ld-primary-background,
+		.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active:after {
+			background: #603f97 !important;
+		}
+
+
+
+		.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-status-incomplete,
+		.learndash-wrapper .ld-focus-comment.bypostauthor:not(.ptype-sfwd-assignment) >.ld-comment-wrapper>.ld-comment-avatar img,
+		.learndash-wrapper .ld-focus-comment.role-group_leader>.ld-comment-wrapper>.ld-comment-avatar img,
+		.learndash-wrapper .ld-focus-comment.role-administrator>.ld-comment-wrapper>.ld-comment-avatar img {
+			border-color: #603f97 !important;
+		}
+
+
+
+		.learndash-wrapper .ld-loading::before {
+			border-top:3px solid #603f97 !important;
+		}
+
+		.learndash-wrapper .ld-button:hover:not(.learndash-link-previous-incomplete):not(.ld-button-transparent):not(.ld--ignore-inline-css),
+		#learndash-tooltips .ld-tooltip:after,
+		#learndash-tooltips .ld-tooltip,
+		.learndash-wrapper .ld-primary-background,
+		.learndash-wrapper .btn-join:not(.ld--ignore-inline-css),
+		.learndash-wrapper #btn-join:not(.ld--ignore-inline-css),
+		.learndash-wrapper .ld-button:not(.ld-button-reverse):not(.learndash-link-previous-incomplete):not(.ld-button-transparent):not(.ld--ignore-inline-css),
+		.learndash-wrapper .ld-expand-button,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button:not(.wpProQuiz_button_reShowQuestion):not(.wpProQuiz_button_restartQuiz),
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button2,
+		.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading,
+		.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger,
+		.learndash-wrapper .ld-focus-comments .form-submit #submit,
+		.learndash-wrapper .ld-login-modal input[type='submit'],
+		.learndash-wrapper .ld-login-modal .ld-login-modal-register,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_certificate a.btn-blue,
+		.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a,
+		#wpProQuiz_user_content table.wp-list-table thead th,
+		#wpProQuiz_overlay_close,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate .ld-icon {
+			background-color: #603f97 !important;
+		}
+
+		.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items:before {
+			border-bottom-color: #603f97 !important;
+		}
+
+		.learndash-wrapper .ld-button.ld-button-transparent:hover {
+			background: transparent !important;
+		}
+
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete .learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete #learndash_mark_complete_button,
+		.learndash-wrapper .ld-button.ld-button-transparent,
+		.learndash-wrapper .ld-button.ld-button-alternate,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate {
+			background-color:transparent !important;
+		}
+
+		.learndash-wrapper .ld-focus-header .ld-user-menu .ld-user-menu-items a,
+		.learndash-wrapper .ld-button.ld-button-reverse:hover,
+		.learndash-wrapper .ld-alert-success .ld-alert-icon.ld-icon-certificate,
+		.learndash-wrapper .ld-alert-warning .ld-button:not(.learndash-link-previous-incomplete),
+		.learndash-wrapper .ld-primary-background.ld-status {
+			color:white !important;
+		}
+
+		.learndash-wrapper .ld-status.ld-status-unlocked {
+			background-color: rgba(96,63,151,0.2) !important;
+			color: #603f97 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_addToplist {
+			background-color: rgba(96,63,151,0.1) !important;
+			border: 1px solid #603f97 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_toplistTable th {
+			background: #603f97 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_toplistTrOdd {
+			background-color: rgba(96,63,151,0.1) !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_reviewDiv li.wpProQuiz_reviewQuestionTarget {
+			background-color: #603f97 !important;
+		}
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
+			background-color: #603f97 !important;
+		}
+		
+		.learndash-wrapper #quiz_continue_link,
+		.learndash-wrapper .ld-secondary-background,
+		.learndash-wrapper .learndash_mark_complete_button,
+		.learndash-wrapper #learndash_mark_complete_button,
+		.learndash-wrapper .ld-status-complete,
+		.learndash-wrapper .ld-alert-success .ld-button,
+		.learndash-wrapper .ld-alert-success .ld-alert-icon {
+			background-color: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content a#quiz_continue_link {
+			background-color: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .course_progress .sending_progress_bar {
+			background: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button_reShowQuestion:hover, .learndash-wrapper .wpProQuiz_content .wpProQuiz_button_restartQuiz:hover {
+			background-color: #3fbeb6 !important;
+			opacity: 0.75;
+		}
+
+		.learndash-wrapper .ld-secondary-color-hover:hover,
+		.learndash-wrapper .ld-secondary-color,
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete .learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete #learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete:after {
+			color: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .ld-secondary-in-progress-icon {
+			border-left-color: #3fbeb6 !important;
+			border-top-color: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .ld-alert-success {
+			border-color: #3fbeb6;
+			background-color: transparent !important;
+			color: #3fbeb6;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionSolved,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_box li.wpProQuiz_reviewQuestionSolved {
+			background-color: #3fbeb6 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content  .wpProQuiz_reviewLegend span.wpProQuiz_reviewColor_Answer {
+			background-color: #3fbeb6 !important;
+		}
+
+		
+</style>
+<link data-minify="1" rel='stylesheet' id='solid-affiliate-shared-css-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/solid_affiliate/assets/css/shared.css?ver=1731840869' type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-3cad329a-7e35-4bb6-916a-069df7b50a27) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type="text/javascript" id="woocommerce-google-analytics-integration-gtag-js-after">
+/* <![CDATA[ */
+/* Google Analytics for WooCommerce (gtag.js) */
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					// Set up default consent state.
+					for ( const mode of [{"analytics_storage":"denied","ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","region":["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE","IT","LV","LI","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","GB","CH"]}] || [] ) {
+						gtag( "consent", "default", { "wait_for_update": 500, ...mode } );
+					}
+					gtag("js", new Date());
+					gtag("set", "developer_id.dOGY3NW", true);
+					gtag("config", "G-SC0Z2ZR01Y", {"track_404":true,"allow_google_signals":false,"logged_in":false,"linker":{"domains":[],"allow_incoming":false},"custom_map":{"dimension1":"logged_in"}});
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer defer></script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="solid-affiliate-visits-js-js-extra">
+/* <![CDATA[ */
+var sld_affiliate_js_variables = {"ajaxurl":"https:\/\/www.reliablesoft.net\/wp-admin\/admin-ajax.php","affiliate_param":"aff","visit_cookie_key":"solid_visit_id","visit_cookie_expiration_in_days":"30","is_cookies_disabled":"","landing_pages":{"is_landing_pages_enabled":true,"is_home_page_a_landing_page":false},"is_automatic_visit_tracking_disabled":""};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/solid_affiliate/assets/js/visits.js?ver=1731840868" id="solid-affiliate-visits-js-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="solid-affiliate-shared-js-js-extra">
+/* <![CDATA[ */
+var sld_affiliate_js_variables = {"ajaxurl":"https:\/\/www.reliablesoft.net\/wp-admin\/admin-ajax.php","affiliate_param":"aff","visit_cookie_key":"solid_visit_id","visit_cookie_expiration_in_days":"30","is_cookies_disabled":"","landing_pages":{"is_landing_pages_enabled":true,"is_home_page_a_landing_page":false},"is_automatic_visit_tracking_disabled":""};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/solid_affiliate/assets/js/solid-shared.js?ver=1731840868" id="solid-affiliate-shared-js-js" data-rocket-defer defer></script>
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-SC0Z2ZR01Y"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-1006681944');
+  gtag('config', 'G-SC0Z2ZR01Y');
+</script>
+<!-- Pixel Code - https://caloriesecrets.net/demo66/ -->
+<script type="rocketlazyloadscript" defer data-rocket-src="https://caloriesecrets.net/demo66/pixel/rbvxJtGjmTZJ31Yu"></script>
+<!-- END Pixel Code -->	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+				<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+					n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+					n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+					t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+					document,'script','https://connect.facebook.net/en_US/fbevents.js');
+			</script>
+			<!-- WooCommerce Facebook Integration Begin -->
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+
+				fbq('init', '1427857897521664', {}, {
+    "agent": "woocommerce-9.4.1-3.3.0"
+});
+
+				fbq( 'track', 'PageView', {
+    "source": "woocommerce",
+    "version": "9.4.1",
+    "pluginVersion": "3.3.0"
+} );
+
+				document.addEventListener( 'DOMContentLoaded', function() {
+					// Insert placeholder for events injected when a product is added to the cart through AJAX.
+					document.body.insertAdjacentHTML( 'beforeend', '<div class=\"wc-facebook-pixel-event-placeholder\"></div>' );
+				}, false );
+
+			</script>
+			<!-- WooCommerce Facebook Integration End -->
+			<script data-minify="1" async src="https://www.reliablesoft.net/wp-content/cache/min/1/insights/v1/paypal-insights.sandbox.min.js?ver=1731840868"></script><style class='wp-fonts-local' type='text/css'>
+@font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('https://www.reliablesoft.net/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://www.reliablesoft.net/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}
+</style>
+<link rel="icon" href="https://www.reliablesoft.net/wp-content/uploads/2024/05/cropped-reliablesoft-icon-1152-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.reliablesoft.net/wp-content/uploads/2024/05/cropped-reliablesoft-icon-1152-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.reliablesoft.net/wp-content/uploads/2024/05/cropped-reliablesoft-icon-1152-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.reliablesoft.net/wp-content/uploads/2024/05/cropped-reliablesoft-icon-1152-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.rll-youtube-player .play{--wpr-bg-3cad329a-7e35-4bb6-916a-069df7b50a27: url('https://www.reliablesoft.net/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-3cad329a-7e35-4bb6-916a-069df7b50a27: url('https:\/\/www.reliablesoft.net\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"3cad329a-7e35-4bb6-916a-069df7b50a27","url":"https:\/\/www.reliablesoft.net\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.17.2.1" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_preload_fonts wpr_lazyload_images wpr_lazyload_iframes wpr_oci wpr_image_dimensions wpr_minify_css wpr_desktop wpr_dns_prefetch wpr_preload_links" /></head>
+<body class="post-template-default single single-post postid-14026 single-format-standard theme-genesis woocommerce-no-js content-sidebar genesis-breadcrumbs-hidden genesis-footer-widgets-visible"><div  class="site-container"><header  class="site-header"><div  class="wrap"><div class="title-area">    
+<div class="logo-title">
+<a href="https://www.reliablesoft.net/"><img src="/wp-content/themes/rstheme/images/Reliablesoft_logo.svg" alt="Reliablesoft Logo" width="180" height="42"></a>
+</div>
+</div><nav class="nav-primary" aria-label="Main"><div class="wrap"><ul id="menu-main-menu" class="menu genesis-nav-menu menu-primary"><li id="menu-item-17641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17641"><a href="https://www.reliablesoft.net/academy/"><span >All Courses</span></a></li>
+<li id="menu-item-11525" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11525"><a href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/#seo-course"><span >SEO Course</span></a></li>
+<li id="menu-item-17718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17718"><a href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/"><span >Digital Marketing Course</span></a></li>
+</ul></div></nav>        <div class="title-right">
+            <a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;courses-menu&#39;});" href="/academy/" class="menu-courses-button">Courses</a>
+            <span class="sidenavmenu" onclick="openNav()">
+                <svg style="fill: #fff;width:24px;height:24px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                </svg>
+            </span>
+        </div>
+        </div></header><div  id="reading-progress"><div  class="bar"></div></div><header  class="entry-header"><div  id="breadcrumbs"><div class="breadcrumbs-wrap"><span><span><a href="https://www.reliablesoft.net/blog/">Blog</a></span> / <span><a href="https://www.reliablesoft.net/blog/category/seo/">SEO</a></span> / <span><a href="https://www.reliablesoft.net/blog/category/seo/keyword-research/">Keyword Research</a></span></span></div></div><div  class="header-container"><div class="header-left"><h1 class="entry-title">What are Search Terms? (With Examples)</h1>
+<p class="meta-desc-formatting">Anything that people type into a search engine is considered a search term. Learn why they are important and how to differentiate them with keywords.</p><p class="entry-meta"><img width="30" height="30" src="/wp-content/uploads/userphoto/2.jpg" alt="Alex Chris" class="author-top"><a href="/alex-chris-author-bio/" target="_blank"> <span class="entry-author"><span class="entry-author-name">Alex Chris</span></span></a><span class="dotspacer"></span><span class="updated-info">Updated <time class="entry-modified-time">November 4, 2024</time></span> <span class="dotspacer dotnomob"></span><span class="entry-comments-link"><a href="https://www.reliablesoft.net/what-are-search-terms/#comments">8 Comments</a></span> </p></div><div class="header-right"><img width="400" height="300" src="/icons/keyword-research.png"/></div></div></header>   
+<div  id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<div  class="nav-menu"><ul id="menu-full-site-menu" class="menu"><li id="menu-item-19665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-19665"><a href="https://www.reliablesoft.net/">Home</a></li>
+<li id="menu-item-19666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19666"><a href="https://www.reliablesoft.net/my-account/">Academy Login</a></li>
+<li id="menu-item-19668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19668"><a href="https://www.reliablesoft.net/academy/">Digital Marketing Courses</a></li>
+<li id="menu-item-19669" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19669"><a href="https://www.reliablesoft.net/blog/">Digital Marketing Blog</a></li>
+<li id="menu-item-19672" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19672"><a href="https://www.reliablesoft.net/download-free-ebook/">Get Free eBooks</a></li>
+<li id="menu-item-19670" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19670"><a href="https://www.reliablesoft.net/about/">About</a></li>
+<li id="menu-item-19671" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19671"><a href="https://www.reliablesoft.net/contact/">Contact Us</a></li>
+</ul></div></div>
+
+<script type="rocketlazyloadscript">
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('click', handleClickOutside);
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.removeEventListener('keydown', handleEscape);
+    document.removeEventListener('click', handleClickOutside);
+}
+function handleEscape(e) {
+    if (e.key === "Escape") {
+        closeNav();
+    }
+}
+
+// Function to handle click outside the menu
+function handleClickOutside(e) {
+    var sidenav = document.getElementById("mySidenav");
+    if (!sidenav.contains(e.target) && !e.target.matches('.sidenavmenu, .sidenavmenu *')) {
+        closeNav();
+    }
+}
+</script>
+<div  class="site-inner"><div  class="content-sidebar-wrap"><div class="toc_navigation"><div class="toc_style"><div class="toc_title">Table of Contents</div><ul><li><a href="#what-is-a-search-term">What is a search term?</a></li><li><a href="#what-is-the-difference-between-a-search-term-and-a-keyword">What is the difference between a search term and a keyword?</a></li><li><a href="#why-are-search-terms-important-for-search-engine-marketing">Why are search terms important for search engine marketing?</a></li><li><a href="#how-do-i-find-search-terms">How do I find Search Terms?</a></li><li><a href="#key-learnings">Key Learnings</a></li></ul></div></div><main class="content"><article class="post-14026 post type-post status-publish format-standard has-post-thumbnail category-keyword-research tag-keyword-research tag-keywords tag-search-terms tag-what-are-search-terms entry" aria-label="What are Search Terms? (With Examples)"><div class="entry-content"><div class="toc_wrapper" id="toc"><div class="toc_style"><div class="toc_title">Table of Contents</div><ul><li><a href="#what-is-a-search-term">What is a search term?</a></li><li><a href="#what-is-the-difference-between-a-search-term-and-a-keyword">What is the difference between a search term and a keyword?</a></li><li><a href="#why-are-search-terms-important-for-search-engine-marketing">Why are search terms important for search engine marketing?</a></li><li><a href="#how-do-i-find-search-terms">How do I find Search Terms?</a></li><li><a href="#key-learnings">Key Learnings</a></li></ul></div><button class="show-more" onclick="expandContent()"><span></span><span></span><span></span></button></div><div class="desktopmsg"><a onclick="gtag('event', 'click', {'in_post_event':'top-banner'});" href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/" target="_blank"><div class="desktopmsg-title">SAVE 80% OFF on Digital Marketing Full Course</div><div class="button desktopmsg-button"></div></a></div>
+   <h2 id="what-is-a-search-term">What Is A Search Term?</h2>
+<p>A search term (or search query) is a single word or multiple words (search phrase) that a user types into a search engine's search box. Search engines such as Google interpret the search terms to understand the user's intent and return the most relevant results.</p>
+<p><strong>Examples of Search Terms</strong></p>
+<p>Here are some examples of search terms:</p>
+<p>A single-word search term: [reliablesoft] – The intent of the user is to find more information about ‘reliablesoft’.</p>
+<p>Search phrase (multiple words): [How to tie a tie] – The user is looking for instructions on how to tie a tie!</p>
+<p>Here is another example of a search query: [buy white running shoe men] – The user intent is very specific. He is looking to buy white shoes for running.</p>
+<h2 id="what-is-the-difference-between-a-search-term-and-a-keyword">What Is The Difference Between a Search Term And a Keyword?</h2>
+<p>If you are familiar with the <a href="https://www.reliablesoft.net/seo-guide/" target="_blank" rel="noopener"><strong>SEO basics</strong></a>, you might ask, “Are search terms the same as keywords?”. Some people will say it’s the same thing, but in reality, there is a small difference.</p><div class="full-div"><div class="post-promo-ad"><a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;inpost-banner&#39;});" href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/#seo-course" title="SEO Training"><picture><source media="(min-width: 601px)" data-lazy-srcset="/seo-images/seo-desktop-0423.png"><source media="(min-width: 600px)" data-lazy-srcset="/seo-images/seo-mobile-0423.png"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20320%20400'%3E%3C/svg%3E" alt="SEO Training" width="320" height="400" data-lazy-src="/seo-images/seo-mobile-0423.png"><noscript><img decoding="async" src="/seo-images/seo-mobile-0423.png" alt="SEO Training" width="320" height="400"></noscript></picture></a></div></div>
+<p>A search term is anything that users type in the search box, while <strong><a href="https://www.reliablesoft.net/seo-keywords/" target="_blank" rel="noopener">keywords</a></strong> are what search engines have in their index.</p>
+<p>During the crawling and indexing phase, search engines crawl a page and extract the keywords it is associated with, which is how it is stored in their index.</p>
+<p>During the ranking process, they take the search query, break it down into several keywords, and then look into their index to find matching pages.</p>
+<p>In many cases, these two (search terms and keywords) are a perfect match, while in some cases, search engine algorithms, using machine learning, will try to figure out what the user is actually looking for.</p>
+<p>In both cases, Google will answer the search query using the best possible results because it has sophisticated ranking algorithms that can extract the user's intent from whatever the user types in the search box.</p>
+<p><strong>Related reading:</strong> <strong><a href="https://www.reliablesoft.net/how-search-engines-work/" target="_blank" rel="noopener">How search engines work</a></strong></p>
+<h2 id="why-are-search-terms-important-for-search-engine-marketing">Why Are Search Terms Important For Search Engine Marketing?</h2>
+<p>All <strong><a href="https://www.reliablesoft.net/search-engine-marketing/" target="_blank" rel="noopener">search engine marketing</a></strong> campaigns are based on search terms or keywords.</p>
+<p>Knowing what users type in a search engine’s search box will help you adjust your campaigns to satisfy their intent.</p>
+<p>Let’s see what happens when someone enters a search query on Google, the <strong><a href="https://www.reliablesoft.net/top-10-search-engines-in-the-world/" target="_blank" rel="noopener">most popular search engine</a></strong>.</p>
+<p>As soon as you type a query and click search, Google will show you a set of results that are more likely to satisfy your intent.</p>
+<p>The results can be classified into two main categories: paid results (Google Ads) and Organic results (also known as SEO results).</p>
+<a href="https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1.png"><img decoding="async" class="size-full wp-image-20914" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%201300'%3E%3C/svg%3E" alt="SEO Vs SEM" width="1280" height="1300" data-lazy-srcset="https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1.png 1280w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-295x300.png 295w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-1008x1024.png 1008w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-768x780.png 768w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-600x609.png 600w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1.png" /><noscript><img decoding="async" class="size-full wp-image-20914" src="https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1.png" alt="SEO Vs SEM" width="1280" height="1300" srcset="https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1.png 1280w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-295x300.png 295w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-1008x1024.png 1008w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-768x780.png 768w, https://www.reliablesoft.net/wp-content/uploads/2013/04/seo-vs-sem-1-600x609.png 600w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript></a>
+<p>The paid ads are shown above the organic results.</p>
+<p>In most cases, many ads compete for one of the top positions, and hundreds of web pages compete for a position on the first page of the results.</p>
+<p><strong>Search Engine Advertising</strong></p>
+<p>The ads shown on Google are relevant to the search term entered in the search box.</p>
+<p>As an advertiser, if you want people to click on your ads, you first need to find out what search terms are used related to your products and services. This process is called <a href="https://www.reliablesoft.net/keyword-research/" target="_blank" rel="noopener"><strong>keyword research</strong></a>.</p>
+<p>Once you do your research and create ads that include your target search terms, you can use Google Ads to ‘bid’ for which terms you want your ads to be shown.</p>
+<p>Google Ads is Google's advertising platform, which is responsible for the ads you see on Google search.</p>
+<p>It uses a sophisticated algorithm to decide which ads to show for each search term based on several factors, including the user's location, device, bid, and many others.</p>
+<p><strong>Search Engine Optimization</strong></p>
+<p>With <strong><a href="https://www.reliablesoft.net/what-is-search-engine-optimization-and-why-is-it-important/" target="_blank" rel="noopener">Search engine optimization</a></strong> (or SEO), you can optimize your website and content for specific search terms so that it will appear on the first page of the organic results when a related search query is typed in Google.</p>
+<p>During the ranking process, Google will take the search query and break it up into several keywords. Then, it will look into its index to find which pages can best satisfy the user intent.</p>
+<p>One of the most important search engine ranking factors is the relevancy of the content with the search terms.</p>
+<p>This means that your content needs to include those search terms in several places, including the page title, heading, and body. This is known as <strong><a href="https://www.reliablesoft.net/on-page-seo/">on-page SEO</a></strong>.</p>
+<p><strong>Related Reading:</strong> <strong><a href="https://www.reliablesoft.net/types-of-seo/" target="_blank" rel="noopener">The different types of SEO</a></strong></p>
+<h2 id="how-do-i-find-search-terms">How Do I Find Search Terms?</h2>
+<p>It is estimated that more than 8.5 Billion searches are conducted daily on Google!</p>
+<p>What is more interesting is that <strong><a href="https://www.blog.google/products/search/our-latest-quality-improvements-search/" target="_blank" rel="noopener noreferrer">15% of those searches</a></strong> are new. This means that 15% of the search terms typed daily on Google have never been used.</p>
+<p>Several tools can help you identify these search terms and optimize your paid and organic campaigns.</p>
+<p><strong>Google Search</strong></p>
+<img decoding="async" class="size-full wp-image-14031" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201304%201250'%3E%3C/svg%3E" alt="People Also Ask and Related Searches" width="1304" height="1250" data-lazy-srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches.png 1304w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-300x288.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-768x736.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-1024x982.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-313x300.png 313w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-600x575.png 600w" data-lazy-sizes="(max-width: 1304px) 100vw, 1304px" data-lazy-src="https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches.png" /><noscript><img decoding="async" class="size-full wp-image-14031" src="https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches.png" alt="People Also Ask and Related Searches" width="1304" height="1250" srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches.png 1304w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-300x288.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-768x736.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-1024x982.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-313x300.png 313w, https://www.reliablesoft.net/wp-content/uploads/2019/06/people-also-ask-related-searches-600x575.png 600w" sizes="(max-width: 1304px) 100vw, 1304px" /></noscript>
+<p>When you start typing a search term on Google, it gives you instant suggestions on what others have searched related to that term.</p>
+<p>Within the Google search results, you can also see the ‘People Also Ask’ section and ‘Related Searches’.</p>
+<p>This is the easiest and fastest way to find keywords related to your search terms.</p>
+<p><strong><a href="https://trends.google.com/trends/?geo=US" target="_blank" rel="noopener noreferrer">Google Trends</a></strong></p>
+<img decoding="async" class="size-full wp-image-14034" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201428%20652'%3E%3C/svg%3E" alt="Find Search Terms using Google Trends" width="1428" height="652" data-lazy-srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends.png 1428w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-300x137.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-768x351.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-1024x468.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-400x183.png 400w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-600x274.png 600w" data-lazy-sizes="(max-width: 1428px) 100vw, 1428px" data-lazy-src="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends.png" /><noscript><img decoding="async" class="size-full wp-image-14034" src="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends.png" alt="Find Search Terms using Google Trends" width="1428" height="652" srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends.png 1428w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-300x137.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-768x351.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-1024x468.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-400x183.png 400w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-trends-600x274.png 600w" sizes="(max-width: 1428px) 100vw, 1428px" /></noscript>
+<p>Google Trends is a free tool by Google that allows you to enter a search term and see what people are searching related to that term.</p>
+<p>You also get information on trending and popular searches grouped by year, country, and topic.</p>
+<p><strong><a href="https://ads.google.com/intl/en_in/home/tools/keyword-planner/">Google Keyword Tool</a></strong></p>
+<img decoding="async" class="size-full wp-image-14033" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201664%20544'%3E%3C/svg%3E" alt="Find Keywords using the Google Keyword Tool" width="1664" height="544" data-lazy-srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool.png 1664w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-300x98.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-768x251.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-1024x335.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-400x131.png 400w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-600x196.png 600w" data-lazy-sizes="(max-width: 1664px) 100vw, 1664px" data-lazy-src="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool.png" /><noscript><img decoding="async" class="size-full wp-image-14033" src="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool.png" alt="Find Keywords using the Google Keyword Tool" width="1664" height="544" srcset="https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool.png 1664w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-300x98.png 300w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-768x251.png 768w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-1024x335.png 1024w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-400x131.png 400w, https://www.reliablesoft.net/wp-content/uploads/2019/06/google-keyword-tool-600x196.png 600w" sizes="(max-width: 1664px) 100vw, 1664px" /></noscript>
+<p>The <a href="https://www.reliablesoft.net/how-to-use-google-keyword-planner/" target="_blank" rel="noopener"><strong>Google keyword tool</strong></a> is another free Google tool that allows you to enter a search term and see related keywords.</p>
+<p>You can see the <a href="https://www.reliablesoft.net/keyword-search-volume/" target="_blank" rel="noopener"><strong>monthly search volume</strong></a>, <a href="https://www.reliablesoft.net/keyword-difficulty/" target="_blank" rel="noopener"><strong>keyword competition</strong></a>, and other helpful information for each keyword.</p>
+<h2 id="key-learnings">Key Learnings</h2>
+<p>A search term or search query is anything that people type in a search engine’s search box.</p>
+<p>Search engines take the search terms and associate them with keywords available in their index.</p>
+<p>During the ranking process, their algorithms use several factors to decide which pages are more relevant to those keywords and can satisfy the user's intent.</p>
+<p>Including the search terms in your content is important, but it’s not the only factor. Google uses more than 200 factors to decide which results to show for any given search term.</p>
+<div class="rssocial-social"><a class="rssocial-link rssocial-twitter" href="https://twitter.com/intent/tweet?text=What+are+Search+Terms%3F+%28With+Examples%29&amp;url=https%3A%2F%2Fwww.reliablesoft.net%2Fwhat-are-search-terms%2F&amp;via=reliablesoftnet" target="_blank"></a><a class="rssocial-link rssocial-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.reliablesoft.net%2Fwhat-are-search-terms%2F" target="_blank"></a><a class="rssocial-link rssocial-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.reliablesoft.net%2Fwhat-are-search-terms%2F&amp;title=What+are+Search+Terms%3F+%28With+Examples%29" target="_blank"></a></div></p></div><div class="authorarea">
+<div class="authorimage">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" alt="Alex Chris" width="150" height="150" data-lazy-src="/wp-content/uploads/alex-chris-img.jpg"><noscript><img src="/wp-content/uploads/alex-chris-img.jpg" alt="Alex Chris" width="150" height="150"></noscript></div>
+<div class="authorinfo">
+<strong>About the author</strong>
+<p><a href="https://www.reliablesoft.net/alex-chris-author-bio/">Alex Chris</a> is a digital marketing consultant, author, and instructor. He has more than 18 years of practical experience with SEO and digital marketing. Alex holds an MSc Degree in eCommerce and has consulted with Fortune 500 companies in different industries. He blogs regularly about SEO and Digital marketing, and his work has been referenced by leading marketing websites.
+Connect with Alex on <a href="https://twitter.com/reliablesoftnet">Twitter</a> and <a href="https://www.linkedin.com/in/alexchris100/">LinkedIn</a>.</p>
+</div>
+</div>
+<footer class="entry-footer"></footer></article></main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar"><section id="enhancedtextwidget-26" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><div class="textwidget widget-text"><div class="newsletter-out">
+<div class="newsletter-photo">
+<img width="70" height="70" src="https://www.reliablesoft.net/wp-content/uploads/userphoto/2.jpg" style="width: 70px; border-radius: 50%;" alt="Alex Chris"></div>
+<div class="newsletter-details">Get access to <b>exclusive</b> tips <br>and strategies that I only <br> share with my subscribers.
+<ul>
+<li>Download Free Courses</li>
+<li>SEO Checklists</li>
+<li>Actionable Guides</li>
+</ul>
+<a class="newsletter-out-btn" href="https://app.monstercampaigns.com/c/hz7t3yxu9ykylg9uspyj/" target="_blank" rel="noopener noreferrer">GET FREE RESOURCES</a>
+</div>
+</div>
+<style>
+.newsletter-out {
+    border: 1px solid #eee;
+    padding: 0px 1% 0px 1%;
+    border-radius: 4px;
+    background: #f7f7f7;
+    width: 300px;
+    display: block;
+    height: 380px;
+    }
+.newsletter-photo {
+    text-align: center;
+    display: block;
+    padding: 10px;
+}
+.newsletter-details {
+    color: #444444;
+    font-weight: 400;
+    padding: 0px 20px 0px 20px;
+    display: block;
+    font-size: 17px;
+    text-align: center;
+    }
+.newsletter-out ul {
+padding: 10px 10px 10px 30px;
+border-radius: 5px;
+    font-size:16px;
+    font-weight:500;
+}
+.newsletter-out ul>li {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+.newsletter-out ul>li:before {
+    content: "\f058";
+    font-family: FontAwesome;
+    color: #3FBEB6;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.newsletter-out input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+.newsletter-out-btn {
+    background: #3FBEB6;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0px 0px 10px 0px;
+}
+.newsletter-out-btn:hover {
+    background: #603F97;
+color:#fff;
+}
+}
+</style></div></div></section>
+<section id="enhancedtextwidget-28" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><div class="textwidget widget-text"><div style="display: block; border:1px solid #eee;padding-top:20px;width:300px;height:210px;border-radius:4px;">
+<div style="text-align:center;display:block;">
+<a onclick="ga('send', 'event', 'partnerimage', 'click', 'partnerimage');" href="https://www.reliablesoft.net/reliablesoft-net-is-a-google-partner/"><img width="200" height="125" src="/images/google-partner-logo-2022.png" alt="Google Partner"></a>
+<p style="text-align:center;">We are a proud <b><a href="https://www.reliablesoft.net/reliablesoft-net-is-a-google-partner/" target="_blank">Google Partner</b>.</a></p>
+
+</div></div></div></section>
+<section id="enhancedtextwidget-31" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><div class="textwidget widget-text"><style>
+.rec {
+    display: block;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+}
+.rec-h {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+</style></div></div></section>
+<section id="enhancedtextwidget-33" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><div class="textwidget widget-text"><div style="display:block;"><a onclick="gtag('event', 'click', {'in_post_event':'sidebar-banner'});" href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/"><img width="1200" height="1400" src="/images/digi-full-course-2024.webp" style="border-radius:12px;"></a></div></div></div></section>
+</aside></div>        <div class="below-entry-content">
+            <div class="global-post-cta">
+                <div class="cta-title">
+                    <a onclick="gtag('event', 'click', {'in_post_event':'below-banner'});" href="/academy/digital-marketing-course-bundle/">
+                        Digital Marketing Full Course <br> 14 Courses in 1 (80% Off)
+                    </a>
+                </div>
+                <div class="cta-desc">
+                    Master SEO, Google Ads, Facebook Ads, eCommerce, YouTube Marketing, Affiliate Marketing, and Much More in this Comprehensive Digital Marketing Course.
+                </div>
+                <div class="cta-action">
+                    <a onclick="gtag('event', 'click', {'in_post_event':'below-banner'});" href="/academy/digital-marketing-course-bundle/">Get Offer</a>
+                </div>
+            </div>
+            <div class="global-post-image">
+                <img width="600" height="407" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20407'%3E%3C/svg%3E" alt="Digital Marketing Full Course" data-lazy-src="/images/ultimate-course-bundle.png"><noscript><img width="600" height="407" src="/images/ultimate-course-bundle.png" alt="Digital Marketing Full Course"></noscript>
+            </div>
+        </div>
+        <div class='yarpp yarpp-related yarpp-related-website yarpp-template-yarpp-template-example'>
+<h3>Keep Learning</h3>
+<div class="related-posts-container">
+<ul>
+        <li>
+                    <div class="cat-label">Keyword Research</div>
+                <a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;related-posts&#39;});" href="https://www.reliablesoft.net/meta-keywords/" rel="bookmark norewrite" title="Meta Keywords are not used by Google but Other Search Engines Still Use Them.">
+            Meta Keywords are not used by Google but Other Search Engines Still Use Them.        </a>
+                    <p>Meta tags are still important for Bing, Yahoo, Yandex, and Baidu. Learn how to optimize your meta keywords.</p>
+            </li>
+        <li>
+                    <div class="cat-label">Keyword Research</div>
+                <a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;related-posts&#39;});" href="https://www.reliablesoft.net/keyword-search-volume/" rel="bookmark norewrite" title="What Is a Good Keyword Search Volume? (With Examples)">
+            What Is a Good Keyword Search Volume? (With Examples)        </a>
+                    <p>Explore what makes a good keyword search volume, including tips on choosing the best keywords for your SEO, looking at factors other than monthly searches.</p>
+            </li>
+        <li>
+                    <div class="cat-label">General SEO</div>
+                <a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;related-posts&#39;});" href="https://www.reliablesoft.net/organic-search/" rel="bookmark norewrite" title="What is Organic Search? Easy Guide for Beginners">
+            What is Organic Search? Easy Guide for Beginners        </a>
+                    <p>Learn what organic search is, why it is important, and get your website higher in organic results.</p>
+            </li>
+        <li>
+                    <div class="cat-label">Keyword Research</div>
+                <a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;related-posts&#39;});" href="https://www.reliablesoft.net/search-intent/" rel="bookmark norewrite" title="What Is Search Intent? (&#038; How To Optimize For It)">
+            What Is Search Intent? (&#038; How To Optimize For It)        </a>
+                    <p>A complete guide on how to find and optimize your content for search intent. Includes many examples and best practices.</p>
+            </li>
+    </ul>
+</div>
+</div>
+        </div><div  class="above-footer-content">
+<div class="above-footer-wrapper">
+<div class="above-footer-image"><img width="600" height="600" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20600'%3E%3C/svg%3E" data-lazy-src="/images/newsletter-signup.png"><noscript><img width="600" height="600" src="/images/newsletter-signup.png"></noscript></div>
+<div class="above-footer-cta">
+<div class="above-footer-cta-title">Download Free Resources</div>
+<div class="above-footer-cta-desc">Subscribe to our Newsletter to get access to free courses, special discounts, checklists and more...</div>
+<div class="above-footer-cta-action"><a href="https://app.monstercampaigns.com/c/hz7t3yxu9ykylg9uspyj/" target="_blank" rel="noopener noreferrer">Get Free Resources</a></div>
+</div>
+</div>
+</div>
+<div  class="footer-widgets"><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="enhancedtextwidget-5" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><h4 class="widget-title widgettitle">Company</h4>
+<div class="textwidget widget-text"><ul>
+<li><a href="/about/">About Us</a></li>
+<li><a href="/customer-testimonials/">Testimonials</a></li>
+<li><a href="/portfolio/">Portfolio</a></li>
+<li><a href="/digital-marketing-services/">Services</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/sitemap/">Sitemap</a></li>
+</ul>
+<div class="footer-widgets-sub-section"><a href="https://www.reliablesoft.net/reliablesoft-net-is-a-google-partner/" target="_blank"><img width="100" height="63" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%2063'%3E%3C/svg%3E" style="width: 100px;border: 1px solid #5d6167;border-radius: 4px;" alt="Google Partner" data-lazy-src="/images/Google-partner-trans.png"><noscript><img width="100" height="63" src="/images/Google-partner-trans.png" style="width: 100px;border: 1px solid #5d6167;border-radius: 4px;" alt="Google Partner"></noscript></a></div></div></div></section>
+</div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="enhancedtextwidget-6" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><h4 class="widget-title widgettitle">Reliablesoft Academy</h4>
+<div class="textwidget widget-text"><ul>
+<li><a href="/academy/seo-courses-bundle/">The Complete SEO Course</a><div class="footer-offer">Offer</div></li>
+<li><a href="/academy/digital-marketing-course-bundle/">Digital Marketing Full Course</a><div class="footer-offer">Offer</div></li>
+<li><a href="/academy/facebook-ads-course/">Facebook Ads Course</a></li>
+<li><a href="/academy/google-ads-course/">Google Ads Course</a></li>
+<li><a href="/academy/affiliate-marketing-course/">Affiliate Marketing Course</a></li>
+<li><a href="/academy/content-marketing-course/">Content Marketing Course</a></li>
+<li><a href="/academy/social-media-marketing-course/">Social Media Marketing Course</a></li>
+<li><a href="/academy/google-analytics-course/">Google Analytics Course</a></li>
+<li><a href="/academy/">View All Courses...</a></li>
+</ul></div></div></section>
+</div><div class="widget-area footer-widgets-3 footer-widget-area"><section id="enhancedtextwidget-7" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><h4 class="widget-title widgettitle">Digital Marketing Blog</h4>
+<div class="textwidget widget-text">       <div  class="footer-blog">
+       <ul>
+            <li><a href="/blog/category/digital-marketing/">Digital Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/affiliate/">Affiliate Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/analytics/">Analytics</a></li>
+            <li><a href="/blog/category/digital-marketing/content/">Content Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/ecommerce/">Ecommerce Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/email/">Email Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/ppc/">PPC Marketing</a></li>
+            <li><a href="/blog/category/digital-marketing/social-media/">Social Media</a></li>
+            <li><a href="/blog/category/digital-marketing/video/">Video Marketing</a></li>
+        </ul>
+        <ul>
+            <li><a href="/blog/category/seo/">SEO</a></li>
+            <li><a href="/blog/category/seo/general-seo/">General SEO</a></li>
+            <li><a href="/blog/category/seo/keyword-research/">Keyword Research</a></li>
+            <li><a href="/blog/category/seo/link-building/">Link Building</a></li>
+            <li><a href="/blog/category/seo/local-seo/">Local SEO</a></li>
+            <li><a href="/blog/category/seo/on-page-seo/">On Page SEO</a></li>
+            <li><a href="/blog/category/seo/technical-seo/">Technical SEO</a></li>
+            <li><a href="/seo-checklist/">SEO Checklist</a></li>
+<li><a href="/blog/category/digital-marketing/adsense/">Adsense</a></li>
+        </ul>
+</div></div></div></section>
+</div><div class="widget-area footer-widgets-4 footer-widget-area"><section id="enhancedtextwidget-8" class="widget widget_text enhanced-text-widget"><div class="widget-wrap"><h4 class="widget-title widgettitle">Free Tools</h4>
+<div class="textwidget widget-text"><ul>
+<li><a href="/ai-text-generator-tools/prompt-generator/">AI Prompt Generator</a></li>
+<li><a href="/ai-text-generator-tools/instagram-name-generator/">Instagram Name Generator</a></li>
+<li><a href="/ai-text-generator-tools/quote-generator/">Quote Generator</a></li>
+<li><a href="/ai-text-generator-tools/">AI Text Generator Tools</a></li>
+</ul>
+<div class="footer-widgets-sub-section">
+<h4 class="widget-title">Contact Us</h4>
+<ul>
+<li>Toll Free: 1-866-229-2557</li>
+<li>Email: <a href="/cdn-cgi/l/email-protection#afdccec3cadcefddcac3c6cecdc3cadcc0c9db81c1cadb" title="Email us"><span class="__cf_email__" data-cfemail="a9dac8c5ccdae9dbccc5c0c8cbc5ccdac6cfdd87c7ccdd">[email&#160;protected]</span></a></li>
+<li><a href="/contact/" title="Online Contact form">Online Contact form</a></li>
+</ul>
+<div class="footer-social">
+<a title="Facebook" href="https://www.facebook.com/ReliablesoftNet" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a title="Twitter" href="https://twitter.com/reliablesoftnet" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a title="LinkedIn" href="https://www.linkedin.com/in/alexchris100/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+<a title="YouTube" href="https://www.youtube.com/c/reliablesoftacademy" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+</div>
+</div></div></div></section>
+</div></div></div><footer  class="site-footer"><div class="wrap"><div class="site-footer-left"><a href="/privacy-policy/" target="_blank">Privacy</a><a href="/refund-policy/" target="_blank">Refund Policy</a><a href="/disclosure/" target="_blank">Disclosure</a><a href="/affiliates/" target="_blank">Affiliates</a></div><div class="site-footer-right">© 2002–2024 Reliablesoft All rights reserved.</div>
+</div></footer><div  class="mobilemsg"><a onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;in_post_event&#39;:&#39;mobile-banner&#39;});" href="https://www.reliablesoft.net/academy/digital-marketing-course-bundle/"><div class="mobilemsg-left">SAVE 80% OFF on <br>Digital Marketing Full Course</div><div class="mobilemsg-right"><div class="button  mobilemsg-button"></div></div></a></div></div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "h291vuixn5");
+</script>			<!-- Facebook Pixel Code -->
+			<noscript>
+				<img
+					height="1"
+					width="1"
+					style="display:none"
+					alt="fbpx"
+					src="https://www.facebook.com/tr?id=1427857897521664&ev=PageView&noscript=1"
+				/>
+			</noscript>
+			<!-- End Facebook Pixel Code -->
+			<!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS Dental Counter - Mobile -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'k6whe7j1aw9lqtfcqocr');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS Dental Counter - Desktop -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'piis5zxgbslmgfegsmlo');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Free Courses Signup -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'bnyy7xknzezhl3vnbdjh');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS SEO Counter - Desktop - New -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'jeim36lzgny8cdjjcqxz');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS Digi Counter - Desktop - New -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'dylifirzawnboeao7jmp');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Email Sign Up - ALL - Button Click -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'hz7t3yxu9ykylg9uspyj');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Free Google Exams - Button Popup -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'g0iomoey9ibessyix5yv');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Digi Course Exit - $10 Off - Mobile -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'pvqpokhmuegkcshviqj9');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: SEO Course Exit - Mobile -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'rokqqeh2hrwawacj0zrk');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Digi Course Exit - Desktop -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'isyn3flngqbaue7bbibn');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: SEO Course Exit - Desktop -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'rpb0u30armgri8lntyx8');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS Digi Counter - Mobile -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'yafmhzxcbschqvewqsub');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: RS SEO Counter - Mobile -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,58693,'ovgir3zfppj2ekwhe1ud');</script>
+<!-- / OptinMonster -->	<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		var k6whe7j1aw9lqtfcqocr_shortcode = true;var piis5zxgbslmgfegsmlo_shortcode = true;var bnyy7xknzezhl3vnbdjh_shortcode = true;var jeim36lzgny8cdjjcqxz_shortcode = true;var dylifirzawnboeao7jmp_shortcode = true;var hz7t3yxu9ykylg9uspyj_shortcode = true;var g0iomoey9ibessyix5yv_shortcode = true;var pvqpokhmuegkcshviqj9_shortcode = true;var rokqqeh2hrwawacj0zrk_shortcode = true;var isyn3flngqbaue7bbibn_shortcode = true;var rpb0u30armgri8lntyx8_shortcode = true;var yafmhzxcbschqvewqsub_shortcode = true;var ovgir3zfppj2ekwhe1ud_shortcode = true;		</script>
+		<link data-minify="1" rel='stylesheet' id='wc-blocks-style-css' href='https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1731840869' type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-SC0Z2ZR01Y" id="google-tag-manager-js" data-wp-strategy="async" data-rocket-defer defer></script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/woocommerce-google-analytics-integration/assets/js/build/main.js?ver=1731840868" id="woocommerce-google-analytics-integration-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="writing-tools-script-js-extra">
+/* <![CDATA[ */
+var writingToolsParams = {"ajaxurl":"https:\/\/www.reliablesoft.net\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/writing-tools/js/writing-tools-6.js?ver=1731840868" id="writing-tools-script-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="ppcp-smart-button-js-extra">
+/* <![CDATA[ */
+var PayPalCommerceGateway = {"url":"https:\/\/www.paypal.com\/sdk\/js?client-id=AbXOJnrSw8pnvC4Ckz5y7Kl-WcsUH_G5ep96k29qC461ZHPbF8tOOCt_Ojfd9lIRxY999uBHGsX0H_QA&currency=USD&integration-date=2024-11-05&components=buttons,funding-eligibility,buttons,fastlane,fastlane&vault=false&commit=true&intent=capture&disable-funding=card,sepa,bancontact,blik,eps,ideal,mybank,p24,venmo,paylater&enable-funding=venmo","url_params":{"client-id":"AbXOJnrSw8pnvC4Ckz5y7Kl-WcsUH_G5ep96k29qC461ZHPbF8tOOCt_Ojfd9lIRxY999uBHGsX0H_QA","currency":"USD","integration-date":"2024-11-05","components":"buttons,funding-eligibility,buttons,fastlane,fastlane","vault":"false","commit":"true","intent":"capture","disable-funding":"card,sepa,bancontact,blik,eps,ideal,mybank,p24,venmo,paylater","enable-funding":"venmo"},"script_attributes":{"data-partner-attribution-id":"Woo_PPCP"},"client_id":"AbXOJnrSw8pnvC4Ckz5y7Kl-WcsUH_G5ep96k29qC461ZHPbF8tOOCt_Ojfd9lIRxY999uBHGsX0H_QA","currency":"USD","data_client_id":{"set_attribute":false,"endpoint":"\/?wc-ajax=ppc-data-client-id","nonce":"d1bf8fe8d1","user":0,"has_subscriptions":false,"paypal_subscriptions_enabled":false},"redirect":"https:\/\/www.reliablesoft.net\/checkout\/","context":"mini-cart","ajax":{"simulate_cart":{"endpoint":"\/?wc-ajax=ppc-simulate-cart","nonce":"2790bf4453"},"change_cart":{"endpoint":"\/?wc-ajax=ppc-change-cart","nonce":"b5c1306225"},"create_order":{"endpoint":"\/?wc-ajax=ppc-create-order","nonce":"172e891d21"},"approve_order":{"endpoint":"\/?wc-ajax=ppc-approve-order","nonce":"4069dedaeb"},"approve_subscription":{"endpoint":"\/?wc-ajax=ppc-approve-subscription","nonce":"e45a1c52b8"},"vault_paypal":{"endpoint":"\/?wc-ajax=ppc-vault-paypal","nonce":"5fd828c2ba"},"save_checkout_form":{"endpoint":"\/?wc-ajax=ppc-save-checkout-form","nonce":"06254c5613"},"validate_checkout":{"endpoint":"\/?wc-ajax=ppc-validate-checkout","nonce":"2388a9b95d"},"cart_script_params":{"endpoint":"\/?wc-ajax=ppc-cart-script-params"},"create_setup_token":{"endpoint":"\/?wc-ajax=ppc-create-setup-token","nonce":"ac0fa34ccb"},"create_payment_token":{"endpoint":"\/?wc-ajax=ppc-create-payment-token","nonce":"4aa32caf33"},"create_payment_token_for_guest":{"endpoint":"\/?wc-ajax=ppc-update-customer-id","nonce":"6565342d5e"},"update_shipping":{"endpoint":"\/?wc-ajax=ppc-update-shipping","nonce":"6fa6bfa8ca"},"update_customer_shipping":{"shipping_options":{"endpoint":"https:\/\/www.reliablesoft.net\/wp-json\/wc\/store\/cart\/select-shipping-rate"},"shipping_address":{"cart_endpoint":"https:\/\/www.reliablesoft.net\/wp-json\/wc\/store\/cart\/","update_customer_endpoint":"https:\/\/www.reliablesoft.net\/wp-json\/wc\/store\/cart\/update-customer"},"wp_rest_nonce":"e588f67206","update_shipping_method":"\/?wc-ajax=update_shipping_method"}},"cart_contains_subscription":"","subscription_plan_id":"","vault_v3_enabled":"1","variable_paypal_subscription_variations":[],"variable_paypal_subscription_variation_from_cart":"","subscription_product_allowed":"","locations_with_subscription_product":{"product":false,"payorder":false,"cart":false},"enforce_vault":"","can_save_vault_token":"","is_free_trial_cart":"","vaulted_paypal_email":"","bn_codes":{"checkout":"Woo_PPCP","cart":"Woo_PPCP","mini-cart":"Woo_PPCP","product":"Woo_PPCP"},"payer":null,"button":{"wrapper":"#ppc-button-ppcp-gateway","is_disabled":false,"mini_cart_wrapper":"#ppc-button-minicart","is_mini_cart_disabled":false,"cancel_wrapper":"#ppcp-cancel","mini_cart_style":{"layout":"vertical","color":"gold","shape":"rect","label":"paypal","tagline":false,"height":35},"style":{"layout":"vertical","color":"gold","shape":"rect","label":"paypal","tagline":false}},"separate_buttons":{"card":{"id":"ppcp-card-button-gateway","wrapper":"#ppc-button-ppcp-card-button-gateway","style":{"shape":"rect","color":"black","layout":"horizontal"}}},"hosted_fields":{"wrapper":"#ppcp-hosted-fields","labels":{"credit_card_number":"","cvv":"","mm_yy":"MM\/YY","fields_empty":"Card payment details are missing. Please fill in all required fields.","fields_not_valid":"Unfortunately, your credit card details are not valid.","card_not_supported":"Unfortunately, we do not support your credit card.","cardholder_name_required":"Cardholder's first and last name are required, please fill the checkout form required fields."},"valid_cards":["mastercard","visa","amex","discover","american-express","master-card"],"contingency":"SCA_WHEN_REQUIRED"},"messages":[],"labels":{"error":{"generic":"Something went wrong. Please try again or choose another payment source.","required":{"generic":"Required form fields are not filled.","field":"%s is a required field.","elements":{"terms":"Please read and accept the terms and conditions to proceed with your order."}}},"billing_field":"Billing %s","shipping_field":"Shipping %s"},"simulate_cart":{"enabled":true,"throttling":5000},"order_id":"0","single_product_buttons_enabled":"","mini_cart_buttons_enabled":"1","basic_checkout_validation_enabled":"","early_checkout_validation_enabled":"1","funding_sources_without_redirect":["paypal","paylater","venmo","card"],"user":{"is_logged":false,"has_wc_card_payment_tokens":false},"should_handle_shipping_in_paypal":"1","needShipping":"","vaultingEnabled":"","productType":null,"manualRenewalEnabled":"","axo":{"sdk_client_token":"eyJraWQiOiI0ZTE3Y2Y5ZGQ3YzA0OTg5ODVhOWIyNjYyMGU1OTI0YyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJpc3MiOiJodHRwczovL2FwaS5wYXlwYWwuY29tIiwiYXVkIjpbImh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tIiwicmVsaWFibGVzb2Z0Lm5ldCJdLCJzdWIiOiJSUEo2UjI1NU1WVUY0IiwiYWNyIjpbImNsaWVudCJdLCJzY29wZSI6W10sIm9wdGlvbnMiOnt9LCJheiI6ImRjZzAxLnBoeCIsImV4dGVybmFsX2lkIjpbIlBheVBhbDpSUEo2UjI1NU1WVUY0IiwiQnJhaW50cmVlOm4ybmR3a2N0Z3FjbWpwOTYiXSwiZXhwIjoxNzMxOTU4MzkzLCJpYXQiOjE3MzE5NTc0OTMsImp0aSI6IlUyQUFOWEl3N3V2UFdjaFhOLW9WV3gteWxDTDU1S2xQNEROSkNwcHlma2NyTnMtNkVUcUNqMTNRSUUtRklhb2VyUzIwT2dfdWE4Q3RoTnlWZVZSNm9ja19Cd05BaVZLbFJoUlJIdGFRanlRX3lSbWFHVksxcjNoQ2xIdHN1VnRBIn0.VJoXQ9kwpZ2ScUtm9zH8DOWsym17pCg7zUqWPVtrAx2h7sPuVF_JL57tYUEazZdVr5fG5QIB9SbKPM4FHUhaTA"}};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/woocommerce-paypal-payments/modules/ppcp-button/assets/js/button.js?ver=1731840868" id="ppcp-smart-button-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/checkout\/|\/affiliates\/|\/affiliates\/portal\/|\/affiliates\/register\/|\/affiliates\/login\/|\/view-source-code\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/checkout\/??(.*)|\/cart\/?|\/my-account\/??(.*)|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.reliablesoft.net","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-extra">
+/* <![CDATA[ */
+var rocket_lazyload_css_data = {"threshold":"300"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-after">
+/* <![CDATA[ */
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" defer src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/mc4wp-premium/ecommerce3/assets/js/tracker.js?ver=1731840868" id="mc4wp-ecommerce-tracker-js"></script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/themes/rstheme/assets/js/reading-progress-bar.js?ver=1731840868" id="reading-progress-bar-js" data-rocket-defer defer></script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/themes/rstheme/assets/js/toc-behavior.js?ver=1731840868" id="toc-behavior-js" data-rocket-defer defer></script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/themes/rstheme/assets/js/lightbox.js?ver=1731840868" id="lightbox-js-js" data-rocket-defer defer></script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/themes/rstheme/assets/js/trackmenuclicks.js?ver=1731840868" id="trackmenuclicks-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="learndash-front-js-extra">
+/* <![CDATA[ */
+var ldVars = {"postID":"14026","videoReqMsg":"You must watch the video before accessing this content","ajaxurl":"https:\/\/www.reliablesoft.net\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.reliablesoft.net/wp-content/cache/min/1/wp-content/plugins/sfwd-lms/themes/ld30/assets/js/learndash.js?ver=1731840868" id="learndash-front-js" data-rocket-defer defer></script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.4.1" id="sourcebuster-js-js" data-rocket-defer defer></script>
+<script type="text/javascript" id="wc-order-attribution-js-extra">
+/* <![CDATA[ */
+var wc_order_attribution = {"params":{"lifetime":1.0000000000000000818030539140313095458623138256371021270751953125e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/www.reliablesoft.net\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.4.1" id="wc-order-attribution-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript">(function(d){var s=d.createElement("script");s.type="text/javascript";s.src="https://a.omappapi.com/app/js/api.min.js";s.async=true;s.id="omapi-script";d.getElementsByTagName("head")[0].appendChild(s);})(document);</script><script type="text/javascript" id="woocommerce-google-analytics-integration-data-js-after">
+/* <![CDATA[ */
+window.ga4w = { data: {"cart":{"items":[],"coupons":[],"totals":{"currency_code":"USD","total_price":0,"currency_minor_unit":2}}}, settings: {"tracker_function_name":"gtag","events":["purchase","add_to_cart"],"identifier":"product_sku"} }; document.dispatchEvent(new Event("ga4w:ready"));
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.reliablesoft.net/wp-content/plugins/optinmonster/assets/dist/js/helper.min.js?ver=2.16.9" id="optinmonster-wp-helper-js" data-rocket-defer defer></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_localized = {
+			ajax: 'https://www.reliablesoft.net/wp-admin/admin-ajax.php?optin-monster-ajax-route=1',
+			nonce: '38a0ff9d6c',
+			slugs:
+			{"k6whe7j1aw9lqtfcqocr":{"slug":"k6whe7j1aw9lqtfcqocr","mailpoet":false},"piis5zxgbslmgfegsmlo":{"slug":"piis5zxgbslmgfegsmlo","mailpoet":false},"bnyy7xknzezhl3vnbdjh":{"slug":"bnyy7xknzezhl3vnbdjh","mailpoet":false},"jeim36lzgny8cdjjcqxz":{"slug":"jeim36lzgny8cdjjcqxz","mailpoet":false},"dylifirzawnboeao7jmp":{"slug":"dylifirzawnboeao7jmp","mailpoet":false},"hz7t3yxu9ykylg9uspyj":{"slug":"hz7t3yxu9ykylg9uspyj","mailpoet":false},"g0iomoey9ibessyix5yv":{"slug":"g0iomoey9ibessyix5yv","mailpoet":false},"pvqpokhmuegkcshviqj9":{"slug":"pvqpokhmuegkcshviqj9","mailpoet":false},"rokqqeh2hrwawacj0zrk":{"slug":"rokqqeh2hrwawacj0zrk","mailpoet":false},"isyn3flngqbaue7bbibn":{"slug":"isyn3flngqbaue7bbibn","mailpoet":false},"rpb0u30armgri8lntyx8":{"slug":"rpb0u30armgri8lntyx8","mailpoet":false},"yafmhzxcbschqvewqsub":{"slug":"yafmhzxcbschqvewqsub","mailpoet":false},"ovgir3zfppj2ekwhe1ud":{"slug":"ovgir3zfppj2ekwhe1ud","mailpoet":false}}		};</script>
+				<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_data = {"object_id":14026,"object_key":"post","object_type":"post","term_ids":[1022,52,176,540,541],"wp_json":"https:\/\/www.reliablesoft.net\/wp-json","wc_active":true,"edd_active":false,"nonce":"3c8d296ef1"};</script>
+		<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.reliablesoft.net/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=["Reliablesoft_logo_white-1.svg","Reliablesoft_logo.svg"];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script></body></html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1731957917 -->

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <title>Why we focus on AI – Google AI</title>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Google AI",
+        "url": "https://ai.google",
+        "logo": "https://ai.google/static/images/share.png"
+      }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      function glueCookieNotificationBarLoaded() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MTDXW5P');
+      }
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta property="og:image" content="https://ai.google/static/images/share.png">
+    <meta property="og:title" content="Why we focus on AI – Google AI">
+    <meta property="og:site_name" content="Google AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ai.google/why-ai/">
+
+    <meta name="description" content="We believe that AI is a foundational and transformational technology that will provide compelling and helpful benefits to people and society.">
+    <meta property="og:description" content="We believe that AI is a foundational and transformational technology that will provide compelling and helpful benefits to people and society.">
+    <link rel="shortcut icon" href="/static/images/favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="https://www.gstatic.com/glue/v27_1/glue.min.css?cache=124abc">
+    <link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet">
+    <noscript>
+      <link href="https://www.gstatic.com/glue/v27_1/glue.min.css?cache=124abc" rel="stylesheet">
+    </noscript>
+    <link rel='stylesheet' href="/css/main.min.css?cache=124efg">
+    <noscript><link href="/css/main.min.css" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css?family=Google+Sans:+400,500,700|Product+Sans:400|Roboto+Mono:500&display=swap" media="all" rel="stylesheet" rel="preload" as="font">
+
+    <script rel="preload" as="script" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?cache=124eff"></script>
+    <script rel="preload" as="script" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js?cache=124eff"></script>
+
+    <!-- HaTS Survey API -->
+    <script rel="preload" type="text/javascript" src="https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js?cache=123efg"></script>
+    <script>
+      window.setTimeout(() =>{
+        helpApi = window.help.service.Lazy.create(0, {
+          apiKey: 'AIzaSyDe7OKxRllcPjRwvZdSftLIYlpqP-QRTXo',
+          locale: 'en-US'
+        });
+
+        helpApi.requestSurvey({
+          triggerId: '11gopKrj40eBRg1cvMm0TaQYHFsq',
+          enableTestingMode: false, // Will always trigger a survey. Do not set this to prod!
+          callback: function(requestSurveyCallbackParam) {
+            if (!requestSurveyCallbackParam.surveyData) {
+              return;
+            }
+            helpApi.presentSurvey({
+              surveyData: requestSurveyCallbackParam.surveyData,
+              colorScheme: 1, // light
+              customZIndex: 10000,
+            });
+          }
+        });
+      },1000);
+    </script>
+    <!-- End HaTS Survey API -->
+    <meta name="google-site-verification" content="G3MdGe21KckAzaq-CvR3yzGBED9cJh-0hcwsePJwQ4o" />
+  </head>
+  <body class="page--why-ai">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTDXW5P"
+    height="0" width="0" style="display:none;visibility:hidden" async></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+
+<header    ng-controller="HeaderController as headerCtrl">
+  <div class="header__top">
+    <button class="header__hamburger" ng-click="headerCtrl.open()" aria-expanded="false" aria-label="Open the navigation drawer" aria-controls="header__nav">
+      <div class="header__hamburger-burger"></div>
+    </button>
+
+    <a href="/" class="header__lockup">
+      <div class="header__logo">
+        <svg>
+          <path fill="#4285F4" d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"></path>
+          <path fill="#EA4335" d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+          <path fill="#4285F4" d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.5 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"></path>
+          <path fill="#FBBC05" d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+          <path fill="#34A853" d="M58 .24h2.51v17.57H58z"></path>
+          <path fill="#EA4335" d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z"></path>
+        </svg>
+      </div>
+      <div class="header__product">AI</div>
+    </a>
+
+    <nav class="header__nav" id="header__nav" aria-label="Navigation">
+      <a href="/" class="header__lockup">
+        <div class="header__logo">
+          <svg>
+            <path fill="#4285F4" d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"></path>
+            <path fill="#EA4335" d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+            <path fill="#4285F4" d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.5 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"></path>
+            <path fill="#FBBC05" d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"></path>
+            <path fill="#34A853" d="M58 .24h2.51v17.57H58z"></path>
+            <path fill="#EA4335" d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z"></path>
+          </svg>
+        </div>
+        <div class="header__product">AI</div>
+      </a>
+
+
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a href="/why-ai/"                data-attri-id="Why-ai" data-event-type="header"
+                data-event-label="Why AI" class="navigation-track-js parent-link header__link header-nav-js header__link--active first-header-link">
+              Why AI
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a                data-attri-id="Responsibility" data-event-type="header"
+                data-event-label="Responsibility" class="navigation-track-js parent-link header__link header-nav-js">
+              Responsibility
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+              <div class="mega-parent mega-menu-hide mega-menu-js" id="Responsibility">
+                <div class="mega-child">
+                  <div class="mega-menu glue-page">
+                    <div class="mega-menu-content">
+                      <a class="mega-menu-link" data-event-name="Responsibility">
+                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6.00003 12L7.41003 10.59L2.83003 6L7.41003 1.41L6.00003 0L3.43323e-05 6L6.00003 12Z" fill="#5F6368"/>
+                        </svg>
+                        <h3 class="mega-menu-link-header">Responsibility</h3>
+                      </a>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover  mega-menu-details-wide">
+
+                                <a href="/responsibility/principles/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:AI Principles"
+                                      aria-label="Overview">AI Principles</h3>
+                              <p class="mega-menu-description">Objectives for building beneficial AI</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/responsible-ai-practices/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Responsible AI Practices"
+                                      aria-label="Overview">Responsible AI Practices</h3>
+                              <p class="mega-menu-description">Guiding responsible AI development</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/ai-governance-operations/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:AI Governance &amp; Operations"
+                                      aria-label="Overview">AI Governance &amp; Operations</h3>
+                              <p class="mega-menu-description">Our review and approval process</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/social-good/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Social Good"
+                                      aria-label="Overview">Social Good</h3>
+                              <p class="mega-menu-description">Addressing societal challenges with AI</p>
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-hover ">
+
+                                <a href="/responsibility/public-policy-perspectives/" class="mega-menu-anchor-parent">
+                                  <h3 class="mega-menu-title navigation-track-js"
+                                      data-event-type="subheader"
+                                      data-event-label="Responsibility:Policy"
+                                      aria-label="Overview">Policy</h3>
+                              <p class="mega-menu-description">Our contributions to AI Governance</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mega-menu-details">
+                      <div class="mega-menu-details-wrapper">
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="/responsibility/social-good/" data-event-feature="1" data-event-type="feature"
+                                data-event-label="Responsibility:AI for the benefit of humanity" class="navigation-track-js"
+ >
+                              <p class="content-brow">FEATURED RESEARCH</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/8b35672404c17773768b5d4fc0e9fa2ec81f1dd188657dc0a5fb63d185b8dd643f8e6f8ce2252ddd81019e4cdee3ab2d9b37d59710b4005c2d721d8c19fcdb75" role="presenatation">
+                                <h3 class="content-sub-title">AI for the benefit of humanity</h3>
+                            </a>
+                          </div>
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="/responsibility/principles/" data-event-feature="2" data-event-type="feature"
+                                data-event-label="Responsibility:Improving skin tone evaluation in machine learning to uphold our AI principles" class="navigation-track-js"
+ >
+                              <p class="content-brow">EXAMPLES OF OUR WORK</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/8eb77472d5a6fdea96e4204bc5cbe737b8273ef7ec878ea38f60720ffd4c03dacd369d00d0644e6fee7c8c8c483d4b1d598efe60c21136020159ce8b3eb01274" role="presenatation">
+                                <h3 class="content-sub-title">Improving skin tone evaluation in machine learning to uphold our AI principles</h3>
+                            </a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a                data-attri-id="Discover" data-event-type="header"
+                data-event-label="Discover" class="navigation-track-js parent-link header__link header-nav-js">
+              Discover
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+              <div class="mega-parent mega-menu-hide mega-menu-js" id="Discover">
+                <div class="mega-child">
+                  <div class="mega-menu glue-page">
+                    <div class="mega-menu-content mega-menu-header">
+                      <a class="mega-menu-link" data-event-name="Discover">
+                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6.00003 12L7.41003 10.59L2.83003 6L7.41003 1.41L6.00003 0L3.43323e-05 6L6.00003 12Z" fill="#5F6368"/>
+                        </svg>
+                        <h3 class="mega-menu-link-header">Discover</h3>
+                      </a>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new  mega-menu-details-wide">
+                            <p class="content__brow mega-menu-heading">Generative AI</p>
+                              <a class="mega-menu--details" href="/discover/generativeai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Overview"
+                                    aria-label="Overview">Overview</h3>
+                                <p class="mega-menu-description">How teams at Google are using AI</p>
+                              </a>
+                              <a class="mega-menu--details" href="/gemini-ecosystem"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Gemini ecosystem"
+                                    aria-label="Overview">Gemini ecosystem</h3>
+                                <p class="mega-menu-description">Learn about our models, products, &amp; platforms</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/palm2/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:PaLM 2"
+                                    aria-label="Overview">PaLM 2</h3>
+                                <p class="mega-menu-description">Next generation language model</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/our-models/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Our leading models"
+                                    aria-label="Overview">Our leading models</h3>
+                                <p class="mega-menu-description">Learn more about our models</p>
+                              </a>
+
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new ">
+                            <p class="content__brow mega-menu-heading">Focus Areas</p>
+                              <a class="mega-menu--details" href="/discover/scienceai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Science AI"
+                                    aria-label="Overview">Science AI</h3>
+                                <p class="mega-menu-description">Accelerating scientific discovery</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/healthai/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Health AI"
+                                    aria-label="Overview">Health AI</h3>
+                                <p class="mega-menu-description">Human-centered AI in healthcare</p>
+                              </a>
+                              <a class="mega-menu--details" href="https://quantumai.google/"
+target="_blank" rel="noopener">
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Quantum AI"
+                                    aria-label="Overview">Quantum AI</h3>
+                                <p class="mega-menu-description">Building a useful quantum computer</p>
+                              </a>
+
+                            </a>
+                        </div>
+                        <div class="mega-menu-sub-items mega-menu-sub-items-new ">
+                            <p class="content__brow mega-menu-heading">Learn</p>
+                              <a class="mega-menu--details" href="/discover/blogs/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:AI Blogs"
+                                    aria-label="Overview">AI Blogs</h3>
+                                <p class="mega-menu-description">Current news and stories from Google</p>
+                              </a>
+                              <a class="mega-menu--details" href="/discover/research/"
+>
+                                <h3 class="mega-menu-title navigation-track-js"
+                                    data-event-type="subheader"
+                                    data-event-label="Discover:Research"
+                                    aria-label="Overview">Research</h3>
+                                <p class="mega-menu-description">AI publications, tools, and datasets</p>
+                              </a>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mega-menu-details mega-menu-details-new">
+                      <div class="mega-menu-details-wrapper">
+                          <div class="mega-menu-details-wrapper-list">
+                            <a href="https://ai.google.dev/" data-event-feature="1" data-event-type="feature"
+                                data-event-label="Discover:Our largest and most capable AI model" class="navigation-track-js"
+target="_blank" rel="noopener" >
+                              <p class="content-brow">FEATURED CONTENT</p>
+                                <img class="content-image" src="https://kstatic.googleusercontent.com/files/5bc640ee2f9f779b863f853edbe412bf2ddb2d331bd1c6c34186674a570ad543260ca16c9cdd1b295c2246a55732d35ee4e03a2c58492c324f8bbe83f9e59740" role="presenatation">
+                                <h3 class="content-sub-title">Our largest and most capable AI model</h3>
+                            </a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="header__item mega-list" aria-level="1" role="heading">
+            <a href="https://ai.google/build"                data-attri-id="Build" data-event-type="header"
+                data-event-label="Build" class="navigation-track-js parent-link header__link header-nav-js first-header-link">
+              Build
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.99997 0L0.589966 1.41L5.16997 6L0.589966 10.59L1.99997 12L7.99997 6L1.99997 0Z" fill="#5F6368"/>
+              </svg>
+            </a>
+          </div>
+    </nav>
+
+    <div class="header__overlay" ng-click="headerCtrl.close()"></div>
+  </div>
+</header>    <main class="section-wrapper" id="section-main-wrapper" ng-controller="MainController as mainCtrl">
+      <div class="main-overlay" >
+
+<section class="hero-new why-ai-hero-new">
+    <div class="hero-new-bg"
+        data-ng-lazy-background="/static/images/why-ai.svg">
+    </div>
+    <div class="hero-new-bg-mobile"
+        data-ng-lazy-background="/static/images/why-ai-mob.webp">
+    </div>
+  <div class="glue-page">
+    <div class="hero-new-wrapper">
+      <div class="hero-new-content">
+<span class="hero-new-brow">WHY AI:</span>        <h1 class="hero-new-title">Why we focus on AI (and to what end)</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="article-content introduction article--flush-top glue-page">
+  <div class="article-content-wrapper">
+        <div class="article-content-text">
+            <p><i>
+We’re excited about the transformational power of AI and its helpful new applications. From research that expands what’s possible, to product integrations designed to make everyday life easier, we’re exploring responsible and innovative AI technologies that make a true difference for humanity.
+</i></p>
+        </div>
+        <div class="article-content-text">
+            <p><i>
+ It is an exciting time in the development of AI. Our approach to developing and harnessing the potential of AI is grounded in our founding mission—to organize the world’s information and make it universally accessible and useful—and it is shaped by our commitment to improve the lives of as many people as possible. It is our view that AI is now, and more than ever, critical to delivering on that mission and commitment.
+</i></p>
+        </div>
+  </div>
+</section>
+<section class="article-content glue-page">
+  <div class="article-content-wrapper">
+      <div class="article-content-subtitle">
+        <p class="glue-headline glue-headline--headline-4">“We believe that AI is a foundational and transformational technology that will provide compelling and helpful benefits to people and society through its capacity to assist, complement, empower, and inspire people in almost every field of human endeavor.“</p>
+      </div>
+  </div>
+</section>
+<section class="article-content glue-page">
+  <div class="article-content-wrapper">
+        <div class="article-content-text">
+            <p><i>
+It has the potential to contribute to tackling some of society’s most pressing challenges and opportunities, from the everyday to the more creative and imaginative.
+</i></p>
+        </div>
+        <div class="article-content-text">
+            <p><i>
+ As an information and computer science company, we aim to and have been at the forefront of advancing the frontier of AI through our path-breaking and field-defining research to develop more capable and useful AI. From this research and development, we are bringing breakthrough innovations into the real world to assist people and benefit society everywhere through our infrastructure, tools, products and services, as well as through enabling and working with others to benefit society. We are also pursuing innovations that will help to unlock scientific discoveries and to tackle humanity’s greatest challenges and opportunities. Many of our innovations are already assisting and benefiting people (in some cases billions of people), communities, businesses, and organizations, and society broadly—with more such innovations still to come.
+</i></p>
+        </div>
+        <div class="article-content-text">
+            <p><i>
+At the same time, we understand that AI, as a still-emerging technology, poses various and evolving complexities and risks. Our development and use of AI must address these risks. That’s why we as a company consider it an imperative to pursue AI responsibly. We are committed to leading and setting the standard in developing and shipping useful and beneficial applications, applying ethical principles grounded in human values, and evolving our approaches as we learn from research, experience, users, and the wider community. 
+</i></p>
+        </div>
+        <div class="article-content-text">
+            <p><i>
+We are convinced that the AI-enabled innovations we are focused on developing and delivering boldly and responsibly, are useful, compelling, and have the potential to assist and improve lives of people everywhere—this is what compels us. And we are excited about what lies ahead in 2023 and beyond as we get ready to share some new innovative experiences!
+</i></p>
+        </div>
+  </div>
+</section><section class="glue-page">
+  <div class="profile-wrapper">
+      <div class="profile-logo">
+        <div class="profile-circle"></div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <div class="profile-eyebrow">
+            James Manyika, Jeff Dean, Demis Hassabis, Marian Croak and Sundar Pichai
+          </div>
+          <div class="profile-date">
+            January 16, 2023
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="profile-button">
+    <a class="glue-button glue-button--medium-emphasis content-tract-js"
+        data-event-content="Why we focus on AI (and to what end)" href="https://ai.google/static/documents/google-why-we-focus-on-ai.pdf"
+        target="_blank" rel="noopener noreferrer" data-event-content-type="pdf">
+      Download PDF of this page
+      <svg role="presentation" aria-hidden="true" height="20" width="20">
+        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+      </svg>
+    </a>
+  </div>
+</section>
+<section class="expansion-panel glue-page" id="why-ai">
+  <div class="glue-grid">
+    <div class="glue-grid__col glue-grid__col--span-2
+        glue-grid__col--span-0-md">
+    </div>
+    <div class="glue-grid__col glue-grid__col--span-8 glue-grid__col--span-12-md expansion-panel-content-wrapper">
+      <div class="expansion-panel-content">
+        <h2 class="expansion-panel-heading">Our AI Perspective</h2>
+          <div class="expansion-panel-description">
+              <p>Our perspective, focus and principled approach in 5 parts</p>
+          </div>
+      </div>
+      <div class="glue-expansion-panels" data-glue-expansion-panels-key="why-ai">
+          <div class="glue-expansion-panel expansion-panel-track-js" data-event-label="1. Why we’re developing AI" data-event-text="Our AI Perspective">
+            <h3 class="glue-expansion-panel__toggle">
+              <span class="glue-expansion-panel__button" id="mypanels-why-ai1-toggle"
+                  data-glue-expansion-panel-toggle-for="mypanels-why-ai1-content">
+                <span class="glue-expansion-panel__header-text">1. Why we’re developing AI</span>
+                <svg role="presentation" aria-hidden="true"
+                    class="glue-icon glue-expansion-panel__header-arrow">
+                  <use href="/static/images/glue-icons.svg#expand-more"></use>
+                </svg>
+              </span>
+            </h3>
+            <div class="glue-expansion-panel__content expansion-panel-body" id="mypanels-why-ai1-content">
+              <div class="expansion-panel-content-text">
+                <p>We believe that AI, including its core methods such as machine learning (ML), is a foundational and transformational technology. AI enables innovative new uses of tools, products, and services, and it is used by billions of people every day, as well as businesses, governments, and other organizations. AI can assist, complement, empower, and inspire people in almost every field<em>, </em>from everyday tasks to bold and imaginative endeavors. It can unlock new scientific discoveries and opportunities, and help tackle humanity&rsquo;s greatest challenges<em>&mdash;</em>today and in the future.</p>
+<p>As <a href="https://ai100.stanford.edu/gathering-strength-gathering-storms-one-hundred-year-study-artificial-intelligence-ai100-2021-study" target="_blank" rel="noopener">many have highlighted</a>, we believe that AI has the potential to benefit people and society through its capacity to:</p>
+<ul>
+<li>Make information more useful and available to more people, everywhere, often helping overcome barriers including <a href="https://cacm.acm.org/magazines/2020/6/245157-ai-and-accessibility/abstract" target="_blank" rel="noopener">access</a>, disabilities and <a href="https://www.jair.org/index.php/jair/article/view/12007" target="_blank" rel="noopener">language</a></li>
+<li>Assist people and organizations to make decisions, solve problems, be more <a href="https://link.springer.com/article/10.1007/s40821-020-00172-8" target="_blank" rel="noopener">productive</a> and creative in their daily and work lives</li>
+<li>Enable innovation that leads to <a href="https://www.mckinsey.com/featured-insights/artificial-intelligence/notes-from-the-ai-frontier-applications-and-value-of-deep-learning" target="_blank" rel="noopener">new, helpful products and services</a> for people, organizations, and society more broadly</li>
+<li>Help tackle current and <a href="https://aiforgood.itu.int/about-ai-for-good/un-ai-actions/" target="_blank" rel="noopener">pressing real world challenges</a>, such as public health crises, natural disasters, <a href="https://arxiv.org/abs/1906.05433" target="_blank" rel="noopener">climate change</a>, and sustainability</li>
+<li>Help <a href="https://blog.google/technology/ai/using-ai-to-study-12-years-of-representation-in-tv/" target="_blank" rel="noopener">identify</a>, and <a href="https://www.amacad.org/publication/getting-ai-right-introductory-notes-ai-society" target="_blank" rel="noopener">mitigate societal biases and structural inequities</a> (e.g. socio-economic, socio-demographic and regional inequities)</li>
+<li>Enable <a href="https://www.osti.gov/biblio/1604756/" target="_blank" rel="noopener">scientific</a> and <a href="https://royalsociety.org/-/media/policy/projects/ai-and-society/AI-revolution-in-science.pdf?la=en-GB&amp;hash=5240F21B56364A00053538A0BC29FF5F" target="_blank" rel="noopener">other breakthroughs</a> to address humanity&rsquo;s greatest future opportunities and <a href="http://www.engineeringchallenges.org/challenges.aspx" target="_blank" rel="noopener">challenges</a> (e.g. <a href="https://www.nature.com/subjects/medical-imaging/nm" target="_blank" rel="noopener">medical diagnosis</a>, drug discovery, climate forecasting)</li>
+</ul>
+<p>The foundational nature of AI means that AI will also power and transform existing infrastructure, tools, software, hardware, and devices&mdash;including products and services not normally thought of as AI. Examples in our case that are already being transformed by AI include Google Search, Google Maps, Google Photos, Google Workspace, Android, and Pixel phones. It will significantly enhance their usefulness and multiply their value to people. It will also lead to new categories of assistive tools, products, and services, often with breakthrough capabilities and performance made possible only through AI. This includes more powerful and inclusive language translators, conversational AI and assistants, generative and multi-modal AI, robotics and driverless cars. And this is just the beginning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glue-expansion-panel expansion-panel-track-js" data-event-label="2. To what end?" data-event-text="Our AI Perspective">
+            <h3 class="glue-expansion-panel__toggle">
+              <span class="glue-expansion-panel__button" id="mypanels-why-ai2-toggle"
+                  data-glue-expansion-panel-toggle-for="mypanels-why-ai2-content">
+                <span class="glue-expansion-panel__header-text">2. To what end?</span>
+                <svg role="presentation" aria-hidden="true"
+                    class="glue-icon glue-expansion-panel__header-arrow">
+                  <use href="/static/images/glue-icons.svg#expand-more"></use>
+                </svg>
+              </span>
+            </h3>
+            <div class="glue-expansion-panel__content expansion-panel-body" id="mypanels-why-ai2-content">
+              <div class="expansion-panel-content-text">
+                <p>As Google and Alphabet, our goal is to bring to users useful innovations made possible by AI that benefit people and society. Advancing the state of the art helps us expand and progress AI capability to deliver innovations that can assist and improve the lives of many, while generating sustaining value that enables us to continue investing in transformative innovations.</p>
+<p>We are pursuing and delivering on this aspiration in several ways:</p>
+<p>Advance the state of the art for more capable AI that can benefit people and society.</p>
+<ul>
+<li><strong>Lead foundational and field-defining breakthrough AI research</strong> to generate AI that is more capable and assistive across a variety of tasks. Examples of our contributions that have helped advance the field and have been leveraged by many at and beyond Google include <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Transformers</a>, <a href="https://arxiv.org/abs/1301.3781" target="_blank" rel="noopener">Word2Vec</a>, <a href="https://research.google/pubs/pub43155/" target="_blank" rel="noopener">Sequence to Sequence Learning</a>, <a href="https://arxiv.org/abs/1902.01046" target="_blank" rel="noopener">Federated Learning</a>, <a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">Model Distillation</a>, <a href="https://arxiv.org/abs/2205.11487" target="_blank" rel="noopener">Diffusion Models</a>, <a href="https://www.nature.com/articles/nature14236" target="_blank" rel="noopener">Deep Reinforcement Learning</a>, <a href="https://www.nature.com/articles/nature16961" target="_blank" rel="noopener">Neural Nets with Tree Search</a>, <a href="https://www.science.org/doi/10.1126/science.aar6404" target="_blank" rel="noopener">Self-learning Systems</a>, <a href="https://arxiv.org/abs/1611.01578" target="_blank" rel="noopener">Neural Architecture Search</a>, <a href="https://arxiv.org/abs/1609.03499" target="_blank" rel="noopener">Autoregressive Models</a>, <a href="https://www.nature.com/articles/nature20101" target="_blank" rel="noopener">Networks with External Memory</a>, <a href="https://papers.nips.cc/paper/2012/hash/6aca97005c68f1206823815f66102863-Abstract.html" target="_blank" rel="noopener">Large Scale Distributed Deep Networks</a>, <a href="https://research.google/pubs/pub46078/" target="_blank" rel="noopener">Tensor Processing Units</a></li>
+<li><strong>Use AI to make breakthrough progress in science and other areas</strong> where we aim to advance scientific and engineering progress. Examples of our widely-acknowledged breakthroughs in AI and science that can benefit all of humanity include: <a href="https://www.nature.com/articles/d41586-022-02083-2" target="_blank" rel="noopener">mapping nearly all known proteins</a>, <a href="https://ai.googleblog.com/2022/03/using-deep-learning-to-annotate-protein.html" target="_blank" rel="noopener">predicting the function of proteins</a>, <a href="https://www.biorxiv.org/content/10.1101/2021.05.29.446289v1" target="_blank" rel="noopener">mapping a piece of the brain in neuroscience research</a>, <a href="https://www.nature.com/articles/s41586-022-05172-4" target="_blank" rel="noopener">discovering faster algorithms</a>, <a href="https://www.nature.com/articles/s41586-019-1666-5" target="_blank" rel="noopener">advances in quantum computing</a> and <a href="https://ai.googleblog.com/2022/11/making-traversable-wormhole-with.html" target="_blank" rel="noopener">physics</a> including <a href="https://www.nature.com/articles/s41586-021-04301-9" target="_blank" rel="noopener">innovating in nuclear fusion</a></li>
+</ul>
+<p>Bring useful and transformational AI-powered infrastructure, products, and services to more people, businesses, organizations (large and small), and economies everywhere.</p>
+<ul>
+<li><strong>Build state of the art</strong> <strong>AI infrastructure</strong> that is secure and easy to use, including compute (e.g. <a href="https://cloud.google.com/tpu" target="_blank" rel="noopener">Tensor Processing Units</a>, <a href="https://blog.google/products/pixel/introducing-google-tensor/" target="_blank" rel="noopener">Google Tensor</a> and <a href="https://colab.research.google.com" target="_blank" rel="noopener">Colab</a>) and widely-used software frameworks (e.g. <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>, <a href="https://github.com/google/jax" target="_blank" rel="noopener">Jax</a>, <a href="https://developer.android.com/ml" target="_blank" rel="noopener">Android ML</a> and <a href="https://security.googleblog.com/2021/09/introducing-androids-private-compute.html" target="_blank" rel="noopener">Private Compute</a>). Make this AI infrastructure available (with many open source tools) to millions of developers, students, and researchers in various organizations throughout the world.</li>
+<li><strong>Apply our AI advances to our core products and services </strong>to make step-change improvements, innovations and new experiences that enhance and multiply the usefulness and value of all our core products and services for billions of people across <a href="https://blog.google/products/search/introducing-mum/" target="_blank" rel="noopener">Google Search</a>, <a href="https://blog.google/products/photos/new-memories-features-look-back/" target="_blank" rel="noopener">Google Photos</a>, <a href="https://blog.google/products/maps/google-maps-101-ai-power-new-features-io-2021/" target="_blank" rel="noopener">Google Maps</a>, <a href="https://workspace.google.com/blog/product-announcements/introducing-new-ai-to-help-people-thrive-in-hybrid-work" target="_blank" rel="noopener">Google Workspace</a>, hardware devices (e.g. <a href="https://blog.google/products/pixel/introducing-google-tensor/" target="_blank" rel="noopener">Pixel</a> and Nest), and for those with disabilities via accessibility applications (<a href="https://blog.google/outreach-initiatives/accessibility/voice-access-updates/" target="_blank" rel="noopener">Android Voice Access</a>, <a href="https://blog.google/products/android/new-features-make-audio-more-accessible-your-phone/" target="_blank" rel="noopener">Live Transcribe</a>)</li>
+<li><strong>Develop</strong> <strong>new AI-powered products, services and experiences</strong> for:
+<ul>
+<li><span style="text-decoration: underline;">Consumers</span> with assistive tools like Google Translate, Google Lens, <a href="https://blog.google/products/assistant/google-assistants-new-updates-make-it-easier-than-ever-to-get-things-done-across-devices/" target="_blank" rel="noopener">Google Assistant</a>, <a href="https://blog.google/technology/research/project-starline/" target="_blank" rel="noopener">Project Starline</a>, speech-to-text, Pixel Call Assist and<a href="https://ai.googleblog.com/2022/12/who-said-what-recorders-on-device.html" target="_blank" rel="noopener"> Recorder</a>, real-time text suggestions and summarization, and generative human-assistive capabilities across <a href="https://imagen.research.google/" target="_blank" rel="noopener">many creative</a> and productivity endeavors. To enhance all products that use speech, we&rsquo;ve developed a Universal Speech Model capable of 400 languages and we are committed to building a model to support the 1000 most-spoken languages, improving access for billions of people</li>
+<li><span style="text-decoration: underline;">Businesses and organizations</span> of all sizes, across industries and regions, with examples like <a href="https://cloud.google.com/solutions/contact-center" target="_blank" rel="noopener">contact center assistive agents</a>, tools such as <a href="https://cloud.google.com/automl" target="_blank" rel="noopener">AutoML</a>, <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener">Vertex AI</a>, <a href="https://cloud.google.com/tpu" target="_blank" rel="noopener">Cloud TPUs</a>, <a href="https://www.google.com/glass/start/" target="_blank" rel="noopener">Glass Enterprise</a>, and assistive products for coding, design, and more still to come</li>
+<li><span style="text-decoration: underline;">Sectors</span> that can most benefit from AI, from manufacturing to life sciences (e.g. <a href="https://www.aaojournal.org/article/S0161-6420(17)32698-2/fulltext" target="_blank" rel="noopener">diabetic retinopathy</a>, imaging diagnostics, <a href="https://www.nature.com/articles/nbt.4235" target="_blank" rel="noopener">DeepVariant</a>), directly and indirectly though our partners and collaborators</li>
+</ul></li>
+<li><strong>Grow and enable a large AI ecosystem</strong> of developers and partners to build and bring more AI applications to more users, sectors, and regions of the world, for example through our provision of <a href="https://insights.sustainability.google/" target="_blank" rel="noopener">tools</a>, APIs, and in some cases through co-development and <a href="https://blog.google/technology/ai/icad-partnership-breast-cancer-screening/" target="_blank" rel="noopener">co-deployments</a> of useful innovations</li>
+<li><strong>Use AI to create new category-defining businesses and companies </strong>that are only possible through the power of AI in a variety of fields from driverless cars (<a href="https://waymo.com/" target="_blank" rel="noopener">Waymo</a>) and drug discovery (e.g. <a href="https://www.isomorphiclabs.com/" target="_blank" rel="noopener">Isomorphic Labs</a>) to robotics ( e.g. <a href="https://intrinsic.ai/" target="_blank" rel="noopener">Intrinsic</a>)</li>
+</ul>
+<p>Work with and enable many others beyond Google to apply AI to help tackle society&rsquo;s greatest challenges and opportunities today and in the future.</p>
+<ul>
+<li><strong>Collaborate with others around the world </strong>to apply AI to society&rsquo;s most pressing challenges such as natural disasters, public health crises, climate change, and sustainability. Examples include <a href="https://ai.google/social-good/">AI for Social Good</a>, <a href="http://globalgoals.withgoogle.com/" target="_blank" rel="noopener">AI for the UN Sustainable Development Goals</a>, <a href="https://www.datacommons.org/" target="_blank" rel="noopener">Data Commons</a>, wildfire alerts, <a href="https://blog.google/intl/en-au/company-news/technology/blue-carbon-project/" target="_blank" rel="noopener">coral reef conservation</a>, and <a href="https://blog.google/technology/ai/expanding-our-ml-based-flood-forecasting/" target="_blank" rel="noopener">flood forecasting</a> so far in more than 20 countries around the world.</li>
+<li><strong>Expand and enable the field of AI </strong>by sharing major breakthroughs and related artifacts (e.g. <a href="https://research.google/pubs/?year=2022">papers</a>, open-source releases, and <a href="https://research.google/tools/datasets/" target="_blank" rel="noopener">datasets</a> such as <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">AlphaFold</a> protein datasets), engaging in research collaborations. We also make tools widely available to students and educators (e.g. <a href="http://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a> and <a href="https://research.google.com/colaboratory/" target="_blank" rel="noopener">Colab,</a> regularly used by millions of learners), including free access to leading-edge ML computation hardware for scientists (e.g. <a href="https://sites.research.google/trc/about/" target="_blank" rel="noopener">TPU Research Cloud</a>), help build their capacity (e.g. with our partnership with the <a href="https://blog.google/technology/ai/partnering-nsf-research-institute-ai-improve-elderly-care/" target="_blank" rel="noopener">National Science Foundation</a>), and share best practices (e.g. on safety) with other researchers.</li>
+</ul>
+<p>Apply our AI innovations to continually improve Google itself as a leading organization, and to share what we learn with other organizations, including customers, governments, and non-governmental organizations. Key areas of focus include:</p>
+<ul>
+<li><strong>Leveraging AI to achieve industry-leading safety and cybersecurity</strong> across all our products and services</li>
+<li>Applying AI to <strong>improve our own productivity and operations</strong> across all functions</li>
+<li>Using AI to help<strong> realize our company&rsquo;s bold ambitions in climate and sustainability </strong>(e.g. <a href="https://www.gstatic.com/gumdrop/sustainability/google-2022-environmental-report.pdf" target="_blank" rel="noopener">energy efficiency in our data centers</a>)</li>
+</ul>
+<p>We are compelled by the progress we are making across all the above, as well as our impact to date, in some cases benefitting billions of people. However, we believe still more opportunities for useful and beneficial impact lie ahead.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glue-expansion-panel expansion-panel-track-js" data-event-label="3. Our understanding of the complexities and risks" data-event-text="Our AI Perspective">
+            <h3 class="glue-expansion-panel__toggle">
+              <span class="glue-expansion-panel__button" id="mypanels-why-ai3-toggle"
+                  data-glue-expansion-panel-toggle-for="mypanels-why-ai3-content">
+                <span class="glue-expansion-panel__header-text">3. Our understanding of the complexities and risks</span>
+                <svg role="presentation" aria-hidden="true"
+                    class="glue-icon glue-expansion-panel__header-arrow">
+                  <use href="/static/images/glue-icons.svg#expand-more"></use>
+                </svg>
+              </span>
+            </h3>
+            <div class="glue-expansion-panel__content expansion-panel-body" id="mypanels-why-ai3-content">
+              <div class="expansion-panel-content-text">
+                <p>As with any transformational technology, <a href="https://www.nationalacademies.org/our-work/responsible-computing-research-ethics-and-governance-of-computing-research-and-its-applications" target="_blank" rel="noopener">AI comes with complexities and risks</a>, and these will change over time. As an early-stage technology, its <a href="https://ai100.stanford.edu/gathering-strength-gathering-storms-one-hundred-year-study-artificial-intelligence-ai100-2021-study" target="_blank" rel="noopener">evolving capabilities and uses</a> create potential for misapplication, misuse, and unintended or unforeseen consequences. We are taking a proactive approach to understand the evolving complexities and risks as AI advances, deployment grows, and use expands, while continuing to learn from users and the wider community.</p>
+<p>Many of the complexities and risks have been highlighted through our <a href="https://www.amacad.org/publication/getting-ai-right-introductory-notes-ai-society" target="_blank" rel="noopener">own work</a> and that of many <a href="https://www.amacad.org/daedalus/ai-society" target="_blank" rel="noopener">others</a>. Such risks become manifest when AI:</p>
+<ul>
+<li>Does not perform as intended (e.g. safety, quality, accuracy)</li>
+<li>Relies on data that is not used appropriately and responsibly</li>
+<li>(Is) Deployed <a href="https://cset.georgetown.edu/publication/ai-accidents-an-emerging-threat/" target="_blank" rel="noopener">unsafely</a> (e.g. too early or with insufficient testing)</li>
+<li>(Is) Misapplied or used in harmful ways by its developers or users</li>
+<li>Creates or amplifies negative societal <a href="https://www.amacad.org/publication/signs-taken-wonders-ai-art-matter-race" target="_blank" rel="noopener">biases</a> and <a href="https://fra.europa.eu/en/publication/2020/artificial-intelligence-and-fundamental-rights" target="_blank" rel="noopener">harms</a> (e.g. discrimination)</li>
+<li>Creates or worsens cybersecurity risks</li>
+<li>Creates or worsens <a href="https://partnershiponai.org/program/ai-media-integrity/" target="_blank" rel="noopener">information hazards</a> (e.g. lack of groundedness, <a href="https://arxiv.org/abs/2108.07258" target="_blank" rel="noopener">non-factuality, misinformation</a>)</li>
+<li>Creates the impression of having capabilities it does not actually have (e.g. interpreting conversational AI to have human traits)</li>
+<li>Creates or worsens inequality or other <a href="https://www.amacad.org/publication/automation-ai-work" target="_blank" rel="noopener">socio-economic harms</a> including in the <a href="https://www.amacad.org/publication/turing-trap-promise-peril-human-artificial-intelligence" target="_blank" rel="noopener">labor markets</a></li>
+</ul>
+<p>We recognize the harms that these failures can cause, especially for different communities and contexts across the globe, and it is critical to invest in mitigating the above risks to increase trust, ensure safe and inclusive user experiences, and enable AI to fully benefit people and society.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glue-expansion-panel expansion-panel-track-js" data-event-label="4. Our approach to Responsible AI" data-event-text="Our AI Perspective">
+            <h3 class="glue-expansion-panel__toggle">
+              <span class="glue-expansion-panel__button" id="mypanels-why-ai4-toggle"
+                  data-glue-expansion-panel-toggle-for="mypanels-why-ai4-content">
+                <span class="glue-expansion-panel__header-text">4. Our approach to Responsible AI</span>
+                <svg role="presentation" aria-hidden="true"
+                    class="glue-icon glue-expansion-panel__header-arrow">
+                  <use href="/static/images/glue-icons.svg#expand-more"></use>
+                </svg>
+              </span>
+            </h3>
+            <div class="glue-expansion-panel__content expansion-panel-body" id="mypanels-why-ai4-content">
+              <div class="expansion-panel-content-text">
+                <p>Given its risks and complexities, we believe that we as a company must pursue AI responsibly. As leaders in AI, we must lead not only in state-of-the-art AI technologies, but also in state-of-the-art responsible AI&mdash;its innovation and implementation. In 2018, we were one of the first companies to articulate <a href="https://www.blog.google/technology/ai/ai-principles/" target="_blank" rel="noopener">AI Principles</a> that put beneficial use, users, safety, and avoidance of harms above business considerations, and we have pioneered many best practices, like the use of model and data cards now widely used by others. More than words on paper, we apply our AI Principles in <a href="https://blog.google/technology/ai/an-update-on-our-work-in-responsible-innovation/" target="_blank" rel="noopener">practice</a>. Doing so&mdash;along with continual research and review of our approaches&mdash;is critical.</p>
+<p>Our responsible AI approach includes the following:</p>
+<ul>
+<li><strong>Focus on AI that is useful and benefits users and society.</strong> Prioritize AI R&amp;D, applications, and uses that assist and benefit people and society. Ensure resource and environmental sustainability throughout R&amp;D.</li>
+<li><strong>Intentionally apply our <a href="https://ai.google/responsibility/principles/">AI Principles</a></strong> (which are grounded in beneficial uses and avoidance of harm), processes, and governance to guide our work in AI, from research priorities to productization and uses. Continually interpret and update these principles and processes as we learn more and as specific issues arise. We provide regular updates on the <a href="https://ai.google/static/documents/ai-principles-2022-progress-update.pdf">progress on our AI Principles</a>.</li>
+<li><strong>Apply the scientific method to AI R&amp;D </strong> with research rigor, peer review, readiness reviews, and responsible approaches to providing access and to the externalization and use of our innovations. Set benchmarks and measure performance and progress on different factors of responsible AI. Create innovative <a href="https://www.tensorflow.org/responsible_ai" target="_blank" rel="noopener">tools</a> (e.g. for safety) to keep pace with AI technologies. Continuously perform adversarial and related forms of testing. Through these processes, we take a differentiated and careful approach to access and deployment of novel systems such as <a href="https://blog.google/technology/ai/lamda/" target="_blank" rel="noopener">LaMDA</a>, <a href="https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html" target="_blank" rel="noopener">PaLM</a> and Waymo.</li>
+<li><strong>Collaborate with multidisciplinary experts</strong>,<strong> </strong>including<strong> </strong>social scientists, ethicists, and other teams with socio-technical expertise (e.g. our Responsible AI team focused on research, product, and engineering and our Responsible Innovation team focused on products, business, and policy). Work with<strong> </strong>researchers, developers, and users in areas of societal importance (e.g. <a href="https://research.google/outreach/csrmp/" target="_blank" rel="noopener">CS Research Mentorship Program</a>, research grants, and collaborations).</li>
+<li><strong>Listen, learn and improve</strong> based on feedback from developers, users, experts, governments, and representatives of affected communities (e.g. <a href="https://blog.google/technology/ai/join-us-in-the-ai-test-kitchen/" target="_blank" rel="noopener">AI Test Kitchen</a>, <a href="https://crowdsource.google.com/about/" target="_blank" rel="noopener">Crowdsource</a>), and involve<a href="https://www.deepmind.com/blog/building-safer-dialogue-agents" target="_blank" rel="noopener"> human raters to evaluate AI models</a>.</li>
+<li><strong>Conduct regular reviews </strong>of our AI research and application development, including use cases (e.g. our<a href="https://ai.google/static/documents/ai-principles-2021-progress-update.pdf"> Advanced Technology Review Council</a>). Provide transparency on learnings (e.g. <a href="https://pair.withgoogle.com/guidebook/" target="_blank" rel="noopener">PAIR guidebook</a>). Engage with others (e.g. governments) to provide the benefits of our experiences as they shape approaches to concerns and risks.</li>
+<li><strong>Stay on top of current and evolving areas of concern and risk </strong>(e.g. <a href="https://ai.googleblog.com/2022/01/lamda-towards-safe-grounded-and-high.html" target="_blank" rel="noopener">safety</a>, <a href="https://arxiv.org/abs/1901.04562" target="_blank" rel="noopener">bias</a>, <a href="https://perspectiveapi.com/" target="_blank" rel="noopener">toxicity</a>, factuality) and address, research, and innovate to respond to challenges/risks as they emerge. Share learnings and innovations (e.g. <a href="https://skintone.google/" target="_blank" rel="noopener">open-sourcing the Monk scale</a> and tools for detecting synthetic speech). Develop methods to monitor deployed systems, ensuring that we can quickly mitigate dynamically-occurring risks in production and in-use services.</li>
+<li><strong>Lead on and help shape responsible</strong> <strong>governance</strong>, accountability, and regulation that encourages innovation and maximizes the benefits of AI while mitigating risks (e.g. our role in setting up Partnership on AI, our support for Global Partnership on Artificial Intelligence and <a href="https://ai.google/responsibility/public-policy-perspectives/">our contributions</a> to flagship AI governance efforts, including the EU AI Act, NIST AI Risk Management Framework, and OECD AI Principles).</li>
+<li><strong>Help users and society understand what AI is (and is not) and how to benefit from its potential</strong>&mdash;how it might be helpful in their daily lives (e.g. education), what the risks are, and how to mitigate those risks.</li>
+</ul>
+<p>We are leaders in driving change in many areas of Responsible AI, but at the same time we continue to learn from users, other researchers, affected communities, and our experiences. As a result, we are continually refining our approaches to ensure that the above considerations are incorporated in all we do and address issues as they arise. We aim to work in meaningful ways that help shape but don&rsquo;t slow down innovation that can benefit people and society.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glue-expansion-panel expansion-panel-track-js" data-event-label="5. Why a collective approach to Responsible AI is needed" data-event-text="Our AI Perspective">
+            <h3 class="glue-expansion-panel__toggle">
+              <span class="glue-expansion-panel__button" id="mypanels-why-ai5-toggle"
+                  data-glue-expansion-panel-toggle-for="mypanels-why-ai5-content">
+                <span class="glue-expansion-panel__header-text">5. Why a collective approach to Responsible AI is needed</span>
+                <svg role="presentation" aria-hidden="true"
+                    class="glue-icon glue-expansion-panel__header-arrow">
+                  <use href="/static/images/glue-icons.svg#expand-more"></use>
+                </svg>
+              </span>
+            </h3>
+            <div class="glue-expansion-panel__content expansion-panel-body" id="mypanels-why-ai5-content">
+              <div class="expansion-panel-content-text">
+                <p>We believe that getting AI right requires a collective effort. We don&rsquo;t have all the answers, but our experience so far suggests that everyone involved in AI (researchers, developers, deployers, academics, civil society, governments, and users, including individuals, businesses, and other organizations) must work together to get AI right including in the following areas:</p>
+<ul>
+<li>Responsible approaches to AI development and deployment of AI systems</li>
+<li>Data and privacy practices that protect privacy and enable benefits for people and society (e.g. sharing traffic and public safety data)</li>
+<li>Robust AI infrastructure and cybersecurity to mitigate security risks</li>
+<li>Regulations that encourage innovation and safe and beneficial uses of AI and avoid misapplications, misuse, or harmful uses of AI</li>
+<li>Cross-community collaboration to develop standards and best practices</li>
+<li>Sharing and learning together with leaders in government and civil society</li>
+<li>Practical accountability mechanisms to build trust in areas of societal concern</li>
+<li>Investment in AI safety, ethics, and sociotechnical research</li>
+<li>Growing a larger and more diverse community of AI practitioners to fully reflect the diversity of the world and to better address its challenges and opportunities</li>
+</ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section><section class="glue-page">
+  <div class="card-collection">
+    <div class="glue-grid card-grid">
+            <a class="card-content glue-grid__col glue-grid__col--span-6 content-tract-js"
+                href="/static/documents/google-why-we-focus-on-ai.pdf" target="_blank" rel="noopener noreferrer"
+                data-event-content="Download PDF of this page"
+                data-event-content-type="pdf">
+              <div class="copy-icon">
+                <svg role="presentation" aria-hidden="true" height="18" width="15">
+                  <use href="/static/images/glue-icons.svg#copy-icon"></use>
+                </svg>
+              </div>
+              <h4 class="card-headline">Download PDF of this page</h4>
+              <div class="card-contain">
+                <p class="card-description">If pursued boldly and responsibly, we believe that AI can be a foundational technology that transforms the lives of people everywhere–this is what excites us!</p>
+              </div>
+            </a>
+      <div class="pdf-collection glue-grid__col glue-grid__col--span-6">
+        <h4 class="pdf-title">Other languages</h4>
+        <div class="glue-grid">
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-es.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        Descargar en español (España)
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-es-419.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        Descargar en español (Latinoamérica)
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-de.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        Auf Deutsch herunterladen
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-fr.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        télécharger en français
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-hi.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        हिन्दी में डाउनलोड करें
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-id.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        Download dalam bahasa Indonesia
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-ja.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        日本語でダウンロード
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-kr.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        한국어로 다운로드
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-3 glue-grid__col--span-6-md">
+                  <div class="pdf-list">
+                    <div class="pdf-link">
+                      <a href="/static/documents/google-why-we-focus-on-ai-ptbr.pdf" class="content-tract-js pdf-anchor"
+                          target="_blank" rel="noopener noreferrer"
+                          data-event-content=""
+                          data-event-content-type="pdf">
+                        Baixe em portugues
+                      </a>
+                    </div>
+                    <div class="pdf-icon">
+                      <svg role="presentation" aria-hidden="true" height="20" width="20">
+                        <use href="/static/images/glue-icons.svg#pdf-icon"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>      </div>
+    </main>
+
+<footer>
+  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="Google" class="footer__logo">
+    <svg role="img" aria-hidden="true" viewBox="0 0 396 130">
+      <path d="M51.0745265,101.038701 C23.3283097,101.038701 9.65724009e-07,78.4212338 9.65724009e-07,50.645974 C-0.00548030982,22.8707143 23.3228284,0.253246753 51.0745265,0.253246753 C66.4220981,0.253246753 77.3517615,6.27798701 85.5736748,14.1408766 L75.8718171,23.8528896 C69.9794459,18.3219805 61.9987087,14.0201623 51.0690452,14.0201623 C30.8102508,14.0201623 14.9693645,30.365974 14.9693645,50.645974 C14.9693645,70.925974 30.8102508,87.2717857 51.0690452,87.2717857 C64.2076627,87.2717857 71.6950851,81.9877922 76.48572,77.1921429 C80.4157945,73.2579545 82.991994,67.6063312 83.9731424,59.8641558 L51.0745265,59.8641558 L51.0745265,46.1027273 L97.3638985,46.1027273 C97.8572133,48.5609091 98.0983894,51.5129221 98.0983894,54.7063636 C98.0983894,65.0329221 95.2755325,77.8121753 86.1875777,86.9096429 C77.3462802,96.1223377 66.0548526,101.038701 51.0745265,101.038701 L51.0745265,101.038701 Z"></path>
+      <path d="M167.573556,68.369026 C167.573556,87.0523052 152.965957,100.813734 135.036704,100.813734 C117.112933,100.813734 102.499853,87.0468182 102.499853,68.369026 C102.499853,49.5650325 117.112933,35.9188312 135.036704,35.9188312 C152.965957,35.9188312 167.573556,49.5650325 167.573556,68.369026 L167.573556,68.369026 Z M153.333202,68.369026 C153.333202,56.6926623 144.85915,48.7035714 135.036704,48.7035714 C125.214259,48.7035714 116.740207,56.6926623 116.740207,68.369026 C116.740207,79.9191883 125.214259,88.0344805 135.036704,88.0344805 C144.85915,88.0344805 153.333202,79.9191883 153.333202,68.369026 L153.333202,68.369026 Z"></path>
+      <path d="M238.282011,68.369026 C238.282011,87.0523052 223.674411,100.813734 205.745159,100.813734 C187.821388,100.813734 173.208307,87.0468182 173.208307,68.369026 C173.208307,49.5650325 187.821388,35.9188312 205.745159,35.9188312 C223.674411,35.9188312 238.282011,49.5650325 238.282011,68.369026 L238.282011,68.369026 Z M224.041657,68.369026 C224.041657,56.6926623 215.567605,48.7035714 205.745159,48.7035714 C195.922713,48.7035714 187.448661,56.6926623 187.448661,68.369026 C187.448661,79.9191883 195.922713,88.0344805 205.745159,88.0344805 C215.567605,88.0344805 224.041657,79.9191883 224.041657,68.369026 L224.041657,68.369026 Z"></path>
+      <path d="M306.04702,37.943539 L306.04702,96.1442857 C306.04702,120.111558 291.927254,129.944286 275.231289,129.944286 C259.516472,129.944286 250.061272,119.376299 246.498443,110.772662 L258.897088,105.609383 C261.106042,110.893377 266.51058,117.159545 275.225808,117.159545 C285.908814,117.159545 292.535676,110.52026 292.535676,98.1086364 L292.535676,93.4391883 L292.047842,93.4391883 C288.85774,97.3733766 282.71323,100.813734 274.97915,100.813734 C258.771019,100.813734 243.916762,86.6791883 243.916762,68.4897403 C243.916762,50.1740909 258.771019,35.9188312 274.97915,35.9188312 C282.71323,35.9188312 288.852259,39.3591883 292.047842,43.1726623 L292.535676,43.1726623 L292.535676,37.943539 L306.04702,37.943539 L306.04702,37.943539 Z M293.522306,68.4897403 C293.522306,57.0602922 285.908814,48.7035714 276.212437,48.7035714 C266.389992,48.7035714 258.162597,57.0602922 258.162597,68.4897403 C258.162597,79.798474 266.389992,88.0344805 276.212437,88.0344805 C285.908814,88.0344805 293.522306,79.798474 293.522306,68.4897403 L293.522306,68.4897403 Z"></path>
+      <path d="M329.961825,3.54545455 L329.961825,98.9207143 L315.721472,98.9207143 L315.721472,3.54545455 L329.961825,3.54545455 L329.961825,3.54545455 Z"></path>
+      <path d="M383.755064,79.0577273 L394.805315,86.4322727 C391.242486,91.7162662 382.647846,100.813734 367.793589,100.813734 C349.376503,100.813734 336.002191,86.558474 336.002191,68.369026 C336.002191,49.0712013 349.497091,35.9188312 366.198538,35.9188312 C383.020573,35.9188312 391.247967,49.3181169 393.944755,56.566461 L395.419218,60.2537338 L352.078772,78.1962662 C355.394944,84.7093506 360.552824,88.0289935 367.793589,88.0289935 C375.039836,88.0289935 380.071647,84.4624351 383.755064,79.0577273 L383.755064,79.0577273 Z M349.743749,67.3813636 L378.717771,55.3373701 C377.12272,51.2824675 372.332085,48.4566558 366.686372,48.4566558 C359.445607,48.4511688 349.376503,54.843539 349.743749,67.3813636 L349.743749,67.3813636 Z"></path>
+    </svg>
+  </a>
+
+  <div class="footer__links">
+      <a   href="https://www.google.com/intl/en/policies/privacy/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Privacy">Privacy</a>
+      <a   href="https://www.google.com/intl/en/policies/terms/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Terms">Terms</a>
+      <a   href="https://about.google/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="About Google">About Google</a>
+      <a   href="https://about.google/products/"
+ class="footer__link navigation-track-js" data-event-type="footer" data-event-label="Google Products">Google Products</a>
+      <button class="glue-cookie-notification-bar-control footer__link" aria-hidden="true">Cookies management controls</button>
+  </div>
+
+  <div class="footer__tertiary">
+
+    <a href="" class="footer__link footer__link--support navigation-track-js" data-event-label="Feedback" data-event-type="footer" onclick="sendFeedback()">
+      Feedback
+    </a>
+  </div>
+
+  <script>
+    function sendFeedback() {
+      var config = {
+        'productId': '720193',
+        'bucket': 'site',
+        'allowNonLoggedInFeedback' : true
+      };
+      userfeedback.api.startFeedback(config);
+    }
+  </script>
+  <script src="//www.gstatic.com/feedback/api.js" defer></script>
+</footer>
+    <div id="breakpoints"></div>
+    <script src="https://www.youtube.com/player_api" async></script>
+    <script src="https://www.gstatic.com/glue/v27_1/glue.min.js?cache=124efg" async></script>
+    <script src="/js/main.min.js?cache=124efg" async></script>
+
+
+    <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"
+        data-glue-cookie-notification-bar-category="2A"
+        data-glue-cookie-notification-bar-language="en"
+        data-glue-cookie-notification-bar-site-id="ai.google">
+    </script>
+  </body>
+</html>
